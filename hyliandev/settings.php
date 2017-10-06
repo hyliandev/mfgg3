@@ -15,6 +15,8 @@ function setting($key,$value=null){
 }
 
 $_SETTINGS=[
+	// Database settings
+	
 	'db_host'=>'localhost',
 	'db_name'=>'mfgg',
 	'db_user'=>'root',
@@ -23,7 +25,16 @@ $_SETTINGS=[
 	
 	
 	
-	'limit_per_page'=>5
+	// Resource settings
+	
+	'limit_per_page'=>5,
+	
+	
+	
+	// Site settings
+	
+	'site_name'=>'Mario Fan Games Galaxy',
+	'site_abbr'=>'MFGG',
 ];
 
 ?>

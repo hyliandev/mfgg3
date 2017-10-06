@@ -4,14 +4,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mario Fan Games Galaxy</title>
+<title><?=setting('site_abbr')?></title>
+<link rel="stylesheet" type="text/css" href="<?=url()?>/theme/base/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?=url()?>/theme/base/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="<?=url()?>/theme/base/style.css">
 </head>
 
 <body>
 
-<h1>Mario Fan Games Galaxy</h1>
+<header>
+	<h1><?=setting('site_name')?></h1>
+	
+	<nav>
+		<ul>
+			<li>
+				<a href="<?=url()?>/">
+					Updates
+				</a>
+			</li>
+			
+			<li>
+				<a href="<?=url()?>/content/">
+					Content
+				</a>
+				
+				<ul>
+					<li>
+						<a href="<?=url()?>/sprites/">
+							Sprites
+						</a>
+					</li>
+					
+					<li>
+						<a href="<?=url()?>/games/">
+							Games
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</header>
 
 <?=$yield?>
+
+<script type="text/javascript" src="<?=url()?>/theme/base/jquery-3.2.1.min.js"></script>
 
 </body>
 

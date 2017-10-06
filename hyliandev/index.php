@@ -3,6 +3,7 @@
 // Require necessary files
 
 foreach([
+	'functions',
 	'settings',
 	'db',
 	'model'
