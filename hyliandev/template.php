@@ -46,7 +46,11 @@
 	</nav>
 </header>
 
+<div class="container">
+
 <?=$yield?>
+
+</div>
 
 <script type="text/javascript" src="<?=url()?>/theme/base/jquery-3.2.1.min.js"></script>
 

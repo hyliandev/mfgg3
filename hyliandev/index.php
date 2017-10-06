@@ -20,9 +20,48 @@ foreach([
 
 
 
+// Which file to view
+
+$path=explode('/',$_GET['uri']);
+$params=false;
+$_file='';
+$file=false;
+
+foreach($path as $node){
+	if($params === false){
+		$_file .= $node;
+		
+		if(file_exists($file='./pages/' . $_file . '.php')){
+			$params=[];
+		}else{
+			$file=false;
+			$_file .= '/';
+		}
+	}else{
+		$params[]=$node;
+	}
+}
+
+if($file === false){
+	$file='404error.php';
+}
+
+
+
+
+
+
+
+
+
+
 // Page content
 
-$yield='';
+ob_start();
+
+include $file;
+
+$yield=ob_get_clean();
 
 
 
