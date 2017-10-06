@@ -113,8 +113,9 @@ class Users extends Model {
 
 class Sprites extends Model {
 	public static function Read($data=[]){
-		$page=1;
-		$limit=5;
+		if(empty($page=$data['page'])) $page=1;
+		
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -135,6 +136,22 @@ class Sprites extends Model {
 		$q->execute();
 		
 		return $q->fetchAll(PDO::FETCH_OBJ);
+	}
+	
+	public static function NumberOfPages($data=[]){
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		
+		$q=DB()->prepare(
+			$sql="SELECT
+			COUNT(*) AS count
+			
+			FROM " . setting('db_prefix') . "res_gfx AS g
+			;"
+		);
+		
+		$q->execute();
+		
+		return $q->fetch(PDO::FETCH_OBJ)->count / $limit;
 	}
 }
 
