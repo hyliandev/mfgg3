@@ -13,37 +13,39 @@
 <body>
 
 <header>
-	<h1><?=setting('site_name')?></h1>
-	
-	<nav>
-		<ul>
-			<li>
-				<a href="<?=url()?>/">
-					Updates
-				</a>
-			</li>
-			
-			<li>
-				<a href="<?=url()?>/content/">
-					Content
-				</a>
+	<div class="container">
+		<h1><?=setting('site_name')?></h1>
+		
+		<nav>
+			<ul>
+				<li>
+					<a href="<?=url()?>/">
+						Updates
+					</a>
+				</li>
 				
-				<ul>
-					<li>
-						<a href="<?=url()?>/sprites/">
-							Sprites
-						</a>
-					</li>
+				<li>
+					<a href="<?=url()?>/content/">
+						Content
+					</a>
 					
-					<li>
-						<a href="<?=url()?>/games/">
-							Games
-						</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</nav>
+					<ul>
+						<li>
+							<a href="<?=url()?>/sprites/">
+								Sprites
+							</a>
+						</li>
+						
+						<li>
+							<a href="<?=url()?>/games/">
+								Games
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
 </header>
 
 <div class="container">

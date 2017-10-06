@@ -5,7 +5,7 @@ function debug(){
 	ob_start();
 	
 	foreach(func_get_args() as $x){
-		echo '<pre>' . $x . '</pre>';
+		echo '<pre>' . print_r($x,true) . '</pre>';
 	}
 	
 	return ob_get_clean();
