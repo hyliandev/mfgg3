@@ -1,6 +1,12 @@
+<?php
+$page=$params[0] == 'page' && is_numeric($params[1]) && $params[1] > 0 ? $params[1] : 1;
+?>
+
 <h1>Updates</h1>
 
-<?php foreach(Updates::Read() as $update): ?>
+<?php if(count($updates=Updates::Read([
+	'page'=>$page
+]))): foreach($updates as $update): ?>
 
 <?php
 $user=Users::Read(['uid'=>$update->uid]);
@@ -30,4 +36,16 @@ $user=Users::Read(['uid'=>$update->uid]);
 	</div>
 </div>
 
-<?php endforeach; ?>
+<?php endforeach; else: ?>
+
+<div class="card card-block">
+	There are no updates to show.
+</div>
+
+<?php endif; ?>
+
+<?=view('pagination',[
+	'page'=>$page,
+	'pageCount'=>Updates::NumberOfPages(),
+	'url'=>'updates'
+])?>

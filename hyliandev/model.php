@@ -7,6 +7,7 @@ class Model {
 	public static function Read($data=[]){}
 	public static function Update($data=[]){}
 	public static function Delete($data=[]){}
+	public static function NumberOfPages($data=[]){}
 }
 
 
@@ -22,8 +23,9 @@ class Model {
 
 class Updates extends Model {
 	public static function Read($data=[]){
-		$page=1;
-		$limit=5;
+		if(empty($page=$data['page'])) $page=1;
+		
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -42,6 +44,22 @@ class Updates extends Model {
 		$q->execute();
 		
 		return $q->fetchAll(PDO::FETCH_OBJ);
+	}
+	
+	public static function NumberOfPages($data=[]){
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		
+		$q=DB()->prepare(
+			$sql="SELECT
+			COUNT(*) AS count
+			
+			FROM " . setting('db_prefix') . "news AS u
+			;"
+		);
+		
+		$q->execute();
+		
+		return $q->fetch(PDO::FETCH_OBJ)->count / $limit;
 	}
 }
 

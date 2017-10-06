@@ -18,4 +18,21 @@ function url(){
 	return 'http://localhost/mfgg/hyliandev';
 }
 
+
+
+// Get a view
+function view($file,$vars){
+	if(empty($file='./views/' . $file . '.php')) return false;
+	
+	foreach($vars as $_____key=>$_____value){
+		$$_____key=$_____value;
+	}
+	
+	ob_start();
+	
+	include $file;
+	
+	return ob_get_clean();
+}
+
 ?>

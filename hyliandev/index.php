@@ -22,7 +22,9 @@ foreach([
 
 // Which file to view
 
-$path=explode('/',$_GET['uri']);
+if(empty($uri=$_GET['uri'])) $uri='index';
+
+$path=explode('/',$uri);
 $params=false;
 $_file='';
 $file=false;
