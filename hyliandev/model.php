@@ -127,6 +127,8 @@ class Sprites extends Model {
 			LEFT JOIN " . setting('db_prefix') . "resources AS r
 			ON r.eid = g.eid
 			
+			ORDER BY rid DESC
+			
 			LIMIT
 			" . (($page - 1) * $limit) . ",
 			$limit
