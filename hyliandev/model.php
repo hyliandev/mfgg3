@@ -23,6 +23,18 @@ class Model {
 
 class Updates extends Model {
 	public static function Read($data=[]){
+		if(!empty($nid=$data['nid'])){
+			if(!is_numeric($nid)) return false;
+			
+			if($nid < 0) return false;
+			
+			$q=DB()->prepare("SELECT * FROM " . setting('db_prefix') . "news WHERE nid=? LIMIT 1;");
+			
+			$q->execute([$nid]);
+			
+			return $q->fetch(PDO::FETCH_OBJ);
+		}
+		
 		if(empty($page=$data['page'])) $page=1;
 		
 		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');

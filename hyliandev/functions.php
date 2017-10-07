@@ -13,6 +13,19 @@ function debug(){
 
 
 
+// Title to slug
+function titleToSlug($title){
+	$title=preg_replace('/&(.)+;/U','',$title);
+	$title=preg_replace('/[^a-zA-Z0-9 ]/','',$title);
+	$title=str_replace(' ','-',$title);
+	$title=strtolower($title);
+	$title=substr($title,0,50);
+	
+	return $title;
+}
+
+
+
 // Unconvert from HTML
 // Stolen directly from TCSMS lol
 function unconvert ($data) {
@@ -55,8 +68,10 @@ function url(){
 
 
 // Get a view
-function view($file,$vars){
-	if(empty($file='./views/' . $file . '.php')) return false;
+function view($_file,$vars){
+	if(!file_exists($file='./views/' . $_file . '.php')){
+		return '<div class="alert alert-danger">Could not find view <code>' . $_file . '</code></div>';
+	}
 	
 	foreach($vars as $_____key=>$_____value){
 		$$_____key=$_____value;

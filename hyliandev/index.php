@@ -1,5 +1,18 @@
 <?php
 
+// Error reporting
+
+error_reporting(0);
+
+
+
+
+
+
+
+
+
+
 // Require necessary files
 
 foreach([
