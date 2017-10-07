@@ -26,7 +26,7 @@ $user=Users::Read(['uid'=>$update->uid]);
 			</div>
 			
 			<div class="col-12 col-lg-9">
-				<?=$update->message?>
+				<pre><?=unconvert($update->message)?></pre>
 			</div>
 		</div>
 	</div>
