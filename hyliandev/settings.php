@@ -27,7 +27,7 @@ $_SETTINGS=[
 	
 	// Resource settings
 	
-	'limit_per_page'=>5,
+	'limit_per_page'=>20,
 	
 	
 	

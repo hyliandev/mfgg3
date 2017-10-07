@@ -20,7 +20,7 @@ $user=Users::Read(['uid'=>$uid]);
 			</div>
 			
 			<div class="col-12 col-lg-9">
-				<?=unconvert($message)?>
+				<?=format($message)?>
 			</div>
 		</div>
 	</div>

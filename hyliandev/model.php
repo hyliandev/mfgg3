@@ -71,7 +71,7 @@ class Updates extends Model {
 		
 		$q->execute();
 		
-		return $q->fetch(PDO::FETCH_OBJ)->count / $limit;
+		return ceil($q->fetch(PDO::FETCH_OBJ)->count / $limit);
 	}
 }
 
@@ -165,7 +165,81 @@ class Sprites extends Model {
 		
 		$q->execute();
 		
-		return $q->fetch(PDO::FETCH_OBJ)->count / $limit;
+		return ceil($q->fetch(PDO::FETCH_OBJ)->count / $limit);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+// Comments
+
+class Comments extends Model {
+	public static function Read($data=[]){
+		if(empty($type=$data['type']) || empty($rid=$data['rid'])) return [];
+		
+		if(empty($page=$data['page'])) $page=1;
+		
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		
+		$q=DB()->prepare(
+			$sql="SELECT
+			c.*
+			
+			FROM " . setting('db_prefix') . "comments AS c
+			
+			WHERE
+			type=?
+			AND
+			rid=?
+			
+			ORDER BY cid ASC
+			
+			LIMIT
+			" . (($page - 1) * $limit) . ",
+			$limit
+			;"
+		);
+		
+		$q->execute([
+			$type,
+			$rid
+		]);
+		
+		return $q->fetchAll(PDO::FETCH_OBJ);
+	}
+	
+	public static function NumberOfPages($data=[]){
+		if(empty($type=$data['type']) || empty($rid=$data['rid'])) return [];
+		
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		
+		$q=DB()->prepare(
+			$sql="SELECT
+			COUNT(*) AS count
+			
+			FROM " . setting('db_prefix') . "comments AS c
+			
+			WHERE
+			type=?
+			AND
+			rid=?
+			
+			;"
+		);
+		
+		$q->execute([
+			$type,
+			$rid
+		]);
+		
+		return ceil($q->fetch(PDO::FETCH_OBJ)->count / $limit);
 	}
 }
 

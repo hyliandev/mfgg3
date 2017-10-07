@@ -13,6 +13,17 @@ function debug(){
 
 
 
+// Format text bodies
+function format($text){
+	$text=unconvert($text);
+	
+	$text=nl2br($text);
+	
+	return $text;
+}
+
+
+
 // Title to slug
 function titleToSlug($title){
 	$title=preg_replace('/&(.)+;/U','',$title);
