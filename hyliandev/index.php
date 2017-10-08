@@ -2,7 +2,7 @@
 
 // Error reporting
 
-error_reporting(0);
+error_reporting(E_ERROR);
 
 
 
@@ -19,7 +19,8 @@ foreach([
 	'functions',
 	'settings',
 	'db',
-	'model'
+	'model',
+	'user'
 ] as $file){
 	require_once $file . '.php';
 }

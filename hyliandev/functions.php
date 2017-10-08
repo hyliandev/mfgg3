@@ -13,6 +13,13 @@ function debug(){
 
 
 
+// Display a field
+function field($data){
+	return view('fields/base',$data);
+}
+
+
+
 // Format text bodies
 function format($text){
 	$text=unconvert($text);

@@ -1,13 +1,19 @@
 <form method="post">
-	<label><p>
-		<strong>Username</strong>
-		<input type="text" name="username" class="form-control" value="" placeholder="Username" required>
-	</p></label>
+	<?=field([
+		'type'=>'text',
+		'name'=>'username',
+		'title'=>'Username',
+		'required'=>true,
+		'error'=>isset($_POST['username']) && !$username
+	])?>
 	
-	<label><p>
-		<strong>Password</strong>
-		<input type="password" name="password" class="form-control" value="" placeholder="Password" required>
-	</p></label>
+	<?=field([
+		'type'=>'password',
+		'name'=>'password',
+		'title'=>'Password',
+		'required'=>true,
+		'error'=>isset($_POST['password']) && !$password
+	])?>
 	
 	<div>
 		<button type="submit" class="btn btn-primary">
