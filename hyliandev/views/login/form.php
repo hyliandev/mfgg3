@@ -1,12 +1,12 @@
 <form method="post">
 	<label><p>
 		<strong>Username</strong>
-		<input type="text" name="username" class="form-control" value="" placeholder="Username">
+		<input type="text" name="username" class="form-control" value="" placeholder="Username" required>
 	</p></label>
 	
 	<label><p>
 		<strong>Password</strong>
-		<input type="password" name="password" class="form-control" value="" placeholder="Password">
+		<input type="password" name="password" class="form-control" value="" placeholder="Password" required>
 	</p></label>
 	
 	<div>
