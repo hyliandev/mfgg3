@@ -125,6 +125,18 @@ class Users extends Model {
 
 class Sprites extends Model {
 	public static function Read($data=[]){
+		if(!empty($rid=$data['rid'])){
+			if(!is_numeric($rid)) return false;
+			
+			if($nid < 0) return false;
+			
+			$q=DB()->prepare("SELECT r.*, g.* FROM " . setting('db_prefix') . "res_gfx AS g LEFT JOIN " . setting('db_prefix') . "resources AS r ON r.eid=g.eid WHERE r.rid=? LIMIT 1;");
+			
+			$q->execute([$rid]);
+			
+			return $q->fetch(PDO::FETCH_OBJ);
+		}
+		
 		if(empty($page=$data['page'])) $page=1;
 		
 		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
@@ -138,6 +150,9 @@ class Sprites extends Model {
 			
 			LEFT JOIN " . setting('db_prefix') . "resources AS r
 			ON r.eid = g.eid
+			
+			WHERE
+			r.rid > 0
 			
 			ORDER BY rid DESC
 			

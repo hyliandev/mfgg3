@@ -6,3 +6,17 @@ header {
 .card {
 	margin-bottom:2em;
 }
+
+.resource-layout {
+	border-bottom:1px solid #CCC;
+	display:flex;
+}
+
+.resource-layout .resource-thumbnail {
+	flex-shrink:0;
+	margin:0 0.5em 0.5em 0;
+}
+
+.resource-layout .resource-description {
+	flex-grow:1;
+}

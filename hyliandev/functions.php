@@ -79,9 +79,9 @@ function url(){
 
 
 // Get a view
-function view($_file,$vars){
-	if(!file_exists($file='./views/' . $_file . '.php')){
-		return '<div class="alert alert-danger">Could not find view <code>' . $_file . '</code></div>';
+function view($___file,$vars){
+	if(!file_exists($____file='./views/' . $___file . '.php')){
+		return '<div class="alert alert-danger">Could not find view <code>' . $___file . '</code></div>';
 	}
 	
 	foreach($vars as $_____key=>$_____value){
@@ -90,7 +90,7 @@ function view($_file,$vars){
 	
 	ob_start();
 	
-	include $file;
+	include $____file;
 	
 	return ob_get_clean();
 }
