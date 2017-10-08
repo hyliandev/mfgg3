@@ -43,6 +43,13 @@
 						</li>
 					</ul>
 				</li>
+				
+				<li>
+					<a href="<?=url()?>/login/">
+						<span class="fa fa-user"></span>
+						Log In
+					</a>
+				</li>
 			</ul>
 		</nav>
 	</div>

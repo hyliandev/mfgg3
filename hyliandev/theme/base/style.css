@@ -7,6 +7,11 @@ header {
 	margin-bottom:2em;
 }
 
+label {
+	display:block;
+	width:100%;
+}
+
 .resource-layout {
 	border-bottom:1px solid #CCC;
 	display:flex;
