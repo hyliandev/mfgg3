@@ -32,7 +32,11 @@ class Updates extends Model {
 			
 			$q->execute([$nid]);
 			
-			return $q->fetch(PDO::FETCH_OBJ);
+			$q=$q->fetch(PDO::FETCH_OBJ);
+			
+			$q->user=Users::Read(['uid'=>$q->uid]);
+			
+			return $q;
 		}
 		
 		if(empty($page=$data['page'])) $page=1;
@@ -55,7 +59,13 @@ class Updates extends Model {
 		
 		$q->execute();
 		
-		return $q->fetchAll(PDO::FETCH_OBJ);
+		$q=$q->fetchAll(PDO::FETCH_OBJ);
+		
+		foreach($q as $key=>$value){
+			$q[$key]->user=Users::Read(['uid'=>$q[$key]->uid]);
+		}
+		
+		return $q;
 	}
 	
 	public static function NumberOfPages($data=[]){
@@ -134,7 +144,11 @@ class Sprites extends Model {
 			
 			$q->execute([$rid]);
 			
-			return $q->fetch(PDO::FETCH_OBJ);
+			$q=$q->fetch(PDO::FETCH_OBJ);
+			
+			$q->user=Users::Read(['uid'=>$q->uid]);
+			
+			return $q;
 		}
 		
 		if(empty($page=$data['page'])) $page=1;
@@ -164,7 +178,13 @@ class Sprites extends Model {
 		
 		$q->execute();
 		
-		return $q->fetchAll(PDO::FETCH_OBJ);
+		$q=$q->fetchAll(PDO::FETCH_OBJ);
+		
+		foreach($q as $key=>$value){
+			$q[$key]->user=Users::Read(['uid'=>$q[$key]->uid]);
+		}
+		
+		return $q;
 	}
 	
 	public static function NumberOfPages($data=[]){
@@ -227,7 +247,13 @@ class Comments extends Model {
 			$rid
 		]);
 		
-		return $q->fetchAll(PDO::FETCH_OBJ);
+		$q=$q->fetchAll(PDO::FETCH_OBJ);
+		
+		foreach($q as $key=>$value){
+			$q[$key]->user=Users::Read(['uid'=>$q[$key]->uid]);
+		}
+		
+		return $q;
 	}
 	
 	public static function NumberOfPages($data=[]){

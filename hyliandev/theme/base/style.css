@@ -51,7 +51,6 @@ header nav::after {
 /* == MAIN THEME ELEMENTS == */
 
 header nav {
-	padding:0.25em 0;
 	position:relative;
 	z-index:1000;
 }
@@ -79,6 +78,7 @@ header nav ul {
 header nav ul li a {
 	color:#FFF;
 	display:block;
+	padding:0.25em 0;
 }
 
 header nav ul li a:active,
@@ -90,8 +90,8 @@ header nav ul li a:hover
 }
 
 @media (max-width:991px){
-	.no-js header nav:not(:hover) ul,
-	body:not(.no-js) header nav ul
+	.no-js header nav:not(:hover) ul.top-menu,
+	body:not(.no-js) header nav ul.top-menu
 	{
 		display:none;
 	}

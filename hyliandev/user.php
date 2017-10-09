@@ -22,6 +22,18 @@ class User {
 		
 		return $ret;
 	}
+	
+	public static function ShowUsername($user){
+		if(!$user){
+			return '???';
+		}
+		
+		$username=$user->username;
+		
+		$username='<a href="' . url() . '/user/' . $user->uid . '-' . titleToSlug($username) . '">' . $username . '</a>';
+		
+		return $username;
+	}
 }
 
 ?>
