@@ -80,6 +80,9 @@ function unconvert ($data) {
 
 // Get the base URL to the site
 function url(){
+	return 'http' . (!empty($_SERVER['HTTPS']) ? 's' : '') . 
+	'://' . $_SERVER['SERVER_NAME'] . array_shift(explode('/index.php',$_SERVER['SCRIPT_NAME']));
+	
 	return 'http://localhost/mfgg/hyliandev';
 }
 

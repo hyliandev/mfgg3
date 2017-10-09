@@ -13,46 +13,50 @@
 <body>
 
 <header>
-	<div class="container">
-		<h1><?=setting('site_name')?></h1>
-		
-		<nav>
-			<ul>
-				<li>
-					<a href="<?=url()?>/">
-						Updates
-					</a>
-				</li>
+	<main>
+		<div class="container">
+			<a href="<?=url()?>">
+				<img src="<?=url()?>/theme/base/logo.png">
+			</a>
+		</div>
+	</main>
+	
+	<nav>
+		<ul>
+			<li>
+				<a href="<?=url()?>/">
+					Updates
+				</a>
+			</li>
+			
+			<li>
+				<a href="<?=url()?>/content/">
+					Content
+				</a>
 				
-				<li>
-					<a href="<?=url()?>/content/">
-						Content
-					</a>
+				<ul>
+					<li>
+						<a href="<?=url()?>/sprites/">
+							Sprites
+						</a>
+					</li>
 					
-					<ul>
-						<li>
-							<a href="<?=url()?>/sprites/">
-								Sprites
-							</a>
-						</li>
-						
-						<li>
-							<a href="<?=url()?>/games/">
-								Games
-							</a>
-						</li>
-					</ul>
-				</li>
-				
-				<li>
-					<a href="<?=url()?>/login/">
-						<span class="fa fa-user"></span>
-						Log In
-					</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+					<li>
+						<a href="<?=url()?>/games/">
+							Games
+						</a>
+					</li>
+				</ul>
+			</li>
+			
+			<li>
+				<a href="<?=url()?>/login/">
+					<span class="fa fa-user"></span>
+					Log In
+				</a>
+			</li>
+		</ul>
+	</nav>
 </header>
 
 <div class="container">
