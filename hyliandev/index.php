@@ -1,8 +1,12 @@
 <?php
 
-// Error reporting
+// Basic beginning stuff
 
+// Only show errors if it's an actual error; no notices
 error_reporting(E_ERROR);
+
+// Start the session
+session_start();
 
 
 

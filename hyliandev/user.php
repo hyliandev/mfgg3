@@ -1,6 +1,28 @@
 <?php
 
 class User {
+	public static $user = false;
+	
+	public static function GetUser(){
+		if(self::$user){
+			return self::$user;
+		}
+		
+		if(!isset($_SESSION['uid'])){
+			return false;
+		}
+		
+		$user=Users::Read(['uid'=>$_SESSION['uid']]);
+		
+		if(!$user){
+			return false;
+		}
+		
+		self::$user=$user;
+		
+		return $user;
+	}
+	
 	public static function Login($username,$password){
 		$ret=[
 			'attempts'=>true,
@@ -8,15 +30,18 @@ class User {
 			'password'=>false
 		];
 		
-		$q=DB()->prepare("SELECT password FROM " . setting('db_prefix') . "users WHERE username=? LIMIT 1;");
+		$q=DB()->prepare("SELECT password,uid FROM " . setting('db_prefix') . "users WHERE username=? LIMIT 1;");
 		$q->execute([$username]);
-		$_password=$q->fetch(PDO::FETCH_OBJ)->password;
+		$user=$q->fetch(PDO::FETCH_OBJ);
+		$_password=$user->password;
 		
 		if(!empty($_password)){
 			$ret['username']=true;
 			
 			if(md5($password) == $_password){
 				$ret['password']=true;
+				
+				$_SESSION['uid']=$user->uid;
 			}
 		}
 		

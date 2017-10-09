@@ -29,7 +29,11 @@
 				</div>
 				
 				<div class="user-info">
-					Not logged in
+					<?php if(User::GetUser()): ?>
+						<?=User::GetUser()->username?>
+					<?php else: ?>
+						Not logged in
+					<?php endif; ?>
 				</div>
 			</div>
 			
@@ -60,12 +64,44 @@
 					</ul>
 				</li>
 				
-				<li>
-					<a href="<?=url()?>/login/">
-						<span class="fa fa-user"></span>
-						Log In
-					</a>
-				</li>
+				<?php if(User::GetUser()): ?>
+					<li>
+						<a href="<?=url()?>/user/">
+							<div class="show-when-small">
+								User
+							</div>
+							
+							<div class="show-when-big">
+								<?=User::GetUser()->username?>
+							</div>
+						</a>
+						
+						<ul>
+							<li>
+								<a href="<?=url()?>/logout/">
+									<span class="fa fa-sign-out"></span>
+									Log Out
+								</a>
+							</li>
+						</ul>
+					</li>
+				<?php else: ?>
+					<li>
+						<a href="<?=url()?>/login/">
+							<span class="fa fa-sign-in"></span>
+							Log In
+						</a>
+						
+						<ul>
+							<li>
+								<a href="<?=url()?>/register/">
+									<span class="fa fa-user"></span>
+									Register
+								</a>
+							</li>
+						</ul>
+					</li>
+				<?php endif; ?>
 			</ul>
 		</div>
 	</nav>
