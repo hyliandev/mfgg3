@@ -34,9 +34,15 @@ header nav {
 /* == MAIN THEME ELEMENTS == */
 
 header nav {
-	padding-top:28px;
+	padding-top:34px;
 	position:relative;
 	z-index:1000;
+}
+
+header nav.stick {
+	position:fixed;
+	top:-34px;
+	width:100%;
 }
 
 header nav ul {

@@ -2,6 +2,9 @@
 
 $(function(){
 	prepareForm();
+	fixNavbar();
+	
+	$(window).scroll(fixNavbar);
 });
 
 
@@ -52,4 +55,35 @@ function prepareForm(){
 		
 		$form.find('[required]').attr('required',false).attr('data-required',true);
 	}
+}
+
+
+
+
+
+
+
+
+
+
+// == NAVBAR FUNCTIONS ==
+
+function fixNavbar(){
+	var scroll=$(window).scrollTop();
+	var $nav=$('header nav');
+	
+	if(window.navTop == undefined){
+		window.navTop=$nav.offset().top + parseInt($nav.css('padding-top'));
+	}
+	
+	var func='remove';
+	
+	if(scroll > window.navTop){
+		func='add';
+		$('header').css('margin-bottom',$nav.outerHeight());
+	}else{
+		$('header').css('margin-bottom','');
+	}
+	
+	$nav[func + 'Class']('stick');
 }
