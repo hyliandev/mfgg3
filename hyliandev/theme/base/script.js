@@ -37,6 +37,10 @@ $(function(){
 // == FORM FUNCTIONS ==
 
 function checkForm(e){
+	if($(this).attr('data-fasttrack')){
+		return;
+	}
+	
 	clearForm(this);
 	
 	var hasError=false;
@@ -59,6 +63,20 @@ function checkForm(e){
 	}
 }
 
+function checkRegistrationForm(e){
+	if($(this).attr('data-fasttrack')){
+		return;
+	}
+	
+	e.preventDefault();
+	
+	$(this).attr('data-fasttrack');
+	
+	$.ajax({
+		
+	});
+}
+
 function clearForm(f){
 	if(f.nodeType == undefined){
 		f=this;
@@ -74,6 +92,10 @@ function prepareForm(){
 	var list=$('form').get();
 	for(var i in list){
 		var $form=$(list[i]).submit(checkForm).on('reset',clearForm);
+		
+		if($form.hasClass('registration-form')){
+			$form.submit(checkRegistrationForm);
+		}
 		
 		$form.find('[required]').attr('required',false).attr('data-required',true);
 	}

@@ -1,4 +1,4 @@
-<form method="post">
+<form method="post" class="registration-form">
 
 <div class="card">
 	<div class="card-header">
@@ -10,8 +10,8 @@
 			'name'=>'username',
 			'type'=>'text',
 			'title'=>'Username',
-			//'minlength'=>3,
-			'maxlength'=>32,
+			'minlength'=>setting('username_min_length'),
+			'maxlength'=>setting('username_max_length'),
 			'required'=>true,
 			'error'=>$errors['username']
 		])?>
@@ -20,7 +20,7 @@
 			'name'=>'password',
 			'type'=>'password',
 			'title'=>'Password',
-			'minlength'=>5,
+			'minlength'=>setting('password_min_length'),
 			'required'=>true,
 			'error'=>$errors['password']
 		])?>

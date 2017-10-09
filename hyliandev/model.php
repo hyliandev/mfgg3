@@ -150,8 +150,10 @@ class Users extends Model {
 		// Username
 		if(empty($data['username'])){
 			$error['username']='Username was empty';
-		}elseif(strlen($data['username']) < 3){
-			$error['username']='Username was too short; must be 3 or more characters';
+		}elseif(strlen($data['username']) < setting('username_min_length')){
+			$error['username']='Username was too short; must be ' . setting('username_min_length') . ' or more characters';
+		}elseif(strlen($data['username']) > setting('username_max_length')){
+			$error['username']='Username was too long; must be ' . setting('username_max_length') . ' or less characters';
 		}elseif(Users::Read(['username'=>$data['username']])){
 			$error['username']='That username already exists';
 		}
@@ -159,8 +161,8 @@ class Users extends Model {
 		// Password
 		if(empty($data['password'])){
 			$error['password']='Password was empty';
-		}elseif(strlen($data['password']) < 5){
-			$error['password']='Password was too short; must be 5 or more characters';
+		}elseif(strlen($data['password']) < setting('password_min_length')){
+			$error['password']='Password was too short; must be ' . setting('password_min_length') . ' or more characters';
 		}
 		
 		// Email

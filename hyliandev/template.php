@@ -124,6 +124,11 @@
 
 <script type="text/javascript" src="<?=url()?>/theme/base/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="<?=url()?>/theme/base/script.js"></script>
+<script type="text/javascript">
+function API(){
+	return '<?=url()?>/api';
+}
+</script>
 
 </body>
 

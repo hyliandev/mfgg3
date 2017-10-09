@@ -4,9 +4,9 @@ What's done:
 - The framework for pulling, paginating, and viewing single entries of all kinds is there, including pulling and pageing comments
 - Some basic theme stuff, including a lot of mobile-friendliness
 - Logging in works
+- User Registration
 
 What's left:
-- User Registration
 - Passwords; switch current password system (md5) to a more secure one (crypt?), and make them somewhat backwards-compatible
 - Properly displaying thumbnails, content
 - Blocking hotlinking for thumbnails, content

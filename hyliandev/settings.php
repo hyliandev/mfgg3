@@ -35,6 +35,15 @@ $_SETTINGS=[
 	
 	'site_name'=>'Mario Fan Games Galaxy',
 	'site_abbr'=>'MFGG',
+	
+	
+	
+	// Registration Form Settings
+	
+	'username_min_length'=>3,
+	'username_max_length'=>32,
+	
+	'password_min_length'=>3
 ];
 
 ?>
