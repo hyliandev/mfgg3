@@ -155,6 +155,7 @@ label {
 
 .card {
 	background-color:#213298;
+	border-radius:0;
 	margin-bottom:2em;
 }
 

@@ -22,8 +22,4 @@ $user=Users::Read(['uid'=>$uid]);
 			</div>
 		</div>
 	</div>
-	
-	<div class="card-footer">
-		Comments (<?=$comments?>)
-	</div>
 </div>

@@ -1,4 +1,4 @@
-<h1>Comments</h1>
+<h1 id="comments">Comments</h1>
 
 <?php
 if(count($comments=Comments::Read($data=['type'=>$type,'rid'=>$id,'page'=>$page]))):

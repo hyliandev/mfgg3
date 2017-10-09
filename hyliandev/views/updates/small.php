@@ -4,7 +4,7 @@ $user=Users::Read(['uid'=>$uid]);
 
 <div class="card">
 	<div class="card-header">
-		<a href="<?=url()?>/updates/<?=$nid?>-<?=titleToSlug($title)?>/">
+		<a href="<?=$url = url() . '/updates/' . $nid . '-' . titleToSlug($title) . '/'?>">
 			<?=$title?>
 		</a>
 	</div>
@@ -26,6 +26,8 @@ $user=Users::Read(['uid'=>$uid]);
 	</div>
 	
 	<div class="card-footer">
-		Comments (<?=$comments?>)
+		<a href="<?=$url?>">
+			Comments (<?=$comments?>)
+		</a>
 	</div>
 </div>
