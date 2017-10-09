@@ -89,7 +89,7 @@ function url(){
 
 
 // Get a view
-function view($___file,$vars){
+function view($___file,$vars=[]){
 	if(!file_exists($____file='./views/' . $___file . '.php')){
 		return '<div class="alert alert-danger">Could not find view <code>' . $___file . '</code></div>';
 	}

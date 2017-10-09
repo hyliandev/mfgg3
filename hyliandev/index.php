@@ -3,7 +3,7 @@
 // Basic beginning stuff
 
 // Only show errors if it's an actual error; no notices
-error_reporting(E_ERROR);
+error_reporting(E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR | E_PARSE);
 
 // Start the session
 session_start();
