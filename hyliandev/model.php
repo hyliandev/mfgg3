@@ -97,8 +97,88 @@ class Updates extends Model {
 // Users
 
 class Users extends Model {
+	public static function Create($data=[]){
+		if(in_array(true,$errors=Users::CreateError($data))){
+			return $errors;
+		}
+		
+		$q=DB()->prepare("
+			INSERT INTO " . setting('db_prefix') . "users
+			
+			(
+				gid,
+				username,
+				password,
+				email,
+				skin,
+				registered_ip,
+				cookie,
+				join_date
+			)
+			
+			VALUES (
+				5,
+				?,
+				?,
+				?,
+				2,
+				?,
+				?,
+				?
+			);
+		");
+		
+		$ret=$q->execute([
+			$data['username'],
+			User::Password($data['password']),
+			$data['email'],
+			$_SERVER['REMOTE_ADDR'],
+			User::Cookie(),
+			time()
+		]);
+		
+		return $ret;
+	}
+	
+	public static function CreateError($data=[]){
+		$error=[
+			'username'=>false,
+			'password'=>false,
+			'email'=>false
+		];
+		
+		// Username
+		if(empty($data['username'])){
+			$error['username']='Username was empty';
+		}elseif(strlen($data['username']) < 3){
+			$error['username']='Username was too short; must be 3 or more characters';
+		}elseif(Users::Read(['username'=>$data['username']])){
+			$error['username']='That username already exists';
+		}
+		
+		// Password
+		if(empty($data['password'])){
+			$error['password']='Password was empty';
+		}elseif(strlen($data['password']) < 5){
+			$error['password']='Password was too short; must be 5 or more characters';
+		}
+		
+		// Email
+		if(empty($data['email'])){
+			$error['email']='Email was empty';
+		}elseif(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+			$error['email']='Email was invalid';
+		}
+		
+		return $error;
+	}
+	
 	public static function Read($data=[]){
-		if(empty($data['uid'])){
+		if(
+			empty($use=$data[$usename='uid'])
+			&&
+			empty($use=$data[$usename='username'])
+		){
 			return false;
 		}
 		
@@ -108,14 +188,14 @@ class Users extends Model {
 			FROM " . setting('db_prefix') . "users AS u
 			
 			WHERE
-			uid=?
+			$usename=?
 			
 			LIMIT 1
 			;"
 		);
 		
 		$q->execute([
-			$data['uid']
+			$use
 		]);
 		
 		return $q->fetch(PDO::FETCH_OBJ);

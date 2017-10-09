@@ -3,15 +3,21 @@ What's done:
 - Pulling sprites works (no search yet)
 - The framework for pulling, paginating, and viewing single entries of all kinds is there, including pulling and pageing comments
 - Some basic theme stuff, including a lot of mobile-friendliness
-- The login form is there and it can tell you when your login was successful
+- Logging in works
 
 What's left:
-- Being logged in; aka session stuff
+- User Registration
+- Passwords; switch current password system (md5) to a more secure one (crypt?), and make them somewhat backwards-compatible
+- Properly displaying thumbnails, content
+- Blocking hotlinking for thumbnails, content
+- Registering views, downloads for content
 - A lot of theme stuff
+- <title>
 - Searching for content
 - Pulling kinds of content that isn't sprites
 - Users creating, editing submissions
 - Staff moderating, editing, deleting submissions
+- Staff re-queueing submissions
 - Staff creating, editing, deleting, and moderating updates
 - Updates pulling relevant content
 - Users posting comments

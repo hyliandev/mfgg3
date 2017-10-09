@@ -53,6 +53,9 @@ function checkForm(e){
 	
 	if(hasError){
 		e.preventDefault();
+		$('body,html').stop().animate({
+			scrollTop:$(this).offset().top + 'px'
+		},100);
 	}
 }
 
@@ -64,6 +67,7 @@ function clearForm(f){
 	$(f).find('.form-control-danger').removeClass('form-control-danger');
 	$(f).find('.text-danger').removeClass('text-danger');
 	$(f).find('.has-danger').removeClass('has-danger');
+	$(f).find('.error-info').html('');
 }
 
 function prepareForm(){

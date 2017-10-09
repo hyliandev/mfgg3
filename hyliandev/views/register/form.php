@@ -10,21 +10,27 @@
 			'name'=>'username',
 			'type'=>'text',
 			'title'=>'Username',
-			'required'=>true
+			//'minlength'=>3,
+			'maxlength'=>32,
+			'required'=>true,
+			'error'=>$errors['username']
 		])?>
 		
 		<?=field([
 			'name'=>'password',
 			'type'=>'password',
 			'title'=>'Password',
-			'required'=>true
+			'minlength'=>5,
+			'required'=>true,
+			'error'=>$errors['password']
 		])?>
 		
 		<?=field([
 			'name'=>'email',
-			'type'=>'email',
+			'type'=>'text',
 			'title'=>'Email Address',
-			'required'=>true
+			'required'=>true,
+			'error'=>$errors['email']
 		])?>
 	</div>
 	
@@ -44,3 +50,5 @@
 </div>
 
 </form>
+
+<?=debug($errors)?>

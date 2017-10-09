@@ -90,6 +90,11 @@ header nav ul li a:hover
 }
 
 @media (max-width:991px){
+	header nav {
+		font-size:1.25em;
+		padding:0.25em 0;
+	}
+	
 	.no-js header nav:not(:hover) ul.top-menu,
 	body:not(.no-js) header nav ul.top-menu
 	{
@@ -165,6 +170,10 @@ h1 {
 
 img {
 	max-width:100%;
+}
+
+pre {
+	color:#FFF;
 }
 
 

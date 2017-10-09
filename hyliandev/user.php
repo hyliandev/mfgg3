@@ -3,6 +3,10 @@
 class User {
 	public static $user = false;
 	
+	public static function Cookie(){
+		return bin2hex(openssl_random_pseudo_bytes(16));
+	}
+	
 	public static function GetUser(){
 		if(self::$user){
 			return self::$user;
@@ -41,11 +45,18 @@ class User {
 			if(md5($password) == $_password){
 				$ret['password']=true;
 				
+				session_destroy();
+				session_start();
+				
 				$_SESSION['uid']=$user->uid;
 			}
 		}
 		
 		return $ret;
+	}
+	
+	public static function Password($password){
+		return md5($password);
 	}
 	
 	public static function ShowUsername($user){
