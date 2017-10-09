@@ -4,7 +4,25 @@ $(function(){
 	prepareForm();
 	fixNavbar();
 	
+	$('#show-menu').click(function(e){
+		e.preventDefault();
+		
+		$('header nav ul.top-menu').stop().slideToggle(100);
+	});
+	
+	$(document).click(function(e){
+		if(window.innerWidth < 992 && !$('header nav').is(':hover')){
+			$('header nav ul.top-menu').stop().slideUp(100);
+		}
+	});
+	
 	$(window).scroll(fixNavbar);
+	
+	$(window).resize(function(){
+		$('header nav ul.top-menu').css('display','');
+	});
+	
+	$('.no-js').removeClass('no-js');
 });
 
 

@@ -1,0 +1,20 @@
+What's done:
+- Pulling updates works
+- Pulling sprites works (no search yet)
+- The framework for pulling, paginating, and viewing single entries of all kinds is there, including pulling and pageing comments
+- Some basic theme stuff, including a lot of mobile-friendliness
+- The login form is there and it can tell you when your login was successful
+
+What's left:
+- Being logged in; aka session stuff
+- A lot of theme stuff
+- Searching for content
+- Pulling kinds of content that isn't sprites
+- Users creating, editing submissions
+- Staff moderating, editing, deleting submissions
+- Staff creating, editing, deleting, and moderating updates
+- Updates pulling relevant content
+- Users posting comments
+- Users, staff editing, deleting comments
+- The entirety of the forums
+- Reset denormalized numbers: comments, replies, review scores, views/downloads?

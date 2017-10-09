@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="<?=url()?>/theme/base/style.css">
 </head>
 
-<body>
+<body class="no-js">
 
 <header>
 	<main>
@@ -23,7 +23,17 @@
 	
 	<nav>
 		<div class="container">
-			<ul>
+			<div id="show-menu">
+				<div class="show-menu-button">
+					Menu <span class="fa fa-caret-down"></span>
+				</div>
+				
+				<div class="user-info">
+					Not logged in
+				</div>
+			</div>
+			
+			<ul class="top-menu">
 				<li>
 					<a href="<?=url()?>/">
 						Updates

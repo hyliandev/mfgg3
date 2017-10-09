@@ -15,11 +15,28 @@ body {
 
 header main {
 	background-image:url('headerbg.png');
+	position:relative;
 }
 
 header nav {
-	background-image:url('headerbg2.png');
+	background-image:url('redbg.png');
 	font-family:'Super Mario';
+}
+
+header nav::after {
+	background-image:url('headerbg2.png');
+	content:"";
+	height:36px;
+	left:0;
+	position:absolute;
+	top:-36px;
+	width:100%;
+}
+
+@media (min-width:991px){
+	header nav ul ul {
+		background-image:url('pinkbg.png');
+	}
 }
 
 
@@ -34,14 +51,22 @@ header nav {
 /* == MAIN THEME ELEMENTS == */
 
 header nav {
-	padding-top:34px;
+	padding:0.25em 0;
 	position:relative;
 	z-index:1000;
 }
 
+header nav #show-menu {
+	display:flex;
+}
+
+header nav #show-menu .show-menu-button {
+	flex-grow:1;
+}
+
 header nav.stick {
 	position:fixed;
-	top:-34px;
+	top:0;
 	width:100%;
 }
 
@@ -51,14 +76,9 @@ header nav ul {
 	padding:0;
 }
 
-header nav ul li {
-	text-align:center;
-}
-
 header nav ul li a {
 	color:#FFF;
 	display:block;
-	font-size:1.75em;
 }
 
 header nav ul li a:active,
@@ -70,14 +90,20 @@ header nav ul li a:hover
 }
 
 @media (max-width:991px){
-	header nav {
+	.no-js header nav:not(:hover) ul,
+	body:not(.no-js) header nav ul
+	{
+		display:none;
+	}
+	
+	.show-when-big {
 		display:none;
 	}
 }
 
 @media (min-width:992px){
-	header main {
-		margin-bottom:-24px;
+	header nav #show-menu {
+		display:none;
 	}
 	
 	header nav ul {
@@ -86,6 +112,11 @@ header nav ul li a:hover
 
 	header nav ul li {
 		flex-grow:1;
+		text-align:center;
+	}
+	
+	header nav ul li a {
+		font-size:1.75em;
 	}
 
 	header nav ul ul {
@@ -95,6 +126,10 @@ header nav ul li a:hover
 	}
 
 	header nav ul li:not(:hover) ul {
+		display:none;
+	}
+	
+	.show-when-small {
 		display:none;
 	}
 }
@@ -167,7 +202,13 @@ label {
 
 .card-header {
 	color:#FFF600;
+	font-family:'Super Mario',sans-serif;
+	font-size:1.5em;
 	font-weight:bold;
+}
+
+.card-header a {
+	color:inherit;
 }
 
 .card-footer {
