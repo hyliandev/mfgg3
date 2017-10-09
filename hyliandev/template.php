@@ -22,40 +22,42 @@
 	</main>
 	
 	<nav>
-		<ul>
-			<li>
-				<a href="<?=url()?>/">
-					Updates
-				</a>
-			</li>
-			
-			<li>
-				<a href="<?=url()?>/content/">
-					Content
-				</a>
+		<div class="container">
+			<ul>
+				<li>
+					<a href="<?=url()?>/">
+						Updates
+					</a>
+				</li>
 				
-				<ul>
-					<li>
-						<a href="<?=url()?>/sprites/">
-							Sprites
-						</a>
-					</li>
+				<li>
+					<a href="<?=url()?>/content/">
+						Content
+					</a>
 					
-					<li>
-						<a href="<?=url()?>/games/">
-							Games
-						</a>
-					</li>
-				</ul>
-			</li>
-			
-			<li>
-				<a href="<?=url()?>/login/">
-					<span class="fa fa-user"></span>
-					Log In
-				</a>
-			</li>
-		</ul>
+					<ul>
+						<li>
+							<a href="<?=url()?>/sprites/">
+								Sprites
+							</a>
+						</li>
+						
+						<li>
+							<a href="<?=url()?>/games/">
+								Games
+							</a>
+						</li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="<?=url()?>/login/">
+						<span class="fa fa-user"></span>
+						Log In
+					</a>
+				</li>
+			</ul>
+		</div>
 	</nav>
 </header>
 
@@ -64,6 +66,14 @@
 <?=$yield?>
 
 </div>
+
+<footer>
+	<div class="container text-center">
+	All Nintendo material is © Nintendo. MFGG does not own any user-submitted content,
+	which is &copy; the submitter or a third party. All remaining material is &copy; MFGG.
+	MFGG is a non-profit site. Please read the Disclaimer. 
+	</div>
+</footer>
 
 <script type="text/javascript" src="<?=url()?>/theme/base/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="<?=url()?>/theme/base/script.js"></script>

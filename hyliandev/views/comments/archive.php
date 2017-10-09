@@ -16,5 +16,5 @@ else: ?>
 <?=view('pagination',[
 	'page'=>$page,
 	'pageCount'=>Comments::NumberOfPages($data),
-	'url'=>'updates/' . $GLOBALS['params'][0]
+	'url'=>$url . '/' . $GLOBALS['params'][0]
 ])?>

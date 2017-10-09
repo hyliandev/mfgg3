@@ -14,7 +14,8 @@ echo view('sprites/large',$sprite);
 echo view('comments/archive',[
 	'id'=>$id,
 	'page'=>$page,
-	'type'=>1
+	'type'=>1,
+	'url'=>'sprites'
 ]);
 
 endif;

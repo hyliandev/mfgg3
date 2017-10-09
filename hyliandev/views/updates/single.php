@@ -14,7 +14,8 @@ echo view('updates/large',$update);
 echo view('comments/archive',[
 	'id'=>$id,
 	'page'=>$page,
-	'type'=>2
+	'type'=>2,
+	'url'=>'updates'
 ]);
 
 endif;

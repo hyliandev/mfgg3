@@ -9,9 +9,12 @@ body {
 	background-image:url('bgimage.png');
 }
 
+.card-header {
+	background-image:url('topbarbg.png');
+}
+
 header main {
 	background-image:url('headerbg.png');
-	margin-bottom:-24px;
 }
 
 header nav {
@@ -30,14 +33,10 @@ header nav {
 
 /* == MAIN THEME ELEMENTS == */
 
-h1 {
-	color:#FFF;
-}
-
 header nav {
+	padding-top:28px;
 	position:relative;
 	z-index:1000;
-	padding-top:28px;
 }
 
 header nav ul {
@@ -64,7 +63,17 @@ header nav ul li a:hover
 	text-decoration:none;
 }
 
+@media (max-width:991px){
+	header nav {
+		display:none;
+	}
+}
+
 @media (min-width:992px){
+	header main {
+		margin-bottom:-24px;
+	}
+	
 	header nav ul {
 		display:flex;
 	}
@@ -94,6 +103,24 @@ header nav ul li a:hover
 
 
 /* == ELEMENTS == */
+
+a,
+a:hover,
+a:active,
+a:focus,
+a:visited
+{
+	color:#FFF;
+	font-weight:bold;
+}
+
+body {
+	color:#FFF;
+}
+
+h1 {
+	color:#FFF;
+}
 
 img {
 	max-width:100%;
@@ -127,7 +154,17 @@ label {
 /* == USEFUL CLASSES == */
 
 .card {
+	background-color:#213298;
 	margin-bottom:2em;
+}
+
+.card-header {
+	color:#FFF600;
+	font-weight:bold;
+}
+
+.card-footer {
+	background-color:#1E247E;
 }
 
 .resource-layout {
