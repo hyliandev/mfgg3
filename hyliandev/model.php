@@ -163,6 +163,8 @@ class Users extends Model {
 			$error['password']='Password was empty';
 		}elseif(strlen($data['password']) < setting('password_min_length')){
 			$error['password']='Password was too short; must be ' . setting('password_min_length') . ' or more characters';
+		}elseif(strlen($data['password']) > setting('password_max_length')){
+			$error['password']='Password was too long; must be ' . setting('password_max_length') . ' or less characters';
 		}
 		
 		// Email

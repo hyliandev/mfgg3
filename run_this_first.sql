@@ -9,3 +9,10 @@
 # short
 ALTER TABLE tsms_sessions
 MODIFY COLUMN sessid varchar(255);
+
+
+
+# Running this fixes the users table to that it can fit securely-hashed
+# passwords
+ALTER TABLE tsms_users
+MODIFY COLUMN password varchar(64);

@@ -6,16 +6,16 @@ What's done:
 - Logging in works
 - User Registration
 - API for verifying fields (works for registration, anyway)
+- Passwords; switch current password system (md5) to a more secure one (crypt?), and make them somewhat backwards-compatible
 
 What's left:
-- Passwords; switch current password system (md5) to a more secure one (crypt?), and make them somewhat backwards-compatible
 - Properly displaying thumbnails, content
 - Blocking hotlinking for thumbnails, content
 - Registering views, downloads for content
 - A lot of theme stuff
 - <title>
-- Searching for content
 - Pulling kinds of content that isn't sprites
+- Searching for content
 - Users creating, editing submissions
 - Staff moderating, editing, deleting submissions
 - Staff re-queueing submissions
@@ -24,4 +24,4 @@ What's left:
 - Users posting comments
 - Users, staff editing, deleting comments
 - The entirety of the forums
-- Reset denormalized numbers: comments, replies, review scores, views/downloads?
+- Option to reset denormalized numbers: comments, replies, review scores, views/downloads?

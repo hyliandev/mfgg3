@@ -43,7 +43,8 @@ $_SETTINGS=[
 	'username_min_length'=>3,
 	'username_max_length'=>32,
 	
-	'password_min_length'=>3
+	'password_min_length'=>3,
+	'password_max_length'=>72
 ];
 
 ?>

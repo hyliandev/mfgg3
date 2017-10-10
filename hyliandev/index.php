@@ -24,6 +24,7 @@ foreach([
 	'settings',
 	'db',
 	'model',
+	'password',
 	'user'
 ] as $file){
 	require_once $file . '.php';

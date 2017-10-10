@@ -42,7 +42,31 @@ class User {
 		if(!empty($_password)){
 			$ret['username']=true;
 			
-			if(md5($password) == $_password){
+			$login=false;
+			
+			if(User::PasswordMatch($password,$_password)){
+				$login=true;
+			}elseif(md5($password) == $_password){
+				$login=true;
+				
+				$q=DB()->prepare("
+					UPDATE " . setting('db_prefix') . "users
+					
+					SET password = ?
+					
+					WHERE uid = ?
+					
+					LIMIT 1
+					;
+				");
+				
+				$q->execute($data=[
+					User::Password($password),
+					$user->uid
+				]);
+			}
+			
+			if($login){
 				$ret['password']=true;
 				
 				session_destroy();
@@ -56,7 +80,11 @@ class User {
 	}
 	
 	public static function Password($password){
-		return md5($password);
+		return password_hash($password, PASSWORD_BCRYPT);
+	}
+	
+	public static function PasswordMatch($maybe,$real){
+		return password_verify($maybe,$real);
 	}
 	
 	public static function ShowUsername($user=0){
