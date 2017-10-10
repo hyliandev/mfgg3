@@ -35,12 +35,12 @@ function bbcode($text){
 	
 	// Cited Quotes
 	$text=preg_replace_callback(
-		'/\[quote(=([a-zA-Z0-9 ]+)|)\](.+)\[\/quote\]/is',
+		'/\[quote(=([a-zA-Z0-9@:%_\+.~#?&\/=\-$\^\*\(\)\`\ \<\>\"\']+)|)\](.+)\[\/quote\]/is',
 		function($matches){
 			$ret=$matches[0];
 			
 			$ret=preg_replace_callback(
-				'/\[quote(=([a-zA-Z0-9 ]+)|)\]/is',
+				'/\[quote(=([a-zA-Z0-9@:%_\+.~#?&\/=\-$\^\*\(\)\`\ \<\>\"\']+)|)\]/is',
 				function($matches){
 					global $quote_open;
 					

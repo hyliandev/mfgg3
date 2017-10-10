@@ -68,8 +68,8 @@ function unconvert ($data) {
 	
 	// Quotes
 	$data = preg_replace("/<!--QuoteStart--><div class=\"quotetitle\">Quote<\/div><div class=\"quote\">/is", "[quote]", $data);
-	$data = preg_replace_callback("/<!--QuoteStart--><div class=\"quotetitle\">Quote <span style='font-weight:normal'>\((.+?)\)<\/span><\/div><div class=\"quote\">/is", array(&$this, 'unconvert_quote'), $data);
-	$data = preg_replace("/<\/div><!--QuoteEnd-->/i", "[/quote]", $data);
+	//$data = preg_replace_callback("/<!--QuoteStart--><div class=\"quotetitle\">Quote <span style='font-weight:normal'>\((.+?)\)<\/span><\/div><div class=\"quote\">/is", array(&$this, 'unconvert_quote'), $data);
+	//$data = preg_replace("/<\/div><!--QuoteEnd-->/i", "[/quote]", $data);
 	
 	// Line breaks
 	$data = preg_replace("/<br\s*\/?>/i", "\n", $data);
