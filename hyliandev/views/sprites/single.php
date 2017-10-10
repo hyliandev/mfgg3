@@ -2,8 +2,10 @@
 if(empty($id=array_shift(explode('-',$GLOBALS['params'][0]))) || !is_numeric($id) || $id < 0 || empty($sprite=Sprites::Read(['rid'=>$id]))):
 ?>
 
-<div class="card card-block">
-	Invalid ID
+<div class="card">
+	<div class="card-block">
+		Invalid ID
+	</div>
 </div>
 
 <?php

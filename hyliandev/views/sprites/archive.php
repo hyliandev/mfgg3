@@ -9,8 +9,10 @@ if(count($sprites)):
 	}
 else: ?>
 
-<div class="card card-block">
-	There are no sprites to show
+<div class="card">
+	<div class="card-block">
+		There are no sprites to show
+	</div>
 </div>
 
 <?php endif; ?>

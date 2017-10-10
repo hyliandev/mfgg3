@@ -7,8 +7,10 @@ if(count($comments=Comments::Read($data=['type'=>$type,'rid'=>$id,'page'=>$page]
 	}
 else: ?>
 
-<div class="card card-block">
-	There are no comments to show
+<div class="card">
+	<div class="card-block">
+		There are no comments to show
+	</div>
 </div>
 
 <?php endif; ?>

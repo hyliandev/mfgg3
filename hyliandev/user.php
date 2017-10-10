@@ -59,7 +59,11 @@ class User {
 		return md5($password);
 	}
 	
-	public static function ShowUsername($user){
+	public static function ShowUsername($user=0){
+		if($user === 0){
+			$user=self::$user;
+		}
+		
 		if(!$user){
 			return '???';
 		}

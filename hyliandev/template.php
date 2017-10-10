@@ -118,7 +118,7 @@
 	<div class="container text-center">
 	All Nintendo material is © Nintendo. MFGG does not own any user-submitted content,
 	which is &copy; the submitter or a third party. All remaining material is &copy; MFGG.
-	MFGG is a non-profit site. Please read the Disclaimer. 
+	MFGG is a non-profit site. Please read the Disclaimer.
 	</div>
 </footer>
 

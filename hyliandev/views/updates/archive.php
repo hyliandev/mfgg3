@@ -9,8 +9,10 @@ if(count($updates)):
 	}
 else: ?>
 
-<div class="card card-block">
-	There are no updates to show
+<div class="card">
+	<div class="card-block">
+		There are no updates to show
+	</div>
 </div>
 
 <?php endif; ?>
