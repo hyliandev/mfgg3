@@ -198,6 +198,10 @@ label {
 	width:100%;
 }
 
+textarea {
+	height:16em;
+}
+
 
 
 
@@ -242,4 +246,40 @@ label {
 
 .resource-layout .resource-description {
 	flex-grow:1;
+}
+
+
+
+
+
+
+
+
+
+
+/* == BBCODE == */
+
+blockquote {
+	background-color:rgba(0,0,0,0.25);
+	display:block;
+	padding:0.25em;
+}
+
+blockquote cite {
+	background-color:inherit;
+	display:block;
+	padding:0.5em;
+	font-style:normal;
+}
+
+.bbcode-bold {
+	font-weight:bold;
+}
+
+.bbcode-italic {
+	font-style:italic;
+}
+
+.bbcode-underline {
+	text-decoration:underline;
 }

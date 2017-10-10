@@ -10,9 +10,9 @@ What's done:
 - Properly displaying thumbnails, content
 - Blocking hotlinking for thumbnails, content
 - Registering views, downloads for content
+- Lang files
 
 What's left:
-- Lang files
 - BBCode
 - Swear filter
 - A lot of theme stuff

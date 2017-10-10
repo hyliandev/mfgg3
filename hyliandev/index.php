@@ -26,7 +26,8 @@ foreach([
 	'model',
 	'password',
 	'user',
-	'language'
+	'language',
+	'bbcode'
 ] as $file){
 	require_once $file . '.php';
 }

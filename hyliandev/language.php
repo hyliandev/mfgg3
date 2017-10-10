@@ -1,6 +1,8 @@
 <?php
 
 $language=[
+	// == ENGLISH ==
+	
 	'en'=>[
 		// content.php
 		

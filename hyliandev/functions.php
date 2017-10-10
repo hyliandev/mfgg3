@@ -24,6 +24,10 @@ function field($data){
 function format($text){
 	$text=unconvert($text);
 	
+	$text=htmlentities($text);
+	
+	$text=bbcode($text);
+	
 	$text=nl2br($text);
 	
 	return $text;
