@@ -13,6 +13,7 @@ What's done:
 - Lang files
 
 What's left:
+- FIX unconvert()'S BROKEN QUOTE UNCONVERSION!
 - BBCode
 - Swear filter
 - A lot of theme stuff
