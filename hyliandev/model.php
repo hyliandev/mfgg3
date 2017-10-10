@@ -178,10 +178,12 @@ class Users extends Model {
 	}
 	
 	public static function Read($data=[]){
-		// We do this to get the key and value of the first node in the array
-		reset($data);
-		$usename=key($data);
-		$use=array_shift($data);
+		$_sql=[];
+		$values=[];
+		foreach($data as $key=>$value){
+			$values[]=$value;
+			$_sql[]=$key . ' = ?';
+		}
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -189,15 +191,13 @@ class Users extends Model {
 			FROM " . setting('db_prefix') . "users AS u
 			
 			WHERE
-			$usename=?
+			" . implode(' AND ',$_sql) . "
 			
 			LIMIT 1
 			;"
 		);
 		
-		$q->execute([
-			$use
-		]);
+		$q->execute($values);
 		
 		return $q->fetch(PDO::FETCH_OBJ);
 	}
