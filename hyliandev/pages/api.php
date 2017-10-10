@@ -10,18 +10,31 @@ function respond($response=false){
 header('Content-type:application/json');
 
 $response=[
-	'success'=>true,
+	'success'=>false,
 	'data'=>[]
 ];
 
 if(empty($data=$_POST['data']) || empty($data['purpose'])){
-	$response['success']=false;
 	respond();
 }
 
 switch($data['purpose']){
 	case 'verify-registration':
+		/*
+		if(
+			!isset($data['username'])
+			||
+			!isset($data['password'])
+			||
+			!isset($data['email'])
+		){
+			respond();
+		}
+		*/
 		
+		$response['data']=Users::CreateError($data);
+		
+		respond();
 	break;
 }
 

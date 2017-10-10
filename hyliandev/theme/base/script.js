@@ -73,7 +73,34 @@ function checkRegistrationForm(e){
 	$(this).attr('data-fasttrack');
 	
 	$.ajax({
+		type:'POST',
+		url:API(),
+		data:{
+			data:{
+				purpose:'verify-registration',
+				username:$(this).find('[name="username"]').val(),
+				password:$(this).find('[name="password"]').val(),
+				email:$(this).find('[name="email"]').val()
+			}
+		}
+	}).done(function(response){
+		var hasError=false;
 		
+		for(var i in response.data){
+			var error=response.data[i];
+			
+			if(!error){
+				continue;
+			}
+			
+			hasError=true;
+			
+			setFieldError(i,error);
+		}
+		
+		if(!hasError){
+			$('form.registration-form').attr('data-fasttrack',true).submit();
+		}
 	});
 }
 
@@ -99,6 +126,15 @@ function prepareForm(){
 		
 		$form.find('[required]').attr('required',false).attr('data-required',true);
 	}
+}
+
+function setFieldError(field,error){
+	var $field=$('.field [name="' + field + '"]').closest('.field');
+	
+	$field.addClass('has-danger');
+	$field.find('strong').addClass('text-danger');
+	$field.find('.form-control').addClass('form-control-danger');
+	$field.find('small').html(error);
 }
 
 

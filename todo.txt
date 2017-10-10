@@ -5,6 +5,7 @@ What's done:
 - Some basic theme stuff, including a lot of mobile-friendliness
 - Logging in works
 - User Registration
+- API for verifying fields (works for registration, anyway)
 
 What's left:
 - Passwords; switch current password system (md5) to a more secure one (crypt?), and make them somewhat backwards-compatible
