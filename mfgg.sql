@@ -499,57 +499,6 @@ CREATE TABLE `tsms_mail_log` (
   PRIMARY KEY (`lid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `tsms_mail_log` (`lid`, `uid`, `type`, `date`, `ip`, `recipient`) VALUES
-(1,	0,	2,	1153018763,	'71.192.40.79',	2),
-(2,	0,	2,	1153074680,	'152.163.100.203',	1077),
-(3,	0,	2,	1153075436,	'68.171.195.28',	1453),
-(4,	0,	2,	1153082484,	'24.137.130.158',	2603),
-(5,	0,	2,	1153143186,	'205.188.117.6',	2817),
-(6,	0,	2,	1153169808,	'205.188.117.6',	533),
-(7,	0,	2,	1153178327,	'205.188.117.6',	1947),
-(8,	0,	2,	1153213855,	'124.181.206.141',	546),
-(9,	0,	2,	1153236039,	'207.6.200.220',	2829),
-(10,	0,	2,	1153256084,	'71.249.46.170',	148),
-(11,	0,	2,	1153256808,	'74.134.153.16',	537),
-(12,	0,	2,	1153281359,	'69.235.88.153',	303),
-(13,	0,	2,	1153359023,	'201.121.106.153',	2846),
-(14,	0,	2,	1153401113,	'68.229.150.107',	2843),
-(15,	0,	2,	1153439074,	'24.118.103.13',	2819),
-(16,	0,	2,	1153473293,	'67.72.98.83',	2037),
-(17,	0,	2,	1153511695,	'70.107.190.126',	2866),
-(18,	0,	2,	1153604493,	'207.200.116.203',	2878),
-(19,	0,	2,	1153609496,	'72.145.1.76',	2650),
-(20,	0,	2,	1153610352,	'64.12.122.197',	533),
-(21,	0,	2,	1153616364,	'71.249.46.29',	2866),
-(22,	0,	2,	1153665633,	'152.163.100.203',	1077),
-(23,	0,	2,	1153769987,	'70.24.62.114',	2855),
-(24,	0,	2,	1153835366,	'72.133.192.102',	2456),
-(25,	0,	2,	1153845101,	'65.24.201.61',	1518),
-(26,	0,	2,	1153849801,	'65.24.201.61',	2896),
-(27,	0,	2,	1154125974,	'70.55.58.86',	2951),
-(28,	0,	2,	1154126807,	'205.188.117.6',	2952),
-(29,	0,	2,	1154148304,	'64.142.93.131',	2956),
-(30,	0,	2,	1154161366,	'194.246.108.7',	2407),
-(31,	0,	2,	1154340444,	'66.42.105.118',	2821),
-(32,	0,	2,	1154354399,	'81.158.75.233',	2968),
-(33,	0,	2,	1154363647,	'24.1.172.143',	2767),
-(34,	0,	2,	1154425831,	'66.42.105.87',	2821),
-(35,	0,	2,	1154512918,	'66.42.105.103',	2821),
-(36,	0,	2,	1154565365,	'24.189.1.80',	2905),
-(37,	0,	2,	1154590844,	'66.42.105.135',	2821),
-(38,	0,	2,	1154646889,	'24.22.252.34',	2975),
-(39,	0,	2,	1154776301,	'80.127.72.243',	3012),
-(40,	0,	2,	1154786865,	'80.127.72.243',	3012),
-(41,	0,	2,	1154806691,	'71.126.57.205',	2798),
-(42,	0,	2,	1154833540,	'207.200.116.203',	2132),
-(43,	0,	2,	1154867171,	'200.161.80.12',	2452),
-(44,	0,	2,	1154909256,	'24.71.118.22',	2368),
-(45,	0,	2,	1155040275,	'68.64.96.186',	2887),
-(46,	0,	2,	1155105465,	'84.57.13.101',	2451),
-(47,	0,	2,	1155143276,	'66.103.48.159',	3056),
-(48,	0,	2,	1155147545,	'71.102.230.158',	682),
-(49,	0,	2,	1155222897,	'205.188.117.6',	3066),
-(50,	0,	2,	1155232498,	'68.121.150.32',	2311);
 
 DROP TABLE IF EXISTS `tsms_messages`;
 CREATE TABLE `tsms_messages` (
@@ -569,57 +518,6 @@ CREATE TABLE `tsms_messages` (
   KEY `receiver` (`receiver`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `tsms_messages` (`mid`, `sender`, `receiver`, `owner`, `date`, `title`, `message`, `msg_read`, `read_date`, `folder`, `conversation`) VALUES
-(4,	0,	53,	53,	1150512842,	'Submission Modified',	'Your submission: <b>Arcade Megasheet</b>, was modified by the site staff with the following comment:\n							 	     <br /><br />categorized.',	1,	1150942669,	0,	4),
-(11,	0,	671,	671,	1150520601,	'Submission Declined',	'Your submission: <b>Review:</b>, was either declined from the queue, \n									 or removed from the existing database by the site staff with the following comment:\n							 	     <br /><br />Dead Submission',	0,	0,	0,	11),
-(14,	2,	7,	7,	1150524867,	'So I hope these work',	'Don&#39;t need any bugs now!',	1,	1150525085,	0,	14),
-(19,	0,	13,	13,	1150605142,	'Submission Modified',	'Your submission: <b>Mario is Missing Fonts</b>, was modified by the site staff with the following comment:\n							 	     <br /><br />Lol game change. Parakarry you should be getting this PM.',	1,	1150605145,	0,	19),
-(21,	0,	13,	13,	1150657510,	'Submission Modified',	'Your submission: <b>Parakarry Sprite</b>, was modified by the site staff with the following comment:\n							 	     <br /><br />Hello me.',	1,	1150657517,	0,	21),
-(26,	0,	10,	10,	1150699069,	'Submission Declined',	'Your submission: <b>Super Mario: Mushroom Chaos</b>, was either declined from the queue, \n									 or removed from the existing database by the site staff with the following comment:\n							 	     <br /><br />This is just the demo version.  The full game is still on the site.',	1,	1150942796,	0,	26),
-(27,	0,	2490,	2490,	1150738120,	'Comment received on submission',	'You have received a new comment on your submission: <a href=\'{%site_url%}?act=resdb&param=02&c=2&id=2542\'>Super Mario Bros 3000</a>',	0,	0,	0,	27),
-(28,	0,	33,	33,	1150749078,	'Comment received on submission',	'You have received a new comment on your submission: <a href=\'{%site_url%}?act=resdb&param=02&c=2&id=539\'>Superstar Mario</a>',	0,	0,	0,	28),
-(29,	0,	71,	71,	1150753812,	'Submission Re-queued',	'Your submission: <b>Mario\'s Mansion 3</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />No file.',	1,	1167262583,	0,	29),
-(30,	0,	36,	36,	1150753920,	'Submission Re-queued',	'Your submission: <b>Mario vs. Luigi 2</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />No file.',	0,	0,	0,	30),
-(31,	0,	33,	33,	1150755414,	'Submission Re-queued',	'Your submission: <b>Superstar Mario</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />Needs to be re-packaged as an EXE.',	0,	0,	0,	31),
-(42,	0,	48,	48,	1150769492,	'Submission Re-queued',	'Your submission: <b>SMW Luigi 3.0</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />deadfile',	1,	1155666733,	0,	42),
-(43,	0,	20,	20,	1150769744,	'Submission Re-queued',	'Your submission: <b>Mini Luigi 3D sprite sheet</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />deadfile',	0,	0,	0,	43),
-(45,	0,	64,	64,	1150770292,	'Submission Re-queued',	'Your submission: <b>(deadfile)SMB3 Battle Enemies</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />deadfile',	1,	1358103408,	0,	45),
-(46,	0,	7,	7,	1150772801,	'Submission Re-queued',	'Your submission: <b>Review: New Super Mario</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />b',	0,	0,	0,	46),
-(47,	0,	7,	7,	1150772808,	'Submission Accepted',	'Your submission: <b>Review: New Super Mario</b>, was accepted to the site with the following comment:\n							 	     <br /><br />Good!',	0,	0,	0,	47),
-(48,	0,	7,	7,	1150773065,	'Submission Declined',	'Your submission: <b>Review: New Super Mario</b>, was either declined from the queue, \n									 or removed from the existing database by the site staff with the following comment:\n							 	     <br /><br />hh',	1,	1150773070,	0,	48),
-(49,	0,	48,	48,	1150774821,	'Submission Re-queued',	'Your submission: <b>Super Mario World Raccoon Mario</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />deadfile',	1,	1155666742,	0,	49),
-(50,	0,	20,	20,	1150775167,	'Submission Re-queued',	'Your submission: <b>(deadfile)Extra SMB2 Characters</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />deadfile',	0,	0,	0,	50),
-(51,	0,	48,	48,	1150775248,	'Submission Re-queued',	'Your submission: <b>(deadfile)SMW Super and Caped Luigi 3.0</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />deadfile',	1,	1155666750,	0,	51),
-(52,	0,	20,	20,	1150828452,	'Submission Re-queued',	'Your submission: <b>(deadfile)Miniature Characters</b>, was put back into the queue by the site staff with the following comment:\n							 	     <br /><br />deadfile',	0,	0,	0,	52),
-(53,	0,	64,	64,	1150829341,	'Submission Declined',	'Your submission: <b>Ghost House Lib</b>, was either declined from the queue, \n									 or removed from the existing database by the site staff with the following comment:\n							 	     <br /><br />Duplicate',	1,	1358103413,	0,	53),
-(56,	0,	46,	46,	1150906027,	'Submission Declined',	'Your submission: <b>Super Mario Kart Lib</b>, was either declined from the queue, \n									 or removed from the existing database by the site staff with the following comment:\n							 	     <br /><br />Duplicate',	1,	1207428368,	0,	56),
-(57,	0,	46,	46,	1150906032,	'Submission Declined',	'Your submission: <b>Super Mario Kart Lib</b>, was either declined from the queue, \n									 or removed from the existing database by the site staff with the following comment:\n							 	     <br /><br />Duplicate',	1,	1207428382,	0,	57),
-(59,	0,	53,	53,	1150906061,	'Submission Declined',	'Your submission: <b>Game and Watch Gallery 4 Characters</b>, was either declined from the queue, \n									 or removed from the existing database by the site staff with the following comment:\n							 	     <br /><br />Duplicate',	1,	1150942673,	0,	59),
-(344,	0,	2119,	2119,	1151804822,	'Comment received on submission',	'You have received a new comment on your submission: <a href=\'http://www.mfgg.net?act=resdb&param=02&c=1&id=4274\'>Custom Koopas</a>',	1,	1151855821,	0,	344),
-(458,	7,	2734,	2734,	1152380797,	'Re: MFGG account error',	'Hmm, as far as I can tell, there&#39;s no Magiwand account. Try making it again.',	1,	1152383980,	0,	458),
-(997,	2838,	34,	34,	1153301092,	'problem',	'i wanted to say that none of your games does work from this site. every time i run game there is an window error.',	0,	0,	0,	997),
-(2141,	0,	2951,	2951,	1154310414,	'Comment received on submission',	'You have received a new comment on your submission: <a href=\'http://www.mfgg.net?act=resdb&param=02&c=1&id=4767\'>Princess Peach\'s plane</a>',	1,	1154314407,	0,	2141),
-(5285,	0,	2875,	2875,	1155310957,	'Comment received on submission',	'You have received a new comment on your submission: <a href=\'http://www.mfgg.net?act=resdb&param=02&c=1&id=5042\'>Mouser Super Mario Advance ripped!</a>',	1,	1155310972,	0,	5285),
-(8319,	0,	2900,	2900,	1156158505,	'Comments received on one or more submissions.',	'You have recieved one or more comments on the following submissions since your last visit:<br /><ul><li><a href=\'http://www.mfgg.net?act=resdb&param=02&c=1&id=5326&st=new\'>Toad, Toadette and Toadsworth Earth Bound style</a></li></ul>',	1,	1156158530,	0,	8319),
-(9197,	0,	2103,	2103,	1156605567,	'Comments received on one or more submissions.',	'You have recieved one or more comments on the following submissions since your last visit:<br /><ul><li><a href=\'http://www.mfgg.net?act=resdb&param=02&c=1&id=4302&st=new\'>King Koopa SMA4:SMB3 Style</a></li></ul>',	1,	1156605605,	0,	9197),
-(10605,	0,	2567,	2567,	1157581747,	'Re: A sugsestion of a new feature',	'We were actually thinking about something like that, I&#39;ll tell RII. Thanks!',	1,	1157605223,	0,	10605),
-(10702,	0,	3043,	3043,	1157662689,	'Comments received on one or more submissions.',	'You have recieved one or more comments on the following submissions since your last visit:<br /><ul><li><a href=\'http://www.mfgg.net?act=resdb&param=02&c=4&id=5793&st=new\'>Coloring/granite tutorial</a></li></ul>',	1,	1157662695,	0,	10702),
-(14356,	0,	2638,	2638,	1160176469,	'Comments received on one or more submissions.',	'You have recieved one or more comments on the following submissions since your last visit:<br /><ul><li><a href=\'http://www.mfgg.net?act=resdb&param=02&c=1&id=6525&st=new\'>Super Mario Kart: Mario</a></li></ul>',	1,	1160176474,	0,	14356),
-(21475,	0,	1127,	1127,	1164564536,	'Comments received on one or more submissions.',	'You have recieved one or more comments on the following submissions since your last visit:<br /><ul><li><a href=\'{%site_url%}?act=resdb&param=02&c=3&id=4121&st=new\'>Review: Super Yoshi World</a></li></ul>',	0,	0,	0,	21475),
-(24080,	0,	2522,	2522,	1167018560,	'Comments received on one or more submissions.',	'You have recieved one or more comments on the following submissions since your last visit:<br /><ul><li><a href=\'http://www.mfgg.net?act=resdb&param=02&c=1&id=2578&st=new\'>Custom Goomba Sprite</a></li></ul>',	1,	1167018570,	0,	24080),
-(24365,	3390,	4045,	4045,	1167244565,	'Re: ny',	'Thank you. You too.',	1,	1167244583,	0,	24365),
-(26151,	3498,	3303,	3303,	1168226402,	'Re: Christmas',	'Christmas was great and my brother (GreenFire Luigi) and I got a lot of stuff, like the new Sonic the Hedgehog for the Xbox 360.',	1,	1168309486,	0,	26151),
-(26584,	2866,	2803,	2803,	1168558186,	'Re: Nintendo Wi-Fi Connection STRONG SIGNAL!!!',	'OK.',	1,	1168558193,	0,	26584),
-(44752,	0,	2483,	2483,	1178465635,	'Comments received on one or more submissions.',	'You have recieved one or more comments on the following submissions since your last visit:<br /><ul><li><a href=\'{%site_url%}?act=resdb&param=02&c=2&id=7049&st=new\'>MarioGoombaPanic2 Demo</a></li></ul>',	1,	1178465639,	0,	44752),
-(54087,	5433,	2102,	5433,	1183991919,	'Sent: Re: on your submission....',	'no, it does not bother me, I was just wondering.',	1,	0,	1,	53909),
-(59834,	5823,	3698,	3698,	1187635417,	'Re: Hey',	'Any questions you have about it, I&#39;ll be able to answer.<br /><br />Anyway, here&#39;s the link - <a href=\"http://z6.invisionfree.com/The_YI_Collab\">http://z6.invisionfree.com/The_YI_Collab</a><br />oration/index.php?act=idx',	1,	1187738119,	0,	59462),
-(69677,	0,	1354,	1354,	1196106994,	'Comments received on one or more submissions.',	'You have recieved one or more comments on the following submissions since your last visit:<br /><ul><li><a href=\'{%site_url%}?act=resdb&param=02&c=1&id=12593&st=new\'>Hype_chao\'s Custom Mario</a></li></ul>',	1,	1196107006,	0,	69677),
-(74116,	6163,	6843,	6843,	1202165024,	'Re: your games',	'yeah, whatever.',	1,	1202269236,	0,	74099),
-(74117,	6163,	6843,	6163,	1202165024,	'Sent: Re: your games',	'yeah, whatever.',	1,	0,	1,	74099),
-(93905,	0,	2275,	2275,	1239001601,	'Comments received on one or more submissions.',	'You have recieved one or more comments on the following submissions since your last visit:<br /><ul><li><a href=\'{%site_url%}?act=resdb&param=02&c=2&id=16093&st=new\'>Fishmania</a></li></ul>',	1,	1239001605,	0,	93905),
-(118848,	10932,	9367,	9367,	1301511594,	'It&#39;s been a while',	'A few weeks have passed since I last heard from you about the Dry Bones sounds. From what I can assume, you still have had no success. I&#39;ve looked around everywhere but haven&#39;t been able to find anyone else other than you who has been able to extract sound effects from games. I don&#39;t know if you can find someone else who can help me or keep trying yourself, but the search for Dry Bones&#39;s sounds still has yet to end in triumph. I know you&#39;ve tried already, but I haven&#39;t been able to find anything anywhere. Can you help me at all?',	1,	1301518134,	0,	118848),
-(120771,	10558,	89,	89,	1307931706,	'Thanks for Donkey Kong Sprite Sheet',	'Thanks for Donkey Kong Sprite Sheet, I put on my SMK and make a video with this Sprites. To Look open this link:<br /><a href=\"http://www.youtube.com/watch?v=LecaFJYxqRk\">http://www.youtube.com/watch?v=LecaFJYxqRk</a>.<br />OBS; I am thinking change this AudioSwap/Music',	1,	1308329118,	0,	120771),
-(135153,	0,	2638,	2638,	1385933097,	'Comments received on one or more submissions.',	'You have recieved one or more comments on the following submissions since your last visit:<br /><ul><li><a href=\'{%site_url%}?act=resdb&param=02&c=2&id=29507&st=new\'>Late Night Mario 3</a></li></ul>',	0,	0,	0,	135153);
 
 DROP TABLE IF EXISTS `tsms_modules`;
 CREATE TABLE `tsms_modules` (
@@ -1224,58 +1122,6 @@ CREATE TABLE `tsms_sec_images` (
   PRIMARY KEY (`sessid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `tsms_sec_images` (`sessid`, `time`, `regcode`) VALUES
-('03dd97d88afe93c474e5e00728c6fc54',	1186223871,	'DAQGCB'),
-('0526a3f1fcd3f8af2a993452006a372b',	1186207460,	'MQAKXO'),
-('092b226c3a0935cc0f2a80b52a83d270',	1186460277,	'FBTDIZ'),
-('139b4272ac4cfcc1a90643d1126aab1a',	1186498858,	'EPFQVY'),
-('186b520b2648a067e450fa004126aefa',	1186376597,	'HSKZEV'),
-('1d494d78e662431c39111aca4aabfc0d',	1186234135,	'YHBKLL'),
-('23601d056a259017950b7c45e445f58d',	1186879078,	'TPOJWU'),
-('23fee3e91c401600764b8a842827c144',	1186541908,	'NAGJHP'),
-('29c291643fcbd717c7cae9119b13fe8a',	1186558472,	'EKNREF'),
-('2f4b2289091b6e0180884bf1f3fc70b4',	1186440898,	'OIIHWP'),
-('2fb9079f710579b1411e30a6b73ae1fb',	1186676468,	'BMUNED'),
-('356108ac5048e43812ac6d19fa23c855',	1186689415,	'FJLZMF'),
-('39606da42a845faa24eb7dcfa38f7247',	1186428536,	'ESCNOR'),
-('3b940dacfc1f61edcf194a0f3043deba',	1186684470,	'RHPJMS'),
-('3cd3e5e0f1a52e370a6b5e916a0e2736',	1186121091,	'IOIDEM'),
-('3ea53a0c493178ea7f5ba01f305e7fc3',	1186590540,	'WQVWMS'),
-('400169597c7877bd72f441855eb1c0b9',	1186631236,	'GEBFIK'),
-('400d9c4b89bc7659452d57a26b3df40e',	1186617666,	'NBLNJV'),
-('459c6ee7eabc1b297d48d16124265502',	1186212670,	'MRKCJY'),
-('4e879a5a49656cc22c1e5efad329e742',	1186455154,	'PGTGFF'),
-('54cf7e5c8669ce472a826774cd7d9b76',	1186532145,	'SERTOK'),
-('5c4f67bdbbe2b99c3b75ba66a98f74df',	1186382280,	'RIDEIZ'),
-('699ab9267ce05ede61ff4bd78e591abc',	1186480056,	'CDDJNH'),
-('7ccbba15b6e164c58a3508ba83081a1b',	1188003194,	'KHMDOY'),
-('7d797fe9c5dd83cd1847384f87d35c84',	1186364851,	'DQMFEJ'),
-('82328d6ba38be54cba656dabf23122de',	1186657619,	'HPOLJR'),
-('83615b89517c963fefa48c3d07706538',	1186256255,	'TUQPDW'),
-('87f5dfa2921a9083a638abedb48514c7',	1186161775,	'PUYNFT'),
-('8ba2a0ae1f5e5a9a9ee7d13cecb013ee',	1186138589,	'IKUWGI'),
-('8ca669834c8ef5718e787f8a0ee0c20b',	1186568634,	'NJUHHU'),
-('94647daaed1cd485a20e395e89586702',	1186351576,	'PMKKPP'),
-('949e8e2c905e91d9067aade4a765f790',	1186311277,	'ABTKTL'),
-('9525fc80cab6b0231de1271afad60703',	1186652312,	'OBXROE'),
-('9f31b3348da9b9ae77d09ad8828423cd',	1186116694,	'UWTYLJ'),
-('a021a0da21b70af40de7a3804ec4b31c',	1188081742,	'BXVCZF'),
-('a03a6ae040aefdb802b699a0eeeae65d',	1186326343,	'SUNNAO'),
-('b224e5d6db024023b479afb547ea37df',	1186596325,	'HZBFXZ'),
-('b4ce37367b781309f148b1ca202c8c10',	1186280801,	'GRXRAL'),
-('b7081e5536f91ee30d9a9d6388d8dd73',	1186613765,	'YUWBIG'),
-('b743c369c7bcf4e80c1d0550ce6086b2',	1187132371,	'BXEZEI'),
-('b8744fef9e88df9d505da670ecbc1e55',	1186433136,	'JVVUQS'),
-('b9f950bc5425b053855c67f5d58f1d63',	1186625910,	'OEFGBG'),
-('be83f71da8b3cc68e9ab8f604206b1de',	1186640831,	'XNKSZI'),
-('d4d16d126a39de7e305f1b14a294407e',	1188150739,	'SJQHLY'),
-('d56e00afc9441afc5bb4565d6441f28d',	1187481030,	'UAMRWP'),
-('daba993a7f32c0b4fc669e7d03d13e4a',	1186368927,	'KHHMQT'),
-('e0f17af99034cf697cc8fbafdc2f6723',	1186413019,	'RLCZXG'),
-('e81f071344525711d8fcce78b0c9a34e',	1186581075,	'QVBXAM'),
-('f21b025920bc61405fcadc5c5611b854',	1186390483,	'IDCPKU'),
-('fec91d33ae2338728788fc6f407be753',	1186395520,	'YSUBEI'),
-('e3d90323abe23a764f736f25d459e172',	1507312278,	'INICPS');
 
 DROP TABLE IF EXISTS `tsms_sessions`;
 CREATE TABLE `tsms_sessions` (
@@ -1291,8 +1137,6 @@ CREATE TABLE `tsms_sessions` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `tsms_sessions` (`sessid`, `uid`, `time`, `cookie`, `ip`, `user_agent`, `location`, `sessdata`) VALUES
-('6a7222ed47e0d29d6e6ae642513d8bfa',	13100,	1507316515,	NULL,	'0.0.0.0',	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik',	'',	'a:3:{s:10:\"form_token\";s:32:\"1be119862984626ab3cd06ebdf168a09\";s:8:\"pagesize\";s:0:\"\";s:2:\"rr\";a:0:{}}');
 
 DROP TABLE IF EXISTS `tsms_skins`;
 CREATE TABLE `tsms_skins` (
@@ -1376,7 +1220,7 @@ CREATE TABLE `tsms_users` (
   `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `gid` int(10) unsigned NOT NULL DEFAULT '0',
   `username` varchar(32) DEFAULT NULL,
-  `password` varchar(32) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL,
   `email` varchar(128) DEFAULT NULL,
   `website` varchar(128) DEFAULT NULL,
   `weburl` varchar(128) DEFAULT NULL,
@@ -1411,58 +1255,6 @@ CREATE TABLE `tsms_users` (
   KEY `username` (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `tsms_users` (`uid`, `gid`, `username`, `password`, `email`, `website`, `weburl`, `icon`, `aim`, `icq`, `msn`, `yim`, `def_order_by`, `def_order`, `skin`, `registered_ip`, `items_per_page`, `show_email`, `first_submit`, `cookie`, `comments`, `new_msgs`, `join_date`, `timezone`, `dst`, `disp_msg`, `icon_dims`, `cur_msgs`, `show_thumbs`, `use_comment_msg`, `use_comment_digest`, `last_visit`, `last_activity`, `last_ip`) VALUES
-(2,	5,	'Retriever II',	'5aff1f16a4b6f922eab8c68530aca521',	'jaquadro@taloncrossing.com',	'Taloncrossing.com',	'http://www.taloncrossing.com',	'http://www.mfgg.net/staff/icons/rii.png',	'Retriever II',	'74723432',	'jaquadro@penguinia.net',	'',	'',	'',	2,	'',	0,	1,	1,	'e6584e48dd988c985dc724753739f0e4',	207,	0,	1150420801,	-5,	1,	0,	'80x80',	44,	1,	1,	0,	1506228426,	1506306945,	'71.192.29.96'),
-(5,	5,	'Kritter',	'b47c9e36fa47fcdbea419867e73cfee0',	'dan.absolom@gmail.com',	'',	'',	'',	'',	'',	'',	'',	'',	'',	2,	'',	0,	0,	1,	'0c29ae0c18c10b23221c0021d5bfb9b4',	36,	0,	1150420801,	0,	0,	0,	'x',	26,	1,	1,	1,	1507234187,	1507266310,	'61.68.181.193'),
-(6,	1,	'Thunder Dragon',	'd31d9686d30416819a2961aac8f68a2b',	'thunderdragon27@nospammail.net',	'Mario Fan Games Galaxy',	'http://www.mfgg.net',	'https://www.mfgg.net/staff/icons/thunderdragon.png',	'',	'',	'',	'',	'',	'',	2,	'',	0,	0,	1,	'ad9379e57322e15dacf76f30f75e6b88',	54,	0,	1150420801,	0,	0,	0,	'80x80',	270,	1,	0,	1,	1506779959,	1507086203,	'71.48.96.17'),
-(7,	5,	'ShadowMan',	'e4fbfbb85b9102898df46014ae189a44',	'shadowman1od@gmail.com',	'Mario Fan Games Galaxy',	'http://mfgg.net',	'http://img404.imageshack.us/img404/8991/smbg7lr.gif',	'',	'',	'',	'',	'',	'd',	2,	'',	20,	0,	1,	'541b8820871ef6de7c7fd7dff4d140e9',	176,	0,	1150420801,	-5,	0,	0,	'x',	354,	1,	0,	1,	1316665149,	1473822260,	'72.83.7.25'),
-(8,	5,	'The Trasher',	'bd6775f3ed23e5c89b69d0177f2667ce',	'thekins@gmail.com',	'',	'',	'',	'',	'',	'',	'',	'',	'',	2,	'',	0,	0,	1,	'3621ec320cea734d3469e6acaf041e59',	87,	8,	1150420801,	0,	0,	1,	'',	47,	1,	1,	1,	1205725969,	1205737116,	''),
-(9,	5,	'Marigi',	'8621ffdbc5698829397d97767ac13db3',	'khuffman@comcast.net',	'The Mario Destination',	'http://mariod.cjb.net',	'',	'',	'',	'',	'',	'',	'',	3,	'',	0,	0,	0,	'0034204c3bbae9f707a4b45b5e59d0a9',	0,	0,	1150420801,	0,	0,	0,	'x',	1,	1,	1,	1,	1159333600,	1159428835,	''),
-(10,	5,	'ShyGuy182',	'e79117a0b66143e184981d71e4196723',	'savemypoorbrain@mail.com',	'Nightchaser Games',	'',	'http://www.d2sector.net/~mfgg/uploads/av-12.jpg',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'fbbb131676a416c762e028d12d0c6ee0',	1,	0,	1150420801,	0,	0,	0,	'x',	42,	1,	1,	1,	1380681082,	1402251733,	'67.82.194.215'),
-(11,	5,	'Slam The Chao',	'6c58b213c5d230841b288af93f99446a',	'slamthechao@cfl.rr.com',	'',	'',	'http://img149.imageshack.us/img149/1430/badgething3ok.gif',	'',	'',	'',	'',	'',	'',	2,	'',	100,	0,	0,	'668c00f9ce7e6d002a92e2178942a7dc',	0,	0,	1150420801,	-5,	1,	0,	'50x50',	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(12,	5,	'ChibiNinja',	'afd25a3b14ecb0df8c41e4a1b73e097e',	'lucksob@hotmail.com',	'',	'',	'http://www.geocities.com/cheat_world2001/boyis.txt',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'1da4570a40ab3b3cf7a1bf9aa958ab0f',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(13,	5,	'Parakarry',	'10ecf21df941d47e5e9d6e651abe32bd',	'toasty157@sbcglobal.net',	'',	'',	'http://www.mfgg.net/staff/icons/parakarry.png',	'',	'',	'',	'',	'',	'',	3,	'',	0,	0,	1,	'19866874d318fe9b79bd62ad5ceacde6',	141,	0,	1150420801,	0,	0,	0,	'x',	285,	1,	1,	1,	1506477006,	1506922874,	'76.239.58.113'),
-(14,	5,	'Rage',	'0f759dd1ea6c4c76cedc299039ca4f23',	'nsmith645@msn.com',	'',	'',	'',	'',	'',	'',	'',	'',	'',	3,	'',	0,	0,	1,	'3b000015e8885e06ed73bf118324859e',	7,	0,	1150420801,	0,	0,	0,	'x',	88,	1,	1,	1,	1502329231,	1503870551,	'172.56.4.29'),
-(15,	5,	'Suigi',	'8b76a0d662b8e5b28cb318bdd90d2353',	'gabelerman@sympatico.ca',	'Wario Comix!',	'http://www.wariocomix.com',	'http://www.wariocomix.com/aimpic.gif',	'',	'',	'',	'',	'',	'',	0,	'',	0,	1,	0,	'75cad8ca572c7155d89c3310c2b09ecb',	0,	2,	1150420801,	0,	0,	1,	'',	2,	1,	1,	1,	1155459600,	1155459600,	''),
-(16,	5,	'Salad Girl 88 a.k.a. Sarah Wu',	'402acb1c3e3f37da6e1bb6cacadc315d',	'',	'',	'',	'',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'7ead880bfcfea73c392f80f073591491',	0,	2,	1150420801,	0,	0,	1,	'',	2,	1,	1,	1,	1155459600,	1155459600,	''),
-(17,	3,	'Nite Shadow',	'4d08cbf857994dc42e1b09205158e15f',	'Diamondsofmayhem@gmail.com',	'',	'',	'https://mfgg.net/staff/icons/nite.png',	'NiteV5000',	'',	'',	'Nite Shadow',	'',	'',	0,	'',	100,	1,	1,	'5c1702a1198fb7670ad1102b973fd0a6',	269,	0,	1150420801,	0,	0,	0,	'x',	100,	1,	1,	1,	1484113002,	1484159121,	'64.139.113.63'),
-(18,	5,	'StarSwordKirby',	'453e41d218e071ccfb2d1c99ce23906a',	'StarSwordKirby@hotmail.com',	'',	'',	'http://aextreme.metropoliglobal.com/samuraix/galeria2rk/kenshin_small.jpg',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'aac2add2da9fd4895eae03fd1b2db5aa',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(19,	5,	'Mario Gamer',	'855490ee84e595227e01987a2b07aeef',	'mariogamer@gmail.com',	'elementGAMING',	'http://www.elementgaming.simgames.net/',	'http://mariomania.tripod.com/mariogamer.gif',	'mariogamer1',	'',	'themariogamer@hotmail.com',	'',	'u',	'd',	2,	'',	100,	1,	1,	'5beee0de545ee328c7c3dd76c5ef3221',	74,	0,	1150420801,	-6,	0,	0,	'x',	86,	1,	1,	1,	1286783042,	1349068581,	'68.187.39.26'),
-(20,	5,	'Moses Kim',	'b3bad9c69853542ff97887c8ce8df1b7',	'chikenbonez@sbcglobal.net',	'',	'',	'http://www.geocities.com/ultrabowie.txt',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'4d640a56fc53d58815257c6ebbf8ae7b',	0,	15,	1150420801,	0,	0,	1,	'',	15,	1,	1,	1,	1155459600,	1155459600,	''),
-(21,	5,	'SaleN',	'936aa2d51122f827004e568af835d1c6',	'hbersani@maringa.com.br',	'',	'',	'',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'839994c1a486b5a30ea0c569060bebfe',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(22,	5,	'Alex the Hedgehog',	'f12643a7373669b028008d687936c0a4',	'alexthehedgehog@hotmail.com',	'ZFGN',	'http://zfgn.gunsha.com/',	'http://zfgn.gunsha.com/Images/alexicon.PNG',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'7cfe2d87491c5755e446fb42c061d732',	0,	4,	1150420801,	0,	0,	1,	'',	4,	1,	1,	1,	1155459600,	1155459600,	''),
-(23,	5,	'JAKMANJAK',	'3c2ec35846a42ebc8b995bebb3fc77d4',	'jakmanjak@gmail.com',	'',	'',	'http://www.mfgg.net/staff/icons/jak.png',	'slim jim silver',	'',	'',	'',	'',	'',	0,	'',	0,	1,	0,	'bcd96bf20fc751aa541c6052195320e9',	0,	0,	1150420801,	-6,	0,	0,	'80x80',	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(24,	5,	'Press Start',	'd2e81d2fd40965f15878354bfbb95262',	'kenshinmeowth@yahoo.com',	'',	'',	'',	'',	'',	'',	'',	'',	'',	2,	'',	0,	0,	0,	'174a1f00e0bd2e85588cbb3526ae577a',	0,	0,	1150420801,	0,	0,	0,	'x',	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(25,	5,	'KenshinMeowth',	'd2e81d2fd40965f15878354bfbb95262',	'',	'',	'',	'',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'0ee978a2b01427c59d72235cada8664a',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1155459600,	1189309052,	''),
-(26,	5,	'Biddy',	'e7ac371837569069e570bd318d5346f2',	'jvl88@home.nl',	'',	'',	'',	'',	'',	'',	'',	'',	'',	3,	'',	100,	0,	0,	'f3148ac7acfffb0e02b5ae93d23410e8',	3,	0,	1150420801,	1,	0,	0,	'x',	31,	1,	1,	1,	1334423127,	1340479141,	'84.30.40.249'),
-(27,	5,	'cutman',	'3afc13697282d0f7897046dce7ff35b0',	'omegaclown@hotmail.com',	'Really cool 3d games I made site',	'',	'http://www.geocities.com/goku_777uk/cuttybadge.txt',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'bdc40124c9ef83885024785392fcd7a1',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(28,	5,	'Waddle dee',	'c5fe25896e49ddfe996db7508cf00534',	'',	'',	'',	'',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'2bc5cfb96d7f4b9920289a7993bd58ce',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1188826314,	1189538002,	''),
-(29,	5,	'LinkRyan',	'9f8fea4bf8366a4471c4bf1296f41d63',	'sonater8O@hotmail.com',	'hi',	'http://www.hi.com',	'',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'6107d43a8cc2c4fc437fe392b5bf3836',	1,	0,	1150420801,	0,	0,	0,	'x',	0,	1,	1,	1,	1158114096,	1158277842,	''),
-(30,	5,	'Xgoff',	'ff362afb00fa83da92fd95b38424a556',	'wherenothinghappens@yahoo.com',	'SOME RANDOM CRAP I BELIEVE',	'http://star.walagata.com/w/supermetalmario/cosasextranas/random.html',	'http://mars.walagata.com/w/supermetalmario/hiwhuzzup2.gif',	'',	'',	'',	'',	'',	'',	3,	'',	100,	0,	1,	'0ffdfaf63f8cf0793f564a27aa8585d1',	296,	0,	1150420801,	-7,	1,	0,	'40x39',	59,	1,	1,	1,	1312756115,	1313035911,	'173.19.74.150'),
-(31,	5,	'Spy Guy',	'1ca2c3481e9c59937f6d69d4de73af98',	'Anthonyv07@aol.com',	'',	'',	'',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'521fa8195688196b2171082ffb104989',	0,	1,	1150420801,	0,	0,	1,	'',	1,	1,	1,	1,	1155459600,	1155459600,	''),
-(32,	5,	'NHT',	'e328c69737fb18846770ff8aae09510c',	'mathias_j@home.se',	'',	'',	'',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'731fc4b158b13f6f79404664006b97c3',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(33,	5,	'dr luigi',	'87e8454e25a9a774fe78bca2b9426aa9',	'sympamax1099@hotmail.com',	'',	'',	'',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'b7435db6f5e91ca854fd7ddf56ad14eb',	0,	3,	1150420801,	0,	0,	1,	'',	3,	1,	1,	1,	1155459600,	1155459600,	''),
-(34,	5,	'Yoshiguy',	'9c7177dd01bd7d4a9269600b96e005a0',	'dishwasherfluid@yahoo.com',	'',	'',	'',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'd9eadf952aab75329b2aba4b41cb7866',	0,	8,	1150420801,	0,	0,	1,	'',	8,	1,	1,	1,	1155459600,	1155459600,	''),
-(35,	5,	'Hiro',	'a6fbe29f55bbabe8173156b3aaec6079',	'grindth1453@hotmail.com',	'Fan Stuff',	'http://www.freewebs.com/hiro1',	'',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'96db3bee0730d4aa63c7b2a674289983',	0,	0,	1150420801,	0,	0,	0,	'',	2,	1,	1,	1,	1155459600,	1357191537,	'74.184.18.107'),
-(36,	5,	'QuickManX',	'17b2026a435e16d8ffc48e9c3b9b0c01',	'',	'',	'',	'',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'f8b503435e58a49062d1556d49ee60b8',	0,	3,	1150420801,	0,	0,	1,	'',	3,	1,	1,	1,	1155459600,	1155459600,	''),
-(37,	5,	'Yoshimaster',	'edd18ca877b917af5d37db688f824583',	'kramerthebird@hotmail.com',	'',	'',	'http://yoshimasterco.tripod.com/ym1.gif',	'',	'',	'',	'',	'',	'',	2,	'',	0,	0,	1,	'300c36641a07fb4c2a641ca1e7cc21e5',	16,	3,	1150420801,	0,	0,	1,	'x',	3,	1,	1,	1,	1185653381,	1186618742,	''),
-(38,	5,	'Metroid Guy',	'39c2d343a7db7311cfddc2aff229a9cb',	'MetroidGuyClay@aol.com',	'',	'',	'',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'aae0488fe82d01dba7b360a6bcad08e8',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(39,	5,	'OneEyedParrot',	'3a0eeeb549040b3287a6cb734ef4f61e',	'paulkilgo@gmail.com',	'Blog &#39;n Stuff',	'http://pk-fire.com/',	'http://www.gravatar.com/avatar/4c06dcae30f5a5e5ab5198809fdf1185',	'twobiggiedrinks',	'',	'',	'',	'',	'',	2,	'',	0,	1,	0,	'7288d34485c05f746fced7459668775d',	2,	0,	1150420801,	-6,	1,	0,	'x',	16,	1,	1,	1,	1270096359,	1270104944,	'76.27.129.70'),
-(40,	5,	'Jeff Silvers',	'12c8eb28d8d22c5ac4df812df2a0c911',	'captainsilvers@gmail.com',	'Jeff Silvers Software',	'http://www.silverssoftware.com',	'http://www.mfgg.net/staff/icons/jeffsilvers.png',	'Sir Jeff Silvers',	'',	'hackerboy87',	'',	'',	'',	2,	'',	0,	0,	1,	'c0a4e1d2f1314b779b41fe01cc7552c7',	146,	0,	1150420801,	-5,	0,	0,	'80x80',	61,	1,	1,	1,	1301362168,	1343194406,	'24.117.38.166'),
-(41,	5,	'DJ Yoshiman',	'92a54b358b4cf53cca4095e4697e1004',	'DJYoshiman@live.com',	'DJ Yoshiman - Music',	'http://djyoshiman.mufunoko.org',	'http://www.mfgg.net/staff/icons/yoshiman.png',	'Yoshiman Cool',	'',	'DJYoshiman@live.com',	'Yoshiman',	't',	'd',	4,	'',	40,	1,	1,	'16d350f37ea60cc885df2123a041eb65',	373,	0,	1150420801,	-7,	1,	0,	'x',	100,	1,	1,	1,	1360341461,	1361499763,	'75.155.80.110'),
-(42,	5,	'Dark Yoshi',	'0eb55bec7f0e6d1c831bfbef77ac054a',	'darkyoshi87@myself.com',	'Demon Sanctuary',	'',	'',	'Dark Yoshi87',	'',	'',	'',	'',	'',	3,	'',	0,	0,	1,	'bb0ad69f5d101fa76482967f0b56fc87',	4,	0,	1150420801,	-8,	1,	0,	'x',	11,	1,	1,	1,	1254355797,	1268895484,	'76.21.60.134'),
-(43,	5,	'Draco Icebane',	'88a79731db0ae3957573c0da90c66ec6',	'dracohandsome@gmail.com',	'',	'',	'',	'DracoHandsome',	'',	'',	'',	't',	'a',	2,	'',	100,	0,	1,	'264aaa4dec63dbaa61635bd08fd8f575',	21,	0,	1150420801,	-8,	0,	0,	'x',	13,	1,	1,	1,	1488267094,	1488940022,	'73.220.84.3'),
-(44,	5,	'Hippoman',	'61e7591821af51b4d8338be540911608',	'',	'',	'',	'',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'13c22e8d07eb1eaa2a79af5606a09165',	0,	1,	1150420801,	0,	0,	1,	'',	1,	1,	1,	1,	1246806008,	1247870833,	'94.1.223.167'),
-(45,	5,	'Klobber',	'8a98c86b49d93794705dd64bcdbbe3ab',	'signofthedonut@hotmail.com',	'Penguinia',	'http://www.penguinia.net',	'http://hocuspocus.penguinia.net/forums/uploads/av-4.gif',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'385afaf011d2b1351a42477c409528f0',	0,	2,	1150420801,	0,	0,	1,	'',	2,	1,	1,	1,	1161107558,	1162869935,	''),
-(46,	5,	'turdlantic',	'07892e0b6b565c892ded8da790130a27',	'oldmancranky@hotmail.com',	'',	'',	'http://www.d2sector.net/~mfgg/uploads/av-24.gif',	'',	'',	'',	'',	'',	'',	0,	'',	0,	0,	0,	'af153178211119924d4742df4214f694',	3,	0,	1150420801,	0,	0,	0,	'',	18,	1,	1,	1,	1230490287,	1230497393,	'90.194.84.67'),
-(47,	5,	'Bacon',	'656c0c34af40d452a1e0fbff0db56a37',	'weenybrown@hotmail.com',	'http://www.ninsprites.cjb.net/',	'',	'',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'b0f49f6d9d10cb6baff4b6b8d8d67bfd',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(48,	5,	'NES Boy',	'b6d64fbb8333a2fc20da1212fad467a9',	'NESBoy216@aol.com',	'',	'',	'http://img387.imageshack.us/img387/4613/nsmbwiiavatartoads.png',	'',	'',	'',	'',	'',	'',	4,	'',	100,	0,	1,	'4ea809fa2fc8db9cc43450c38b736b8e',	64,	0,	1150420801,	-5,	1,	0,	'80x80',	93,	1,	1,	1,	1507126288,	1507303555,	'184.88.240.122'),
-(49,	5,	'turd',	'07892e0b6b565c892ded8da790130a27',	'oldmancranky@hotmail.com',	'',	'',	'',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'83184d6aeacc23ea4171828470aaff0b',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(50,	5,	'Morpheus',	'857a8624210b4a8b8c6b64de54a4e752',	'joordan5_8@hotmail.com',	'Nintendo_island/',	'http://s2.invisionfree.com/Nintendo_island/index.php',	'http://www.buttwheat.com/matrix/i2-222.jpg',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	'',	0,	0,	0,	'5ab3ece79db57beafe79d575d9754eae',	0,	0,	1150420801,	NULL,	0,	0,	NULL,	0,	1,	1,	1,	1155459600,	1155459600,	''),
-(51,	5,	'HammerGuy',	'5bcc19f0a26c6611395bba404fed4fbd',	'hghammerguy@yahoo.com',	'',	'',	'http://img508.imageshack.us/img508/4650/cshg8lu.gif',	'SuperHammerGuy',	'',	'',	'',	'',	'',	2,	'',	100,	0,	0,	'9df10993e54f6c50a6b65ed11932abea',	0,	1,	1150420801,	-5,	1,	1,	'11x16',	1,	1,	1,	1,	1155459600,	1155459600,	''),
-(11079,	5,	'Oiram67',	'6531401f9a6807306651b87e44c05751',	'cheese405@gmail.com',	'',	'',	'',	'',	'',	'',	'',	'',	'',	0,	'98.85.219.92',	0,	0,	0,	'c146f312051266c23782fd58104751d8',	0,	0,	1301336844,	0,	0,	0,	'',	0,	1,	1,	1,	1301337950,	1301430092,	'98.85.25.42'),
-(13099,	5,	'MarioMario2008',	'b8ff0eb086e4769457e3d04a290009bd',	'adir.maymon@gmail.com',	'Adir Mario',	'',	'',	'',	'',	'',	'',	'',	'',	0,	'77.126.89.165',	0,	0,	0,	'963d85a9d0802630bab10ec4739e6aa7',	0,	0,	1406473130,	0,	0,	0,	'',	0,	1,	1,	1,	0,	1406473158,	'77.126.89.165'),
-(13100,	5,	'HylianDev',	'ab6e88f0c4042d051dc656b5ffb77870',	'oot2dmaker@gmail.com',	'',	'',	'',	'',	'',	'',	'',	'',	'',	0,	'::1',	0,	0,	1,	'5111c2842f2fa7ac719f97135f2bc990',	2,	0,	1507312331,	0,	0,	0,	'x',	0,	1,	1,	1,	1507315505,	1507316515,	'0.0.0.0');
 
 DROP TABLE IF EXISTS `tsms_version`;
 CREATE TABLE `tsms_version` (
@@ -1527,4 +1319,4 @@ INSERT INTO `tsms_version` (`vid`, `rid`, `version`, `change`, `date`) VALUES
 (49,	4645,	NULL,	'Praphical Update :)',	1153930141),
 (50,	4645,	NULL,	'Now he skids',	1154021802);
 
--- 2017-10-07 15:18:03
+-- 2017-10-10 17:31:02
