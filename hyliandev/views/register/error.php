@@ -1,6 +1,6 @@
 <div class="card">
 	<div class="card-header">
-		Site Error
+		<?=lang('misc-error')?>
 	</div>
 	
 	<div class="card-block">

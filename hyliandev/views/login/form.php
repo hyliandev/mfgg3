@@ -17,11 +17,11 @@
 	
 	<div>
 		<button type="submit" class="btn btn-primary">
-			Log In
+			<?=lang('login-button')?>
 		</button>
 		
 		<button type="reset" class="btn btn-secondary">
-			Reset
+			<?=lang('misc-reset')?>
 		</button>
 	</div>
 </form>

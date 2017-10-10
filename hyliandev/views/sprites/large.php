@@ -15,14 +15,14 @@
 		<div class="resource-action-bar">
 			<a href="<?=url()?>/view/file/<?=$rid?>" target="_blank">
 				<span class="fa fa-download"></span>
-				Download
+				<?=lang('content-download')?>
 			</a>
 		</div>
 		
 		<div>
-			Views: <?=$views?>
+			<?=lang('content-views')?>: <?=$views?>
 			<br>
-			Downloads: <?=$downloads?>
+			<?=lang('content-downloads')?>: <?=$downloads?>
 		</div>
 	</div>
 </div>

@@ -4,7 +4,7 @@ if(empty($id=array_shift(explode('-',$GLOBALS['params'][0]))) || !is_numeric($id
 
 <div class="card">
 	<div class="card-block">
-		Invalid ID
+		<?=lang('misc-invalid-id')?>
 	</div>
 </div>
 

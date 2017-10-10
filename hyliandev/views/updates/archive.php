@@ -11,7 +11,7 @@ else: ?>
 
 <div class="card">
 	<div class="card-block">
-		There are no updates to show
+		<?=lang('updates-empty')?>
 	</div>
 </div>
 

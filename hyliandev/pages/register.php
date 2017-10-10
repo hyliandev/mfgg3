@@ -1,4 +1,4 @@
-<h1>Register An Account</h1>
+<h1><?=lang('register-title')?></h1>
 
 <?php
 if(User::GetUser()){

@@ -11,7 +11,7 @@ else: ?>
 
 <div class="card">
 	<div class="card-block">
-		There are no sprites to show
+		<?=lang('sprites-empty')?>
 	</div>
 </div>
 

@@ -1,4 +1,4 @@
-<h1>Sprites</h1>
+<h1><?=lang('sprites-title')?></h1>
 
 <?php
 if(empty($view=$params[0])) $view='archive';

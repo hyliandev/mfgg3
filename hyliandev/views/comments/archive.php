@@ -1,4 +1,4 @@
-<h1 id="comments">Comments</h1>
+<h1 id="comments"><?=lang('comments-title')?></h1>
 
 <?php
 if(count($comments=Comments::Read($data=['type'=>$type,'rid'=>$id,'page'=>$page]))):
@@ -9,7 +9,7 @@ else: ?>
 
 <div class="card">
 	<div class="card-block">
-		There are no comments to show
+		<?=lang('comments-empty')?>
 	</div>
 </div>
 

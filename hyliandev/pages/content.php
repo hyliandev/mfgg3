@@ -2,6 +2,6 @@
 
 <div class="card">
 	<div class="card-block">
-		Which content though?
+		<?=lang('which-content')?>
 	</div>
 </div>

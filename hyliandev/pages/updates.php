@@ -1,4 +1,4 @@
-<h1>Updates</h1>
+<h1><?=lang('updates-title')?></h1>
 
 <?php
 if(empty($view=$params[0])) $view='archive';

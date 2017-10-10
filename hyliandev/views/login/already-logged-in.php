@@ -1,3 +1,3 @@
-You're already logged in as <?=User::ShowUsername()?>
+<?=lang('already-logged-in')?> <?=User::ShowUsername()?>
 
 <?=view('redirect')?>

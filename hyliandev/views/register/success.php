@@ -1,6 +1,6 @@
 <div class="card">
 	<div class="card-block">
-		You've successfully registered an account with the username <?=User::ShowUsername(Users::Read(['username'=>$_POST['username']]))?>!
+		<?=lang('register-success')?> <?=User::ShowUsername(Users::Read(['username'=>$_POST['username']]))?>!
 		
 		<br><br>
 		

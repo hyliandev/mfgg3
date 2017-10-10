@@ -14,7 +14,7 @@ if(User::GetUser()){
 	}
 }
 ?>
-<h1>Log In</h1>
+<h1><?=lang('login-title')?></h1>
 
 <div class="card">
 	<div class="card-block">

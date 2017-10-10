@@ -2,7 +2,7 @@
 
 <div class="card">
 	<div class="card-header">
-		Basic Information
+		<?=lang('register-basic-info')?>
 	</div>
 	
 	<div class="card-block">
@@ -35,20 +35,18 @@
 	</div>
 	
 	<div class="card-header">
-		Submit
+		<?=lang('misc-submit')?>
 	</div>
 	
 	<div class="card-block">
 		<button type="submit" class="btn btn-primary">
-			Log In
+			<?=lang('register-button')?>
 		</button>
 		
 		<button type="reset" class="btn btn-secondary">
-			Reset
+			<?=lang('misc-reset')?>
 		</button>
 	</div>
 </div>
 
 </form>
-
-<?=debug($errors)?>

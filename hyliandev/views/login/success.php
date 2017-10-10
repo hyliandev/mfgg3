@@ -1,3 +1,3 @@
-You've been successfully logged in as <?=User::ShowUsername(User::GetUser())?>!
+<?=lang('login-successful')?> <?=User::ShowUsername(User::GetUser())?>!
 
 <?=view('redirect')?>

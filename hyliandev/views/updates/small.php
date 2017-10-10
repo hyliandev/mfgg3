@@ -27,7 +27,7 @@ $user=Users::Read(['uid'=>$uid]);
 	
 	<div class="card-footer">
 		<a href="<?=$url?>">
-			Comments (<?=$comments?>)
+			<?=lang('comments-name')?> (<?=$comments?>)
 		</a>
 	</div>
 </div>

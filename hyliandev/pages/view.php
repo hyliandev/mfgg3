@@ -4,7 +4,7 @@
 // Disallow them from viewing unless they have a certain session variable
 
 if(setting('session_hotlink_protection') && empty($_SESSION['can_view_content'])){
-	die('Hotlinking detected');
+	die(lang('hotlinking-detected'));
 }
 
 
@@ -24,7 +24,7 @@ if(
 	||
 	$params[1] < 0
 ){
-	die('Invalid Parameters');
+	die(lang('invalid-params'));
 }
 
 
@@ -44,7 +44,7 @@ $type=$q->fetch(PDO::FETCH_OBJ);
 $eid=$type->eid;
 
 if(!$type=$type->type){
-	die('There is no such resource');
+	die(lang('resource-not-found'));
 }
 
 $table=setting('db_prefix') . 'res_';
@@ -71,12 +71,12 @@ switch($type){
 	break;
 	
 	default:
-		die('Invalid resource selected');
+		die(lang('invalid-resource'));
 	break;
 }
 
 if($params[0] == 'thumbnail' && !in_array($type,[1,2])){
-	die('This resource type does not have thumbnails');
+	die(lang('resource-no-thumb'));
 }
 
 
@@ -115,7 +115,7 @@ $q=$q->fetch(PDO::FETCH_OBJ);
 $file=setting($params[0] . '_directory') . '/' . $type . '/' . $q->$params[0];
 
 if(!file_exists($file)){
-	die('File not found');
+	die(lang('resource-file-not-found'));
 }
 
 

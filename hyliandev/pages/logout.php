@@ -9,9 +9,9 @@ if($wasLoggedIn = $_SESSION['uid']){
 <div class="card">
 	<div class="card-block">
 		<?php if($wasLoggedIn): ?>
-			You've successfully been logged out!
+			<?=lang('logged-out')?>
 		<?php else: ?>
-			You're already logged out!
+		<?=lang('already-logged-out')?>
 		<?php endif; ?>
 		
 		<?=view('redirect')?>

@@ -34,6 +34,10 @@ class Updates extends Model {
 			
 			$q=$q->fetch(PDO::FETCH_OBJ);
 			
+			if(empty($q)){
+				return false;
+			}
+			
 			$q->user=Users::Read(['uid'=>$q->uid]);
 			
 			return $q;
@@ -62,6 +66,11 @@ class Updates extends Model {
 		$q=$q->fetchAll(PDO::FETCH_OBJ);
 		
 		foreach($q as $key=>$value){
+			if(empty($value)){
+				unset($q[$key]);
+				continue;
+			}
+			
 			$q[$key]->user=Users::Read(['uid'=>$q[$key]->uid]);
 		}
 		
@@ -229,6 +238,10 @@ class Sprites extends Model {
 			
 			$q=$q->fetch(PDO::FETCH_OBJ);
 			
+			if(empty($q)){
+				return false;
+			}
+			
 			$q->user=Users::Read(['uid'=>$q->uid]);
 			
 			return $q;
@@ -264,6 +277,11 @@ class Sprites extends Model {
 		$q=$q->fetchAll(PDO::FETCH_OBJ);
 		
 		foreach($q as $key=>$value){
+			if(empty($value)){
+				unset($q[$key]);
+				continue;
+			}
+			
 			$q[$key]->user=Users::Read(['uid'=>$q[$key]->uid]);
 		}
 		
@@ -333,6 +351,11 @@ class Comments extends Model {
 		$q=$q->fetchAll(PDO::FETCH_OBJ);
 		
 		foreach($q as $key=>$value){
+			if(empty($value)){
+				unset($q[$key]);
+				continue;
+			}
+			
 			$q[$key]->user=Users::Read(['uid'=>$q[$key]->uid]);
 		}
 		
