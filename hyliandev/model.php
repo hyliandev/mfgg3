@@ -170,19 +170,18 @@ class Users extends Model {
 			$error['email']='Email was empty';
 		}elseif(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
 			$error['email']='Email was invalid';
+		}elseif(Users::Read(['email'=>$data['email']])){
+			$error['email']='An account with that email already exists';
 		}
 		
 		return $error;
 	}
 	
 	public static function Read($data=[]){
-		if(
-			empty($use=$data[$usename='uid'])
-			&&
-			empty($use=$data[$usename='username'])
-		){
-			return false;
-		}
+		// We do this to get the key and value of the first node in the array
+		reset($data);
+		$usename=key($data);
+		$use=array_shift($data);
 		
 		$q=DB()->prepare(
 			$sql="SELECT
