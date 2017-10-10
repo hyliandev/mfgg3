@@ -13,10 +13,16 @@
 		</div>
 		
 		<div class="resource-action-bar">
-			<a href="<?=url()?>/../tcsms/file/1/<?=$file?>" target="_blank">
+			<a href="<?=url()?>/view/file/<?=$rid?>" target="_blank">
 				<span class="fa fa-download"></span>
 				Download
 			</a>
+		</div>
+		
+		<div>
+			Views: <?=$views?>
+			<br>
+			Downloads: <?=$downloads?>
 		</div>
 	</div>
 </div>

@@ -44,7 +44,14 @@ $_SETTINGS=[
 	'username_max_length'=>32,
 	
 	'password_min_length'=>3,
-	'password_max_length'=>72
+	'password_max_length'=>72,
+	
+	
+	
+	// Content settings
+	
+	'thumbnail_directory'=>'../tcsms/thumbnail',
+	'file_directory'=>'../tcsms/file',
 ];
 
 ?>
