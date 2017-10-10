@@ -4,7 +4,7 @@
 		'name'=>'username',
 		'title'=>'Username',
 		'required'=>true,
-		'error'=>isset($_POST['username']) && !$username
+		'error'=>$unerror=(isset($_POST['username']) && !$username) ? 'Incorrect username' : ''
 	])?>
 	
 	<?=field([
@@ -12,7 +12,7 @@
 		'name'=>'password',
 		'title'=>'Password',
 		'required'=>true,
-		'error'=>isset($_POST['password']) && !$password
+		'error'=>!$unerror && isset($_POST['password']) && !$password ? 'Incorrect password' : false
 	])?>
 	
 	<div>

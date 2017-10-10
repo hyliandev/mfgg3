@@ -13,5 +13,7 @@ if($wasLoggedIn = $_SESSION['uid']){
 		<?php else: ?>
 			You're already logged out!
 		<?php endif; ?>
+		
+		<?=view('redirect')?>
 	</div>
 </div>

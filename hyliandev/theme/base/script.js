@@ -23,6 +23,12 @@ $(function(){
 	});
 	
 	$('.no-js').removeClass('no-js');
+	
+	if($('.redirect-url').get().length){
+		setTimeout(function(){
+			window.location=$('.redirect-url').attr('href');
+		},3000);
+	}
 });
 
 

@@ -50,6 +50,10 @@ header nav::after {
 
 /* == MAIN THEME ELEMENTS == */
 
+body > .container {
+	padding-top:2em;
+}
+
 header nav {
 	position:relative;
 	z-index:1000;
@@ -165,7 +169,9 @@ body {
 }
 
 h1 {
-	color:#FFF;
+	font-family:'Super Mario',sans-serif;
+	margin-bottom:1em;
+	text-align:center;
 }
 
 img {
