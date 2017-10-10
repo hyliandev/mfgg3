@@ -114,7 +114,7 @@ if(!file_exists($file)){
 // If we're downloading the file, add to the download counter
 
 if($params[0] == 'file'){
-	$q=DB()->query("
+	$d=DB()->query("
 		UPDATE
 		$table
 		
@@ -132,7 +132,12 @@ if($params[0] == 'file'){
 
 // Offer the content
 
+header('Cache-Control: ');
+header('Pragma: ');
+header('Content-Length: ' . filesize($file));
 header('Content-type:' . mime_content_type($file));
+header('Content-Disposition: inline; filename="' . $q->$params[0] . '"');
+header('Content-Description: "' . $q->$params[0] . '"');
 
 die(file_get_contents($file));
 
