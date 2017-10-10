@@ -1,5 +1,16 @@
 <?php
 
+// Hotlink prevention
+// Disallow them from viewing unless they have a certain session variable
+
+if(setting('session_hotlink_protection') && empty($_SESSION['can_view_content'])){
+	die('Hotlinking detected');
+}
+
+
+
+
+
 // If the parameters are incompatible with what we're trying to do, exit
 
 if(

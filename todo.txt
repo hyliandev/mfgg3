@@ -7,11 +7,11 @@ What's done:
 - User Registration
 - API for verifying fields (works for registration, anyway)
 - Passwords; switch current password system (md5) to a more secure one (crypt?), and make them somewhat backwards-compatible
-
-What's left:
 - Properly displaying thumbnails, content
 - Blocking hotlinking for thumbnails, content
 - Registering views, downloads for content
+
+What's left:
 - Lang files
 - BBCode
 - Swear filter

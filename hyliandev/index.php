@@ -97,4 +97,17 @@ $yield=ob_get_clean();
 
 require_once 'template.php';
 
+
+
+
+
+
+
+
+
+
+// Set a session variable to allow the user to view content
+
+$_SESSION['can_view_content']=true;
+
 ?>

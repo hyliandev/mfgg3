@@ -52,6 +52,8 @@ $_SETTINGS=[
 	
 	'thumbnail_directory'=>'../tcsms/thumbnail',
 	'file_directory'=>'../tcsms/file',
+	
+	'session_hotlink_protection'=>true,
 ];
 
 ?>
