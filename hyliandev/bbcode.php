@@ -6,7 +6,16 @@ function bbcode($text){
 	$quote_open=0;
 	$quote_close=0;
 	
-	// Simple tags
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// == SIMPLE TAGS ==
 	
 	$simple_codes=[
 		'b'=>'bold',
@@ -24,7 +33,14 @@ function bbcode($text){
 	
 	
 	
-	// Less simple tags
+	
+	
+	
+	
+	
+	
+	
+	// == LESS SIMPLE TAGS ==
 	
 	// URLs
 	$text=preg_replace(
@@ -32,6 +48,8 @@ function bbcode($text){
 		'<a href="$1" target="_blank">$6</a>',
 		$text
 	);
+	
+	
 	
 	// Cited Quotes
 	$text=preg_replace_callback(
@@ -92,7 +110,33 @@ function bbcode($text){
 	
 	
 	
-	// Return
+	// Images
+	
+	$text=preg_replace(
+		'/\[img\](((http(s|)):\/\/|)[a-zA-Z0-9]{1}[a-zA-Z0-9\-]{1,251}[a-zA-Z0-9]{1}\.[a-zA-Z]{1,10}(\/|)[a-zA-Z0-9@:%_\+.~#?&\/=\-$\^\*\(\)\`]*)\[\/img\]/is',
+		'<img src="$1" class="bbcode-image">',
+		$text
+	);
+	
+	
+	
+	// Text sizes
+	$text=preg_replace(
+		'/\[size\=(1[0-5]{1}[0-9]{1}|[5-9]{1}[0-9]{1})\](.+)\[\/size\]/is',
+		'<span class="bbcode-size" style="font-size:$1%">$2</span>',
+		$text
+	);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// == RETURN ==
 	
 	return $text;
 }

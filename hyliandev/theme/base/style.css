@@ -276,6 +276,10 @@ blockquote cite {
 	font-weight:bold;
 }
 
+.bbcode-image {
+	/**/
+}
+
 .bbcode-italic {
 	font-style:italic;
 }
