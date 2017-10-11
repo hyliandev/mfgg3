@@ -292,6 +292,16 @@ function bbcode($text){
 	
 	
 	
+	// iSpoiler
+	
+	$text=preg_replace(
+		'/\[ispoiler\](.+)\[\/ispoiler\]/isU',
+		'<div class="bbcode-ispoiler">$1</div>',
+		$text
+	);
+	
+	
+	
 	
 	
 	

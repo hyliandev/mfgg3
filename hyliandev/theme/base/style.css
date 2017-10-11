@@ -292,6 +292,16 @@ blockquote cite {
 	/**/
 }
 
+.bbcode-ispoiler {
+	background-color:#000;
+	color:#000;
+	display:inline-block;
+}
+
+.bbcode-ispoiler:hover {
+	color:#FFF;
+}
+
 .bbcode-italic {
 	font-style:italic;
 }
