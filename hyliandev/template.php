@@ -66,6 +66,18 @@
 					</ul>
 				</li>
 				
+				<li>
+					<a href="<?=url()?>/forums/">
+						Forums
+					</a>
+				</li>
+				
+				<li>
+					<a href="<?=url()?>/users/">
+						Users
+					</a>
+				</li>
+				
 				<?php if(User::GetUser()): ?>
 					<li>
 						<a href="<?=url()?>/user/">

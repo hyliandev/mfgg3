@@ -1,26 +1,36 @@
-What's done:
+== DONE ==
+
+TCSMS compatibility:
 - Pulling updates works
 - Pulling sprites works (no search yet)
 - The framework for pulling, paginating, and viewing single entries of all kinds is there, including pulling and pageing comments
-- Some basic theme stuff, including a lot of mobile-friendliness
-- Logging in works
 - User Registration
-- API for verifying fields (works for registration, anyway)
 - Passwords; switch current password system (md5) to a more secure one (crypt?), and make them somewhat backwards-compatible
+- Registering views, downloads for content
+- Logging in works
+
+Forums:
+- nothing
+
+Theme:
+- Some basic theme stuff, including a lot of mobile-friendliness
+
+Generic PHP:
 - Properly displaying thumbnails, content
 - Blocking hotlinking for thumbnails, content
-- Registering views, downloads for content
 - Lang files
 - FIX unconvert()'S BROKEN QUOTE UNCONVERSION!
 - Instant preview
 - Most BBCode
+- API for verifying fields (works for registration, anyway)
 
-What's left:
-- BBCode: html5 audio/video
-- WYSIWYG
-- Swear filter
-- A lot of theme stuff
-- <title>
+
+
+
+
+== TODO ==
+
+TCSMS compatibility:
 - Pulling kinds of content that isn't sprites
 - Searching for content
 - Users creating, editing submissions
@@ -29,6 +39,40 @@ What's left:
 - Staff creating, editing, deleting, and moderating updates
 - Updates pulling relevant content
 - Users posting comments
+- Content comment threads
 - Users, staff editing, deleting comments
-- The entirety of the forums
+- Pulling, paginating PMs
+- Sending PMs
+- Deleting PMs
+- Unread PMs
+- Pulling, paginating users
+
+Forums:
+- Pulling, paginating categories
+- Pulling, paginating Forums
+- Pulling, paginating topics
+- Pulling, paginating replies
+- Admins creating, editing, deleting categories
+- Admins creating, editing, deleting forums
+- Creating, editing topics
+- Creating, editing replies
+- Admins deleting topics
+- Admins deleting replies
+- Admins blacklisting topics
+- Admins blacklisting replies
+- Admins moving topics
+- Admins splitting topics
+- Admins merging topics
+- Admins splitting and merging topics
+
+Theme:
+- A lot of theme stuff
+- Nav menu max height
+- <title>
+
+Generic PHP:
+- BBCode: html5 audio/video
+- WYSIWYG
+- Swear filter
+- Emoji
 - Option to reset denormalized numbers: comments, replies, review scores, views/downloads?
