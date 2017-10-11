@@ -87,8 +87,9 @@ $language=[
 		
 		'misc-error'=>'Error',
 		'misc-invalid-id'=>'Invalid ID',
-		'misc-submit'=>'Submit',
+		'misc-preview'=>'Preview',
 		'misc-reset'=>'Reset',
+		'misc-submit'=>'Submit',
 		
 		
 		

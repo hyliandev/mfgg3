@@ -3,7 +3,7 @@
 		Testing BBCode
 	</div>
 	
-	<div class="card-block">
+	<div class="card-block" id="bbcode-preview">
 		<?=format(preFormat($_POST['message']))?>
 	</div>
 	
@@ -19,7 +19,8 @@
 				'type'=>'textarea-bbcode'
 			])?>
 			
-			<button class="btn btn-primary" type="submit">Submit</button>
+			<button class="btn btn-success" type="button" data-bbcode-preview><?=lang('misc-preview')?></button>
+			<button class="btn btn-primary" type="submit"><?=lang('misc-submit')?></button>
 		</form>
 	</div>
 </div>

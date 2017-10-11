@@ -34,6 +34,7 @@ $(function(){
 	
 	$('.bbcode-spoiler-container button.spoiler-button').click(spoilerButton);
 	$('[data-bbcode]').click(bbcodeButton);
+	$('button[data-bbcode-preview]').click(bbcodePreview);
 });
 
 
@@ -221,6 +222,23 @@ function bbcodeButton(e){
 		+
 		post
 	).prop('selectionStart',final).prop('selectionEnd',final).focus();
+}
+
+function bbcodePreview(e){
+	e.preventDefault();
+	
+	$.ajax({
+		type:'POST',
+		url:API(),
+		data:{
+			data:{
+				message:$('[name="message"]').val(),
+				purpose:'bbcode-preview'
+			}
+		}
+	}).done(function(response){
+		$('#bbcode-preview').html(response.data);
+	});
 }
 
 function highlightJS(){
