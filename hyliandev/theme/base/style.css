@@ -294,8 +294,9 @@ blockquote cite {
 
 .bbcode-ispoiler {
 	background-color:#000;
-	color:#000;
+	color:transparent;
 	display:inline-block;
+	transition:color 0.5s ease;
 }
 
 .bbcode-ispoiler:hover {
