@@ -12,9 +12,10 @@ What's done:
 - Registering views, downloads for content
 - Lang files
 - FIX unconvert()'S BROKEN QUOTE UNCONVERSION!
+- Instant preview
+- Most BBCode
 
 What's left:
-- Instant preview
 - BBCode: html5 audio/video
 - WYSIWYG
 - Swear filter

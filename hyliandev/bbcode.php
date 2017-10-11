@@ -32,6 +32,7 @@ function bbcode($text){
 		'b'=>'bold',
 		'i'=>'italic',
 		'u'=>'underline',
+		's'=>'strikethrough',
 		'center'=>'center'
 	];
 	

@@ -12,6 +12,10 @@
 		'tag'=>'[u][/u]'
 	],
 	[
+		'fa'=>'strikethrough',
+		'tag'=>'[s][/s]'
+	],
+	[
 		'fa'=>'align-center',
 		'tag'=>'[center][/center]'
 	],

@@ -317,6 +317,10 @@ blockquote cite {
 	padding:0.5em;
 }
 
+.bbcode-strikethrough {
+	text-decoration:line-through;
+}
+
 .bbcode-underline {
 	text-decoration:underline;
 }
