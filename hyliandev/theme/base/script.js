@@ -33,6 +33,7 @@ $(function(){
 	}
 	
 	$('.bbcode-spoiler-container button.spoiler-button').click(spoilerButton);
+	$('[data-bbcode]').click(bbcodeButton);
 });
 
 
@@ -188,6 +189,39 @@ function fixNavbar(){
 
 
 // == BBCODE FUNCTIONS ==
+
+function bbcodeButton(e){
+	e.preventDefault();
+	
+	var $textarea=$(this).closest('.field').find('textarea');
+	
+	var start=$textarea.prop('selectionStart');
+	
+	if(!start){
+		start=0;
+	}
+	
+	var pre=$textarea.val().substring(0,start);
+	var post=$textarea.val().substring(start);
+	
+	var bbcode=$(this).attr('data-bbcode');
+	
+	var final=bbcode.indexOf(']') + 1;
+	
+	if(final < 0){
+		final=0;
+	}
+	
+	final+=start;
+	
+	$textarea.val(
+		pre
+		+
+		bbcode
+		+
+		post
+	).prop('selectionStart',final).prop('selectionEnd',final).focus();
+}
 
 function highlightJS(){
 	var list=$('.bbcode-code').get();
