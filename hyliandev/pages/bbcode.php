@@ -16,7 +16,7 @@
 			<?=field([
 				'title'=>'Message',
 				'name'=>'message',
-				'type'=>'textarea'
+				'type'=>'textarea-bbcode'
 			])?>
 			
 			<button class="btn btn-primary" type="submit">Submit</button>
