@@ -273,6 +273,14 @@ blockquote cite {
 	font-style:normal;
 }
 
+.bbcode-bar {
+	margin-bottom:0.5em;
+}
+
+.no-js .bbcode-bar {
+	display:none;
+}
+
 .bbcode-bold {
 	font-weight:bold;
 }
@@ -315,6 +323,10 @@ blockquote cite {
 	background-color:rgba(0,0,0,0.25);
 	display:none;
 	padding:0.5em;
+}
+
+.no-js .bbcode-spoiler-container:hover > .bbcode-spoiler {
+	display:block;
 }
 
 .bbcode-strikethrough {
