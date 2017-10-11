@@ -24,6 +24,8 @@ class User {
 		
 		self::$user=$user;
 		
+		self::UpdateLastActivity();
+		
 		return $user;
 	}
 	
@@ -73,6 +75,8 @@ class User {
 				session_start();
 				
 				$_SESSION['uid']=$user->uid;
+				
+				self::UpdateLastActivity();
 			}
 		}
 		
@@ -101,6 +105,30 @@ class User {
 		$username='<a href="' . url() . '/user/' . $user->uid . '-' . titleToSlug($username) . '">' . $username . '</a>';
 		
 		return $username;
+	}
+	
+	public static function UpdateLastActivity(){
+		if(!self::$user){
+			return;
+		}
+		
+		$q=DB()->prepare("
+			UPDATE " . setting('db_prefix') . "users
+			
+			SET
+			last_activity=?,
+			last_ip=?
+			
+			WHERE
+			uid=?
+			;
+		");
+		
+		$q->execute([
+			time(),
+			$_SERVER['REMOTE_ADDR'],
+			self::$user->uid
+		]);
 	}
 }
 

@@ -41,6 +41,19 @@ foreach([
 
 
 
+// Get User
+
+User::GetUser();
+
+
+
+
+
+
+
+
+
+
 // Which file to view
 
 if(empty($uri=$_GET['uri'])) $uri='index';
