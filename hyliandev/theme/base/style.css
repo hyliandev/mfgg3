@@ -300,6 +300,12 @@ blockquote cite {
 	margin:0;
 }
 
+.bbcode-spoiler {
+	background-color:rgba(0,0,0,0.25);
+	display:none;
+	padding:0.5em;
+}
+
 .bbcode-underline {
 	text-decoration:underline;
 }

@@ -61,6 +61,12 @@ $language=[
 		
 		
 		
+		// bbcode
+		
+		'spoiler-button'=>'Spoiler',
+		
+		
+		
 		// comments
 		
 		'comments-empty'=>'There are no comments to show',

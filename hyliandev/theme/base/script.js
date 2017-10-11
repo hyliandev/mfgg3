@@ -31,6 +31,8 @@ $(function(){
 			window.location=$('.redirect-url').attr('href');
 		},3000);
 	}
+	
+	$('.bbcode-spoiler-container button.spoiler-button').click(spoilerButton);
 });
 
 
@@ -192,4 +194,8 @@ function highlightJS(){
 	for(var i in list){
 		hljs.highlightBlock(list[i]);
 	}
+}
+
+function spoilerButton(){
+	$(this).closest('.bbcode-spoiler-container').find('> .bbcode-spoiler').stop().slideToggle(100);
 }

@@ -5,13 +5,17 @@ function bbcode($text){
 		$list_open,
 		$list_close,
 		$quote_open,
-		$quote_close
+		$quote_close,
+		$spoiler_open,
+		$spoiler_close
 	;
 	
 	$list_open=0;
 	$list_close=0;
 	$quote_open=0;
 	$quote_close=0;
+	$spoiler_open=0;
+	$spoiler_close=0;
 	
 	
 	
@@ -188,22 +192,6 @@ function bbcode($text){
 	
 	
 	
-	/*
-	// List
-	
-	$text=preg_replace_callback(
-		'/\[list\](.+)\[\/list\]/isU',
-		function($matches){
-			$list=explode('[*]',$matches[1]);
-			array_shift($list);
-			
-			$list='<li class="bbcode-list-item">' . implode('</li><li class="bbcode-list-item">',$list) . '</li>';
-			
-			return '<ul class="bbcode-list">' . $list . '</ul>';
-		},
-		$text
-	);
-	*/
 	// List
 	
 	$text=preg_replace_callback(
@@ -249,6 +237,56 @@ function bbcode($text){
 			$text.='</ul>';
 		}else{
 			$text='<ul class="bbcode-list">' . $text;
+		}
+	}
+	
+	
+	
+	// Spoiler
+	
+	$text=preg_replace_callback(
+		'/\[spoiler\](.+)\[\/spoiler\]/is',
+		function($matches){
+			$ret=$matches[0];
+			
+			$ret=preg_replace_callback(
+				'/\[spoiler\]/is',
+				function($matches){
+					global $spoiler_open;
+					
+					$spoiler_open++;
+					
+					$ret='<div class="bbcode-spoiler-container"><button type="button" class="btn btn-success spoiler-button">' . lang('spoiler-button') . '</button><div class="bbcode-spoiler">';
+					
+					return $ret;
+				},
+				$ret
+			);
+			
+			$ret=preg_replace_callback(
+				'/\[\/spoiler\]/is',
+				function($matches){
+					global $spoiler_close;
+					
+					$spoiler_close++;
+					
+					$ret='</div></div>';
+					
+					return $ret;
+				},
+				$ret
+			);
+			
+			return $ret;
+		},
+		$text
+	);
+	
+	if($spoiler_open != $spoiler_close){
+		if($spoiler_open > $spoiler_close){
+			$text.='</div></div>';
+		}else{
+			$text='<div class="bbcode-spoiler-container"><button type="button" class="btn btn-success spoiler-button">' . lang('spoiler-button') . '</button><div class="bbcode-spoiler">' . $text;
 		}
 	}
 	
