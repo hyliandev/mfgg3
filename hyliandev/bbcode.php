@@ -26,7 +26,7 @@ function bbcode($text){
 	
 	foreach($simple_codes as $key=>$value){
 		$text=preg_replace(
-			'/\[' . $key . '](.*)\[\/' . $key . ']/i',
+			'/\[' . $key . '](.*)\[\/' . $key . ']/is',
 			'<span class="bbcode-' . $value . '">$1</span>',
 			$text
 		);
@@ -160,6 +160,19 @@ function bbcode($text){
 			}
 			
 			return '<iframe src="https://youtube.com/embed/' . $code . '" class="bbcode-youtube' . ($matches[1] == 'ytaudio' ? ' bbcode-youtube-audio' : '') . '"></iframe>';
+		},
+		$text
+	);
+	
+	
+	
+	// Code
+	
+	$text=preg_replace_callback(
+		'/\[code\](.+)\[\/code\]/is',
+		function($matches){
+			return '<div class="bbcode-code">' . str_replace("\t",'&emsp;&emsp;&emsp;&emsp;',$matches[1]) . '</div>';
+			//return debug($matches);
 		},
 		$text
 	);

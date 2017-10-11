@@ -7,6 +7,7 @@
 <title><?=setting('site_abbr')?></title>
 <link rel="stylesheet" type="text/css" href="<?=url()?>/theme/base/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?=url()?>/theme/base/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="<?=url()?>/theme/base/highlight.min.css">
 <link rel="stylesheet" type="text/css" href="<?=url()?>/theme/base/style.css">
 <link rel="shortcut icon" type="image/ico" href="<?=url()?>/theme/base/favicon.ico">
 </head>
@@ -123,6 +124,7 @@
 </footer>
 
 <script type="text/javascript" src="<?=url()?>/theme/base/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="<?=url()?>/theme/base/highlight.min.js"></script>
 <script type="text/javascript" src="<?=url()?>/theme/base/script.js"></script>
 <script type="text/javascript">
 function API(){

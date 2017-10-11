@@ -4,6 +4,8 @@ $(function(){
 	prepareForm();
 	fixNavbar();
 	
+	highlightJS();
+	
 	$('#show-menu').click(function(e){
 		e.preventDefault();
 		
@@ -172,4 +174,22 @@ function fixNavbar(){
 	}
 	
 	$nav[func + 'Class']('stick');
+}
+
+
+
+
+
+
+
+
+
+
+// == BBCODE FUNCTIONS ==
+
+function highlightJS(){
+	var list=$('.bbcode-code').get();
+	for(var i in list){
+		hljs.highlightBlock(list[i]);
+	}
 }
