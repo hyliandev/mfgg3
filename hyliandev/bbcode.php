@@ -44,9 +44,17 @@ function bbcode($text){
 	// == LESS SIMPLE TAGS ==
 	
 	// URLs
-	$text=preg_replace(
+	$text=preg_replace_callback(
 		'/\[url=(((http(s|)):\/\/|)[a-zA-Z0-9]{1}[a-zA-Z0-9\-]{1,251}[a-zA-Z0-9]{1}\.[a-zA-Z]{1,10}(\/|)[a-zA-Z0-9@:%_\+.~#?&\/=\-$\^\*\(\)\`]*)\](.+)\[\/url\]/i',
-		'<a href="$1" target="_blank">$6</a>',
+		function($matches){
+			$url=$matches[1];
+			
+			if(empty($matches[2])){
+				$url='http://' . $url;
+			}
+			
+			return '<a href="' . $url . '" target="_blank">' . $matches[6] . '</a>';
+		},
 		$text
 	);
 	
