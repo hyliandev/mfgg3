@@ -1,8 +1,15 @@
 <?php
 
 function bbcode($text){
-	global $quote_open, $quote_close;
+	global
+		$list_open,
+		$list_close,
+		$quote_open,
+		$quote_close
+	;
 	
+	$list_open=0;
+	$list_close=0;
 	$quote_open=0;
 	$quote_close=0;
 	
@@ -26,7 +33,7 @@ function bbcode($text){
 	
 	foreach($simple_codes as $key=>$value){
 		$text=preg_replace(
-			'/\[' . $key . '](.*)\[\/' . $key . ']/is',
+			'/\[' . $key . '](.*)\[\/' . $key . ']/isU',
 			'<span class="bbcode-' . $value . '">$1</span>',
 			$text
 		);
@@ -44,8 +51,9 @@ function bbcode($text){
 	// == LESS SIMPLE TAGS ==
 	
 	// URLs
+	
 	$text=preg_replace_callback(
-		'/\[url=(((http(s|)):\/\/|)[a-zA-Z0-9]{1}[a-zA-Z0-9\-]{1,251}[a-zA-Z0-9]{1}\.[a-zA-Z]{1,10}(\/|)[a-zA-Z0-9@:%_\+.~#?&\/=\-$\^\*\(\)\`]*)\](.+)\[\/url\]/i',
+		'/\[url=(((http(s|)):\/\/|)[a-zA-Z0-9]{1}[a-zA-Z0-9\-]{1,251}[a-zA-Z0-9]{1}\.[a-zA-Z]{1,10}(\/|)[a-zA-Z0-9@:%_\+.~#?&\/=\-$\^\*\(\)\`]*)\](.+)\[\/url\]/isU',
 		function($matches){
 			$url=$matches[1];
 			
@@ -60,7 +68,8 @@ function bbcode($text){
 	
 	
 	
-	// Cited Quotes
+	// Quotes
+	
 	$text=preg_replace_callback(
 		'/\[quote(=([a-zA-Z0-9@:%_\+.~#?&\/=\-$\^\*\(\)\`\ \<\>\"\']+)|)\](.+)\[\/quote\]/is',
 		function($matches){
@@ -122,7 +131,7 @@ function bbcode($text){
 	// Images
 	
 	$text=preg_replace(
-		'/\[img\](((http(s|)):\/\/|)[a-zA-Z0-9]{1}[a-zA-Z0-9\-]{1,251}[a-zA-Z0-9]{1}\.[a-zA-Z]{1,10}(\/|)[a-zA-Z0-9@:%_\+.~#?&\/=\-$\^\*\(\)\`]*)\[\/img\]/is',
+		'/\[img\](((http(s|)):\/\/|)[a-zA-Z0-9]{1}[a-zA-Z0-9\-]{1,251}[a-zA-Z0-9]{1}\.[a-zA-Z]{1,10}(\/|)[a-zA-Z0-9@:%_\+.~#?&\/=\-$\^\*\(\)\`]*)\[\/img\]/isU',
 		'<img src="$1" class="bbcode-image">',
 		$text
 	);
@@ -132,7 +141,7 @@ function bbcode($text){
 	// Text sizes
 	
 	$text=preg_replace(
-		'/\[size\=(200|1[0-9]{2}|[5-9]{1}[0-9]{1})\](.[^\[size\]]+)\[\/size\]/is',
+		'/\[size\=(200|1[0-9]{2}|[5-9]{1}[0-9]{1})\](.+)\[\/size\]/isU',
 		'<span class="bbcode-size" style="font-size:$1%;">$2</span>',
 		$text
 	);
@@ -142,7 +151,7 @@ function bbcode($text){
 	// YouTube / YouTube Audio
 	
 	$text=preg_replace_callback(
-		'/\[(youtube|ytaudio)\](((http(s|)):\/\/|)([a-z0-9\-]{1,255}\.|)([a-zA-Z0-9]{1}[a-zA-Z0-9\-]{1,251}[a-zA-Z0-9]{1}\.[a-zA-Z]{1,10})(\/|)([a-zA-Z0-9;@:%_\+.~#?&\/=\-$\^\*\(\)\`]*))\[\/(youtube|ytaudio)\]/is',
+		'/\[(youtube|ytaudio)\](((http(s|)):\/\/|)([a-z0-9\-]{1,255}\.|)([a-zA-Z0-9]{1}[a-zA-Z0-9\-]{1,251}[a-zA-Z0-9]{1}\.[a-zA-Z]{1,10})(\/|)([a-zA-Z0-9;@:%_\+.~#?&\/=\-$\^\*\(\)\`]*))\[\/(youtube|ytaudio)\]/isU',
 		function($matches){
 			if($matches[1] != $matches[10]){
 				return $matches[0];
@@ -169,13 +178,79 @@ function bbcode($text){
 	// Code
 	
 	$text=preg_replace_callback(
-		'/\[code\](.+)\[\/code\]/is',
+		'/\[code\](.+)\[\/code\]/isU',
 		function($matches){
 			return '<div class="bbcode-code">' . str_replace("\t",'&emsp;&emsp;&emsp;&emsp;',$matches[1]) . '</div>';
 			//return debug($matches);
 		},
 		$text
 	);
+	
+	
+	
+	/*
+	// List
+	
+	$text=preg_replace_callback(
+		'/\[list\](.+)\[\/list\]/isU',
+		function($matches){
+			$list=explode('[*]',$matches[1]);
+			array_shift($list);
+			
+			$list='<li class="bbcode-list-item">' . implode('</li><li class="bbcode-list-item">',$list) . '</li>';
+			
+			return '<ul class="bbcode-list">' . $list . '</ul>';
+		},
+		$text
+	);
+	*/
+	// List
+	
+	$text=preg_replace_callback(
+		'/\[list\](.+)\[\/list\]/is',
+		function($matches){
+			$ret=str_replace('[*]','<li class="bbcode-list-item">',$matches[0]);
+			
+			$ret=preg_replace_callback(
+				'/\[list\]/is',
+				function($matches){
+					global $list_open;
+					
+					$list_open++;
+					
+					$ret='<ul class="bbcode-list">';
+					
+					return $ret;
+				},
+				$ret
+			);
+			
+			$ret=preg_replace_callback(
+				'/\[\/list\]/is',
+				function($matches){
+					global $list_close;
+					
+					$list_close++;
+					
+					$ret='</ul>';
+					
+					return $ret;
+				},
+				$ret
+			);
+			
+			return $ret;
+		},
+		$text
+	);
+	
+	if($list_open != $list_close){
+		if($list_open > $list_close){
+			$text.='</ul>';
+		}else{
+			$text='<ul class="bbcode-list">' . $text;
+		}
+	}
 	
 	
 	

@@ -296,6 +296,10 @@ blockquote cite {
 	font-style:italic;
 }
 
+.bbcode-list {
+	margin:0;
+}
+
 .bbcode-underline {
 	text-decoration:underline;
 }
