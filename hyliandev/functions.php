@@ -24,11 +24,18 @@ function field($data){
 function format($text){
 	$text=unconvert($text);
 	
-	$text=htmlentities($text);
-	
 	$text=bbcode($text);
 	
 	$text=nl2br($text);
+	
+	return $text;
+}
+
+
+
+// Use this before you put text in the database
+function preFormat($text){
+	$text=htmlentities($text);
 	
 	return $text;
 }
@@ -67,9 +74,27 @@ function unconvert ($data) {
 	$data = preg_replace("/<a\s+href=[\"\'](\S+?)[\"\']>(.*?)<\/a>/is", "[url=\\1]\\2[/url]", $data);
 	
 	// Quotes
-	$data = preg_replace("/<!--QuoteStart--><div class=\"quotetitle\">Quote<\/div><div class=\"quote\">/is", "[quote]", $data);
+	$data = preg_replace(
+		"/<!--QuoteStart--><div class=\"quotetitle\">Quote<\/div><div class=\"quote\">/is",
+		"[quote]",
+		$data
+	);
+	
 	//$data = preg_replace_callback("/<!--QuoteStart--><div class=\"quotetitle\">Quote <span style='font-weight:normal'>\((.+?)\)<\/span><\/div><div class=\"quote\">/is", array(&$this, 'unconvert_quote'), $data);
-	//$data = preg_replace("/<\/div><!--QuoteEnd-->/i", "[/quote]", $data);
+	
+	$data = preg_replace(
+		"/<!--QuoteStart--><div class=\"quotetitle\">Quote <span style='font-weight:normal'>\((.+?)\)<\/span><\/div><div class=\"quote\">/is",
+		// Idk why this isn't working but it's just not being recognized
+		// "[quote=$1]",
+		"[quote]",
+		$data
+	);
+	
+	$data = preg_replace(
+		"/<\/div><!--QuoteEnd-->/i",
+		"[/quote]",
+		$data
+	);
 	
 	// Line breaks
 	$data = preg_replace("/<br\s*\/?>/i", "\n", $data);

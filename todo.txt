@@ -11,9 +11,9 @@ What's done:
 - Blocking hotlinking for thumbnails, content
 - Registering views, downloads for content
 - Lang files
+- FIX unconvert()'S BROKEN QUOTE UNCONVERSION!
 
 What's left:
-- FIX unconvert()'S BROKEN QUOTE UNCONVERSION!
 - BBCode
 - Swear filter
 - A lot of theme stuff

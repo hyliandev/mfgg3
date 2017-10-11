@@ -4,7 +4,7 @@
 	</div>
 	
 	<div class="card-block">
-		<?=format($_POST['message'])?>
+		<?=format(preFormat($_POST['message']))?>
 	</div>
 	
 	<div class="card-header">
