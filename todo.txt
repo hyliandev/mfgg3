@@ -14,7 +14,8 @@ What's done:
 - FIX unconvert()'S BROKEN QUOTE UNCONVERSION!
 
 What's left:
-- BBCode
+- BBCode: code, list, spoiler, ispoiler
+- WYSIWYG
 - Swear filter
 - A lot of theme stuff
 - <title>

@@ -20,7 +20,8 @@ function bbcode($text){
 	$simple_codes=[
 		'b'=>'bold',
 		'i'=>'italic',
-		'u'=>'underline'
+		'u'=>'underline',
+		'center'=>'center'
 	];
 	
 	foreach($simple_codes as $key=>$value){
@@ -121,9 +122,37 @@ function bbcode($text){
 	
 	
 	// Text sizes
+	
 	$text=preg_replace(
-		'/\[size\=(1[0-5]{1}[0-9]{1}|[5-9]{1}[0-9]{1})\](.+)\[\/size\]/is',
-		'<span class="bbcode-size" style="font-size:$1%">$2</span>',
+		'/\[size\=(200|1[0-9]{2}|[5-9]{1}[0-9]{1})\](.[^\[size\]]+)\[\/size\]/is',
+		'<span class="bbcode-size" style="font-size:$1%;">$2</span>',
+		$text
+	);
+	
+	
+	
+	// YouTube / YouTube Audio
+	
+	$text=preg_replace_callback(
+		'/\[(youtube|ytaudio)\](((http(s|)):\/\/|)([a-z0-9\-]{1,255}\.|)([a-zA-Z0-9]{1}[a-zA-Z0-9\-]{1,251}[a-zA-Z0-9]{1}\.[a-zA-Z]{1,10})(\/|)([a-zA-Z0-9;@:%_\+.~#?&\/=\-$\^\*\(\)\`]*))\[\/(youtube|ytaudio)\]/is',
+		function($matches){
+			if($matches[1] != $matches[10]){
+				return $matches[0];
+			}
+			
+			if(!in_array($matches[7],['youtube.com','youtu.be'])){
+				return '<div class="alert alert-warning">Non-YouTube URL detected</div>';
+			}
+			
+			if($matches[7] == 'youtu.be'){
+				$code=$matches[9];
+			}else{
+				$code=array_pop(explode('v=',$matches[9]));
+				$code=array_shift(explode('&',$code));
+			}
+			
+			return '<iframe src="https://youtube.com/embed/' . $code . '" class="bbcode-youtube' . ($matches[1] == 'ytaudio' ? ' bbcode-youtube-audio' : '') . '"></iframe>';
+		},
 		$text
 	);
 	

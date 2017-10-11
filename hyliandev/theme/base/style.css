@@ -276,6 +276,11 @@ blockquote cite {
 	font-weight:bold;
 }
 
+.bbcode-center {
+	display:block;
+	text-align:center;
+}
+
 .bbcode-image {
 	/**/
 }
@@ -286,4 +291,20 @@ blockquote cite {
 
 .bbcode-underline {
 	text-decoration:underline;
+}
+
+.bbcode-youtube {
+	display:block;
+	border-width:0;
+	margin:auto;
+	max-width:100%;
+	width:640px;
+}
+
+.bbcode-youtube:not(.bbcode-youtube-audio) {
+	height:360px;
+}
+
+.bbcode-youtube-audio {
+	height:48px;
 }
