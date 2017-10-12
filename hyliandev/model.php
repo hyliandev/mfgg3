@@ -230,7 +230,7 @@ class Sprites extends Model {
 		if(!empty($rid=$data['rid'])){
 			if(!is_numeric($rid)) return false;
 			
-			if($nid < 0) return false;
+			if($rid < 0) return false;
 			
 			$q=DB()->prepare("SELECT r.*, g.* FROM " . setting('db_prefix') . "res_gfx AS g LEFT JOIN " . setting('db_prefix') . "resources AS r ON r.eid=g.eid WHERE r.rid=? LIMIT 1;");
 			
@@ -387,6 +387,70 @@ class Comments extends Model {
 		]);
 		
 		return ceil($q->fetch(PDO::FETCH_OBJ)->count / $limit);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+// Forums
+
+class Forums extends Model {
+	public static function Read($data=[]){
+		if(!empty($fid=$data['fid'])){
+			if(!is_numeric($fid)) return false;
+			
+			if($fid < 0) return false;
+			
+			$q=DB()->prepare("SELECT f.* FROM " . setting('db_prefix') . "forums AS f WHERE f.fid=? LIMIT 1;");
+			
+			$q->execute([$fid]);
+			
+			$q=$q->fetch(PDO::FETCH_OBJ);
+			
+			if(empty($q)){
+				return false;
+			}
+			
+			return $q;
+		}
+		
+		if(empty($page=$data['page'])) $page=1;
+		
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		
+		if(empty($pid=$data['pid'])) $pid=0;
+		
+		$q=DB()->prepare(
+			$sql="SELECT
+			f.*
+			
+			FROM " . setting('db_prefix') . "forums AS f
+			
+			WHERE
+			pid=?
+			
+			ORDER BY order_place ASC
+			
+			LIMIT
+			" . (($page - 1) * $limit) . ",
+			$limit
+			;"
+		);
+		
+		$q->execute([
+			$pid
+		]);
+		
+		$q=$q->fetchAll(PDO::FETCH_OBJ);
+		
+		return $q;
 	}
 }
 

@@ -10,7 +10,8 @@ TCSMS compatibility:
 - Logging in works
 
 Forums:
-- nothing
+- Pulling categories
+- Pulling forums
 
 Theme:
 - Some basic theme stuff, including a lot of mobile-friendliness
@@ -31,6 +32,8 @@ Generic PHP:
 == TODO ==
 
 TCSMS compatibility:
+- Login attempts: limit? or just do captcha after a few attempts?
+- Capctha on registration
 - Pulling kinds of content that isn't sprites
 - Searching for content
 - Users creating, editing submissions
@@ -48,8 +51,6 @@ TCSMS compatibility:
 - Pulling, paginating users
 
 Forums:
-- Pulling, paginating categories
-- Pulling, paginating Forums
 - Pulling, paginating topics
 - Pulling, paginating replies
 - Admins creating, editing, deleting categories
@@ -64,6 +65,8 @@ Forums:
 - Admins splitting topics
 - Admins merging topics
 - Admins splitting and merging topics
+- Good Shit
+- Tusk Bucks
 
 Theme:
 - A lot of theme stuff
@@ -76,3 +79,4 @@ Generic PHP:
 - Swear filter
 - Emoji
 - Option to reset denormalized numbers: comments, replies, review scores, views/downloads?
+- Nicknames
