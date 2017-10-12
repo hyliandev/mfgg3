@@ -1,73 +1,85 @@
-<div class="bbcode-bar"><?php foreach([
+<div><?php foreach([
 	[
-		'fa'=>'bold',
-		'tag'=>'[b][/b]'
+		[
+			'fa'=>'bold',
+			'tag'=>'[b][/b]'
+		],
+		[
+			'fa'=>'italic',
+			'tag'=>'[i][/i]'
+		],
+		[
+			'fa'=>'underline',
+			'tag'=>'[u][/u]'
+		],
+		[
+			'fa'=>'strikethrough',
+			'tag'=>'[s][/s]'
+		],
 	],
 	[
-		'fa'=>'italic',
-		'tag'=>'[i][/i]'
+		[
+			'fa'=>'align-center',
+			'tag'=>'[center][/center]'
+		],
+		[
+			'fa'=>'text-height',
+			'tag'=>'[size=100][/size]'
+		],
 	],
 	[
-		'fa'=>'underline',
-		'tag'=>'[u][/u]'
+		[
+			'fa'=>'link',
+			'tag'=>'[url=example.com][/url]'
+		],
+		[
+			'fa'=>'quote-right',
+			'tag'=>'[quote][/quote]'
+		],
+		[
+			'fa'=>'picture-o',
+			'tag'=>'[img][/img]'
+		],
 	],
 	[
-		'fa'=>'strikethrough',
-		'tag'=>'[s][/s]'
+		[
+			'fa'=>'youtube-play',
+			'tag'=>'[ytaudio][/ytaudio]'
+		],
+		[
+			'fa'=>'youtube',
+			'tag'=>'[youtube][/youtube]'
+		],
+		[
+			'fa'=>'code',
+			'tag'=>'[code][/code]'
+		]
 	],
-	[
-		'fa'=>'align-center',
-		'tag'=>'[center][/center]'
-	],
-	[
-		'fa'=>'link',
-		'tag'=>'[url=example.com][/url]'
-	],
-	[
-		'fa'=>'quote-right',
-		'tag'=>'[quote][/quote]'
-	],
-	[
-		'fa'=>'picture-o',
-		'tag'=>'[img][/img]'
-	],
-	[
-		'fa'=>'text-height',
-		'tag'=>'[size=100][/size]'
-	],
-	[
-		'fa'=>'youtube',
-		'tag'=>'[youtube][/youtube]'
-	],
-	[
-		'fa'=>'youtube-play',
-		'tag'=>'[ytaudio][/ytaudio]'
-	],
-	[
-		'fa'=>'code',
-		'tag'=>'[code][/code]'
-	],
-	[
-		'fa'=>'list-ul',
-		'tag'=>'[list][/list]'
-	],
-	[
-		'fa'=>'asterisk',
-		'tag'=>'[*]'
-	],
-	[
-		'fa'=>'eye-slash',
-		'tag'=>'[spoiler][/spoiler]'
-	],
-	[
-		'fa'=>'mouse-pointer',
-		'tag'=>'[ispoiler][/ispoiler]'
+	[	
+		[
+			'fa'=>'list-ul',
+			'tag'=>'[list][/list]'
+		],
+		[
+			'fa'=>'asterisk',
+			'tag'=>'[*]'
+		],
+		[
+			'fa'=>'eye-slash',
+			'tag'=>'[spoiler][/spoiler]'
+		],
+		[
+			'fa'=>'mouse-pointer',
+			'tag'=>'[ispoiler][/ispoiler]'
+		]
 	]
-] as $bbcode): ?>
+] as $bbcode_group): ?>
 
-<button type="button" class="btn btn-secondary" data-bbcode="<?=$bbcode['tag']?>">
-	<span class="fa fa-<?=$bbcode['fa']?>"></span>
-</button>
+<div class="bbcode-bar btn-group"><?php foreach($bbcode_group as $bbcode): ?>
+	<button type="button" class="btn btn-primary" data-bbcode="<?=$bbcode['tag']?>">
+		<span class="fa fa-<?=$bbcode['fa']?>"></span>
+	</button>
+<?php endforeach; ?></div>
 
 <?php endforeach; ?></div>
 

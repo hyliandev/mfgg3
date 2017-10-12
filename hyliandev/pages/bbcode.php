@@ -19,8 +19,10 @@
 				'type'=>'textarea-bbcode'
 			])?>
 			
-			<button class="btn btn-success" type="button" data-bbcode-preview><?=lang('misc-preview')?></button>
-			<button class="btn btn-primary" type="submit"><?=lang('misc-submit')?></button>
+			<div>
+				<button class="btn btn-success" type="button" data-bbcode-preview><?=lang('misc-preview')?></button>
+				<button class="btn btn-primary" type="submit"><?=lang('misc-submit')?></button>
+			</div>
 		</form>
 	</div>
 </div>
