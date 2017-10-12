@@ -235,6 +235,14 @@ textarea {
 	background-color:#1E247E;
 }
 
+.flex-row {
+	
+}
+
+.flex-row .flex-column.flex-column-grow {
+	flex-grow:1;
+}
+
 .resource-layout {
 	border-bottom:1px solid #CCC;
 	display:flex;
@@ -247,6 +255,12 @@ textarea {
 
 .resource-layout .resource-description {
 	flex-grow:1;
+}
+
+@media (min-width:768px){
+	.flex-row {
+		display:flex;
+	}
 }
 
 

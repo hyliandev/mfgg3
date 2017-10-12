@@ -454,4 +454,68 @@ class Forums extends Model {
 	}
 }
 
+
+
+
+
+
+
+
+
+
+// Topics
+
+class Topics extends Model {
+	public static function Read($data=[]){
+		if(!empty($tid=$data['tid'])){
+			if(!is_numeric($tid)) return false;
+			
+			if($tid < 0) return false;
+			
+			$q=DB()->prepare("SELECT t.* FROM " . setting('db_prefix') . "topics AS t WHERE t.tid=? LIMIT 1;");
+			
+			$q->execute([$tid]);
+			
+			$q=$q->fetch(PDO::FETCH_OBJ);
+			
+			if(empty($q)){
+				return false;
+			}
+			
+			return $q;
+		}
+		
+		if(empty($page=$data['page'])) $page=1;
+		
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		
+		if(empty($pid=$data['pid'])) $pid=0;
+		
+		$q=DB()->prepare(
+			$sql="SELECT
+			t.*
+			
+			FROM " . setting('db_prefix') . "topics AS t
+			
+			WHERE
+			pid=?
+			
+			ORDER BY last_post_date ASC
+			
+			LIMIT
+			" . (($page - 1) * $limit) . ",
+			$limit
+			;"
+		);
+		
+		$q->execute([
+			$pid
+		]);
+		
+		$q=$q->fetchAll(PDO::FETCH_OBJ);
+		
+		return $q;
+	}
+}
+
 ?>

@@ -2,10 +2,10 @@
 
 <div class="card">
 	<div class="card-header">
-		Announcements
+		Topics
 	</div>
 	
-	<div class="card-block">
-		
-	</div>
+	<?php foreach(Topics::Read(['pid'=>$fid]) as $topic): ?>
+		<?=view('forums/topic',$topic)?>
+	<?php endforeach; ?>
 </div>

@@ -30,6 +30,17 @@ switch($params[0]){
 		}
 	break;
 	
+	case 'topic':
+		$view='topic-single';
+		
+		$tid=array_shift(explode('-',$params[1]));
+		
+		if(empty($vars=Topics::Read(['tid'=>$tid]))){
+			$view='badparams';
+			break;
+		}
+	break;
+	
 	default:
 		$view='badparams';
 	break;
