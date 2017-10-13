@@ -1,6 +1,6 @@
 <h1><?=$title?></h1>
 
-<div class="card"><?php foreach(Posts::Read($data=['tid'=>$tid,'page'=>$page,'limit'=>1]) as $post): ?>
+<div class="card"><?php foreach(Posts::Read($data=['tid'=>$tid,'page'=>$page]) as $post): ?>
 	<?=view('forums/post',$post)?>
 <?php endforeach; ?></div>
 

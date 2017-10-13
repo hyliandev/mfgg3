@@ -14,7 +14,7 @@ $user=Users::Read(['uid'=>$uid]);
 				<?=User::ShowUsername($user)?>
 				</p>
 				
-				<?=date('m/d/Y g:i:sa',$date)?>
+				<?=displayDate($date)?>
 			</div>
 			
 			<div class="col-12 col-lg-9">

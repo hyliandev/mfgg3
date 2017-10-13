@@ -9,7 +9,7 @@
 			
 			<div class="flex-column">
 				Posted by <?=User::ShowUsername($user)?>
-				<?=date('m/d/Y g:i:sa',$date)?>
+				<?=displayDate($date)?>
 			</div>
 		</div>
 	</div>

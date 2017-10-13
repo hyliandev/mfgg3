@@ -295,6 +295,25 @@ textarea {
 
 
 
+/* == USERS == */
+
+.user-profile-small {
+	
+}
+
+[class*="user-profile-small"] {
+	padding-bottom:1em;
+}
+
+
+
+
+
+
+
+
+
+
 /* == BBCODE == */
 
 blockquote {

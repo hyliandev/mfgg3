@@ -25,6 +25,13 @@ $_SETTINGS=[
 	
 	
 	
+	// Date settings
+	
+	'date_format'=>'m/d/Y g:ia',
+	'date_setting'=>'date',
+	
+	
+	
 	// Resource settings
 	
 	'limit_per_page'=>20,

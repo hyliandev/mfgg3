@@ -13,6 +13,26 @@ function debug(){
 
 
 
+// Display the date
+function displayDate($date){
+	if(empty($date) || !is_numeric($date)){
+		$date=0;
+	}
+	
+	switch(setting('date_setting')){
+		case 'date':
+			$date=date(
+				setting('date_format'),
+				$date
+			);
+		break;
+	}
+	
+	return $date;
+}
+
+
+
 // Display a field
 function field($data){
 	return view('fields/base',$data);

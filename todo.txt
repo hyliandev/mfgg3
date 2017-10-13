@@ -18,7 +18,7 @@ Forums:
 Theme:
 - Some basic theme stuff, including a lot of mobile-friendliness
 
-Generic PHP:
+Generic:
 - Properly displaying thumbnails, content
 - Blocking hotlinking for thumbnails, content
 - Lang files
@@ -73,7 +73,8 @@ Theme:
 - Nav menu max height
 - <title>
 
-Generic PHP:
+Generic:
+- Redirect URL
 - BBCode: html5 audio/video
 - WYSIWYG
 - Swear filter

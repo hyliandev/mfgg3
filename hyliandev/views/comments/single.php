@@ -2,7 +2,7 @@
 	<div class="card-header">
 		<?=User::ShowUsername($user)?>
 		<small>
-			<?=date('m/d/Y g:i:sa',$date)?>
+			<?=displayDate($date)?>
 		</small>
 	</div>
 	
