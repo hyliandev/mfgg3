@@ -33,6 +33,16 @@ switch($params[0]){
 	case 'topic':
 		$view='topic-single';
 		
+		if($params[1] == 'new'){
+			if(empty($vars=Forums::Read(['fid'=>$params[2]]))){
+				$view='badparams';
+				break;
+			}
+			
+			$view='topic-new';
+			break;
+		}
+		
 		$tid=array_shift(explode('-',$params[1]));
 		
 		if(empty($vars=Topics::Read(['tid'=>$tid]))){

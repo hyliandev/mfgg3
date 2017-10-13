@@ -20,19 +20,26 @@ if(empty($data=$_POST['data']) || empty($data['purpose'])){
 }
 
 switch($data['purpose']){
-	case 'verify-registration':
-		$response['data']=Users::CreateError($data);
-		$response['success']=true;
-		
-		respond();
-	break;
-	
 	case 'bbcode-preview':
 		if(!empty($data['message'])){
 			$response['success']=true;
 			
 			$response['data']=format(preFormat($data['message']));
 		}
+		
+		respond();
+	break;
+	
+	case 'verify-new-topic':
+		$response['data']=Topics::CreateError($data);
+		$response['success']=true;
+		
+		respond();
+	break;
+	
+	case 'verify-registration':
+		$response['data']=Users::CreateError($data);
+		$response['success']=true;
 		
 		respond();
 	break;

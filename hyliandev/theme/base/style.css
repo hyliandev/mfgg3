@@ -375,6 +375,10 @@ blockquote cite {
 	margin:0;
 }
 
+.bbcode-preview-container {
+	display:none;
+}
+
 .bbcode-spoiler {
 	background-color:rgba(0,0,0,0.25);
 	display:none;

@@ -26,6 +26,45 @@ function displayDate($date){
 				$date
 			);
 		break;
+		
+		case 'since':
+			$date=time() - $date;
+			
+			$suffixes=[
+				0=>'second',
+				60=>'minute',
+				(60 * 60)=>'hour',
+				(60 * 60 * 24)=>'day',
+				(60 * 60 * 24 * 7)=>'week',
+				(60 * 60 * 24 * 365)=>'year'
+			];
+			
+			foreach($suffixes as $key=>$value){
+				if(abs($date) < $key){
+					break;
+				}
+				
+				if($key != 0){
+					$val=floor(abs($date) / $key);
+				}else{
+					$val=abs($date);
+				}
+				
+				$_date=$val . ' ' . $value;
+				
+				if($val != 1){
+					$_date .= 's';
+				}
+				
+				if($date > 0){
+					$_date .= ' ago';
+				}else{
+					$_date .= ' from now';
+				}
+			}
+			
+			$date=$_date;
+		break;
 	}
 	
 	return $date;

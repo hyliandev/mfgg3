@@ -28,7 +28,7 @@ $_SETTINGS=[
 	// Date settings
 	
 	'date_format'=>'m/d/Y g:ia',
-	'date_setting'=>'date',
+	'date_setting'=>'since',
 	
 	
 	

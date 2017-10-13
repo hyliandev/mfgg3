@@ -1,5 +1,9 @@
 <h1><?=$title?></h1>
 
+<a href="<?=url()?>/forums/topic/new/<?=$fid?>" class="btn btn-primary">
+	New Topic
+</a>
+
 <div class="card">
 	<div class="card-header">
 		Topics

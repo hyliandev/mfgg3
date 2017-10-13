@@ -76,6 +76,7 @@ Theme:
 Generic:
 - Redirect URL
 - BBCode: html5 audio/video
+- @ users
 - WYSIWYG
 - Swear filter
 - Emoji

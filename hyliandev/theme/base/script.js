@@ -62,7 +62,7 @@ function checkForm(e){
 		
 		if($field.val().length <= 0){
 			hasError=true;
-			$field.addClass('form-control-danger').closest('label').addClass('has-danger').find('strong').addClass('text-danger');
+			$field.addClass('form-control-danger').closest('.field').addClass('has-danger').find('strong').addClass('text-danger');
 		}
 	}
 	
@@ -115,6 +115,48 @@ function checkRegistrationForm(e){
 	});
 }
 
+function checkNewTopicForm(e){
+	if($(this).attr('data-fasttrack')){
+		return;
+	}
+	
+	e.preventDefault();
+	
+	$(this).attr('data-fasttrack');
+	
+	$.ajax({
+		type:'POST',
+		url:API(),
+		data:{
+			data:{
+				purpose:'verify-new-topic',
+				title:$(this).find('[name="title"]').val(),
+				message:$(this).find('[name="message"]').val()
+			}
+		}
+	}).done(function(response){
+		var hasError=false;
+		
+		console.log(response.data);
+		
+		for(var i in response.data){
+			var error=response.data[i];
+			
+			if(!error){
+				continue;
+			}
+			
+			hasError=true;
+			
+			setFieldError(i,error);
+		}
+		
+		if(!hasError){
+			$('form.new-topic-form').attr('data-fasttrack',true).submit();
+		}
+	});
+}
+
 function clearForm(f){
 	if(f.nodeType == undefined){
 		f=this;
@@ -133,6 +175,10 @@ function prepareForm(){
 		
 		if($form.hasClass('registration-form')){
 			$form.submit(checkRegistrationForm);
+		}
+		
+		if($form.hasClass('new-topic-form')){
+			$form.submit(checkNewTopicForm);
 		}
 		
 		$form.find('[required]').attr('required',false).attr('data-required',true);
@@ -241,7 +287,7 @@ function bbcodePreview(e){
 			}
 		}
 	}).done(function(response){
-		$('#bbcode-preview').html(response.data);
+		$('#bbcode-preview').html(response.data).closest('.bbcode-preview-container').stop().slideDown(100);;
 		bbcode();
 	});
 }

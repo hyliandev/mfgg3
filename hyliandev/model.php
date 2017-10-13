@@ -475,6 +475,27 @@ class Forums extends Model {
 // Topics
 
 class Topics extends Model {
+	public static function CreateError($data=[]){
+		$error=[
+			'title'=>false,
+			'message'=>false
+		];
+		
+		// Title
+		if(empty($data['title'])){
+			$error['title']='Title was empty';
+		}elseif($data['title'] == 'lol'){
+			$error['title']='Title was lol';
+		}
+		
+		// Message
+		if(empty($data['message'])){
+			$error['message']='Message was empty';
+		}
+		
+		return $error;
+	}
+	
 	public static function Read($data=[]){
 		if(!empty($tid=$data['tid'])){
 			if(!is_numeric($tid)) return false;
