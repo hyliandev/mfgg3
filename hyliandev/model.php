@@ -475,6 +475,53 @@ class Forums extends Model {
 // Topics
 
 class Topics extends Model {
+	public static function Create($data=[]){
+		if(empty($data['pid'])){
+			return false;
+		}
+		
+		if(in_array(true,$errors=Topics::CreateError($data))){
+			return $errors;
+		}
+		
+		$q=DB()->prepare($sql="
+			INSERT INTO " . setting('db_prefix') . "topics
+			
+			(
+				pid,
+				title,
+				date,
+				poster_uid,
+				last_post_date
+			)
+			
+			VALUES (
+				?,
+				?,
+				?,
+				?,
+				?
+			);
+		");
+		
+		$ret=$q->execute([
+			$data['pid'],
+			$data['title'],
+			time(),
+			User::GetUser()->uid,
+			time()
+		]);
+		
+		$GLOBALS['topic_id']=DB()->lastInsertId();
+		
+		Posts::Create([
+			'message'=>$data['message'],
+			'tid'=>$GLOBALS['topic_id']
+		]);
+		
+		return $ret;
+	}
+	
 	public static function CreateError($data=[]){
 		$error=[
 			'title'=>false,
@@ -530,7 +577,7 @@ class Topics extends Model {
 			WHERE
 			pid=?
 			
-			ORDER BY last_post_date ASC
+			ORDER BY last_post_date DESC
 			
 			LIMIT
 			" . (($page - 1) * $limit) . ",
@@ -592,6 +639,56 @@ class Topics extends Model {
 // Posts
 
 class Posts extends Model {
+	public static function Create($data=[]){
+		if(empty($data['tid'])){
+			return false;
+		}
+		
+		if(in_array(true,$errors=Posts::CreateError($data))){
+			return $errors;
+		}
+		
+		$q=DB()->prepare($sql="
+			INSERT INTO " . setting('db_prefix') . "posts
+			
+			(
+				tid,
+				message,
+				date,
+				poster_uid
+			)
+			
+			VALUES (
+				?,
+				?,
+				?,
+				?
+			);
+		");
+		
+		$ret=$q->execute([
+			$data['tid'],
+			$data['message'],
+			time(),
+			User::GetUser()->uid
+		]);
+		
+		return $ret;
+	}
+	
+	public static function CreateError($data=[]){
+		$error=[
+			'message'=>false
+		];
+		
+		// Message
+		if(empty($data['message'])){
+			$error['message']='Message was empty';
+		}
+		
+		return $error;
+	}
+	
 	public static function Read($data=[]){
 		if(empty($page=$data['page'])) $page=1;
 		

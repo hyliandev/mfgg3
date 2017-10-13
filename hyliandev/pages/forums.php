@@ -40,6 +40,27 @@ switch($params[0]){
 			}
 			
 			$view='topic-new';
+			
+			if(isset($_POST['title']) && isset($_POST['message'])){
+				$vars->errors=Topics::Create([
+					'title'=>$_POST['title'],
+					'message'=>$_POST['message'],
+					'pid'=>$params[2]
+				]);
+				
+				$view='topic-new-success';
+				
+				if($vars->errors === true){
+					$view='topic-new-success';
+				}else{
+					foreach($vars->errors as $error){
+						if(!empty($error)){
+							$view='topic-new';
+						}
+					}
+				}
+			}
+			
 			break;
 		}
 		
