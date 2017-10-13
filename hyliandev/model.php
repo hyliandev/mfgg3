@@ -450,6 +450,15 @@ class Forums extends Model {
 		
 		$q=$q->fetchAll(PDO::FETCH_OBJ);
 		
+		foreach($q as $key=>$value){
+			if(empty($value)){
+				unset($q[$key]);
+				continue;
+			}
+			
+			$q[$key]->user=Users::Read(['uid'=>$q[$key]->poster_uid]);
+		}
+		
 		return $q;
 	}
 }
@@ -514,7 +523,117 @@ class Topics extends Model {
 		
 		$q=$q->fetchAll(PDO::FETCH_OBJ);
 		
+		foreach($q as $key=>$value){
+			if(empty($value)){
+				unset($q[$key]);
+				continue;
+			}
+			
+			$q[$key]->user=Users::Read(['uid'=>$q[$key]->poster_uid]);
+		}
+		
 		return $q;
+	}
+	
+	public static function NumberOfPages($data=[]){
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		
+		if(empty($pid=$data['pid'])) $pid=0;
+		
+		$q=DB()->prepare(
+			$sql="SELECT
+			COUNT(*) AS count
+			
+			FROM " . setting('db_prefix') . "topics AS t
+			
+			WHERE
+			pid=?
+			;"
+		);
+		
+		$q->execute([
+			$pid
+		]);
+		
+		return ceil($q->fetch(PDO::FETCH_OBJ)->count / $limit);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+// Posts
+
+class Posts extends Model {
+	public static function Read($data=[]){
+		if(empty($page=$data['page'])) $page=1;
+		
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		
+		if(empty($tid=$data['tid'])) $tid=0;
+		
+		$q=DB()->prepare(
+			$sql="SELECT
+			p.*
+			
+			FROM " . setting('db_prefix') . "posts AS p
+			
+			WHERE
+			tid=?
+			
+			ORDER BY pid ASC
+			
+			LIMIT
+			" . (($page - 1) * $limit) . ",
+			$limit
+			;"
+		);
+		
+		$q->execute([
+			$tid
+		]);
+		
+		$q=$q->fetchAll(PDO::FETCH_OBJ);
+		
+		foreach($q as $key=>$value){
+			if(empty($value)){
+				unset($q[$key]);
+				continue;
+			}
+			
+			$q[$key]->user=Users::Read(['uid'=>$q[$key]->poster_uid]);
+		}
+		
+		return $q;
+	}
+	
+	public static function NumberOfPages($data=[]){
+		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		
+		if(empty($tid=$data['tid'])) $tid=0;
+		
+		$q=DB()->prepare(
+			$sql="SELECT
+			COUNT(*) AS count
+			
+			FROM " . setting('db_prefix') . "posts AS p
+			
+			WHERE
+			tid=?
+			;"
+		);
+		
+		$q->execute([
+			$tid
+		]);
+		
+		return ceil($q->fetch(PDO::FETCH_OBJ)->count / $limit);
 	}
 }
 

@@ -46,6 +46,10 @@ switch($params[0]){
 	break;
 }
 
+if(empty($vars->page=$params[2]) || !is_numeric($vars->page) || $vars->page <= 0){
+	$vars->page=1;
+}
+
 echo view('forums/' . $view,$vars);
 
 ?>

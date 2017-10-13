@@ -212,6 +212,29 @@ textarea {
 
 
 
+/* == FORUMS == */
+
+.topic .flex-row .flex-column {
+	padding:0 0.5em;
+}
+
+.topic .flex-row .flex-column:first-of-type {
+	padding-left:0;
+}
+
+.topic .flex-row .flex-column:last-of-type {
+	padding-right:0;
+}
+
+
+
+
+
+
+
+
+
+
 /* == USEFUL CLASSES == */
 
 .card {

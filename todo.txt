@@ -12,7 +12,8 @@ TCSMS compatibility:
 Forums:
 - Pulling categories
 - Pulling forums
-- Pulling topics
+- Pulling, paginating topics
+- Pulling, paginating replies
 
 Theme:
 - Some basic theme stuff, including a lot of mobile-friendliness
@@ -52,7 +53,6 @@ TCSMS compatibility:
 - Pulling, paginating users
 
 Forums:
-- Pulling, paginating replies
 - Admins creating, editing, deleting categories
 - Admins creating, editing, deleting forums
 - Creating, editing topics
