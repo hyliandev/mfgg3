@@ -5,6 +5,7 @@ $(function(){
 	fixNavbar();
 	
 	bbcode();
+	countdowns();
 	
 	$('#show-menu').click(function(e){
 		e.preventDefault();
@@ -308,4 +309,69 @@ function setupSpoilerButton(){
 
 function spoilerButton(){
 	$(this).closest('.bbcode-spoiler-container').find('> .bbcode-spoiler').stop().slideToggle(100);
+}
+
+
+
+
+
+
+
+
+
+
+// == DATE FUNCTIONS ==
+
+function countdowns(){
+	var list=$('.countdown-container').get();
+	for(var i in list){
+		setInterval(
+			function(element){
+				var date=$(element).attr('data-timer');
+				
+				$(element).attr('data-timer',
+					 --date
+				);
+				
+				var suffixes={
+					0:'second',
+					60:'minute',
+					3600:'hour',
+					86400:'day',
+					604800:'week',
+					31536000:'year'
+				};
+				
+				var _date='';
+				var val='';
+				for(var i in suffixes){
+					if(Math.abs(date) < i){
+						break;
+					}
+					
+					if(i != 0){
+						val=Math.floor(Math.abs(date) / i);
+					}else{
+						val=Math.abs(date);
+					}
+					
+					_date=val + ' ' + suffixes[i];
+					
+					if(val != 1){
+						_date += 's';
+					}
+					
+					if(date < 0){
+						_date += ' ago';
+					}else{
+						_date += ' from now';
+					}
+				}
+				
+				element.innerHTML=_date;
+			},
+			1000,
+			list[i]
+		);
+	}
 }

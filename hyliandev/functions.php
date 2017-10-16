@@ -14,12 +14,16 @@ function debug(){
 
 
 // Display the date
-function displayDate($date){
+function displayDate($date,$display_setting = null){
 	if(empty($date) || !is_numeric($date)){
 		$date=0;
 	}
 	
-	switch(setting('date_setting')){
+	if($display_setting == null){
+		$display_setting=setting('date_setting');
+	}
+	
+	switch($display_setting){
 		case 'date':
 			$date=date(
 				setting('date_format'),
@@ -61,6 +65,8 @@ function displayDate($date){
 				}else{
 					$_date .= ' from now';
 				}
+				
+				$_date='<span class="countdown-container" data-timer="' . -$date . '">' . $_date . '</span>';
 			}
 			
 			$date=$_date;

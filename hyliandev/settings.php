@@ -15,6 +15,15 @@ function setting($key,$value=null){
 }
 
 $_SETTINGS=[
+	// Content settings
+	
+	'thumbnail_directory'=>'../tcsms/thumbnail',
+	'file_directory'=>'../tcsms/file',
+	
+	'session_hotlink_protection'=>true,
+	
+	
+	
 	// Database settings
 	
 	'db_host'=>'localhost',
@@ -32,16 +41,10 @@ $_SETTINGS=[
 	
 	
 	
-	// Resource settings
+	// Login settings
 	
-	'limit_per_page'=>20,
-	
-	
-	
-	// Site settings
-	
-	'site_name'=>'Mario Fan Games Galaxy',
-	'site_abbr'=>'MFGG',
+	'login_attempts_max'=>10,
+	'login_attempts_wait'=>60 * 5,
 	
 	
 	
@@ -55,12 +58,16 @@ $_SETTINGS=[
 	
 	
 	
-	// Content settings
+	// Resource settings
 	
-	'thumbnail_directory'=>'../tcsms/thumbnail',
-	'file_directory'=>'../tcsms/file',
+	'limit_per_page'=>20,
 	
-	'session_hotlink_protection'=>true,
+	
+	
+	// Site settings
+	
+	'site_name'=>'Mario Fan Games Galaxy',
+	'site_abbr'=>'MFGG',
 ];
 
 ?>

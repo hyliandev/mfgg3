@@ -82,3 +82,5 @@ Generic:
 - Emoji
 - Option to reset denormalized numbers: comments, replies, review scores, views/downloads?
 - Nicknames
+- Warning users
+- Banning (IP, user; temp, perma)

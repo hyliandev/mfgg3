@@ -31,53 +31,97 @@ class User {
 	
 	public static function Login($username,$password){
 		$ret=[
-			'attempts'=>true,
+			'attempts'=>false,
 			'username'=>false,
 			'password'=>false
 		];
 		
-		$q=DB()->prepare("SELECT password,uid FROM " . setting('db_prefix') . "users WHERE username=? LIMIT 1;");
-		$q->execute([$username]);
-		$user=$q->fetch(PDO::FETCH_OBJ);
-		$_password=$user->password;
+		// Check the number of attempts first
+		$attempts=DB()->prepare("
+			SELECT COUNT(*) AS count FROM " . setting('db_prefix') . "login_attempts AS l
+			WHERE
+			date > ?
+			AND
+			user_agent = ?
+			AND
+			ip = ?
+			AND
+			success = 0
+			;
+		");
 		
-		if(!empty($_password)){
-			$ret['username']=true;
+		$attempts->execute([
+			time() - setting('login_attempts_wait'),
+			$_SERVER['HTTP_USER_AGENT'],
+			$_SERVER['REMOTE_ADDR']
+		]);
+		
+		$attempts=$attempts->fetch(PDO::FETCH_OBJ)->count;
+		
+		if($attempts <= setting('login_attempts_max')){
+			$ret['attempts']=true;
 			
-			$login=false;
+			$q=DB()->prepare("SELECT password,uid FROM " . setting('db_prefix') . "users WHERE username=? LIMIT 1;");
+			$q->execute([$username]);
+			$user=$q->fetch(PDO::FETCH_OBJ);
+			$_password=$user->password;
 			
-			if(User::PasswordMatch($password,$_password)){
-				$login=true;
-			}elseif(md5($password) == $_password){
-				$login=true;
+			if(!empty($_password)){
+				$ret['username']=true;
 				
-				$q=DB()->prepare("
-					UPDATE " . setting('db_prefix') . "users
-					
-					SET password = ?
-					
-					WHERE uid = ?
-					
-					LIMIT 1
-					;
-				");
+				$login=false;
 				
-				$q->execute($data=[
-					User::Password($password),
-					$user->uid
-				]);
+				if(User::PasswordMatch($password,$_password)){
+					$login=true;
+				}elseif(md5($password) == $_password){
+					$login=true;
+					
+					$q=DB()->prepare("
+						UPDATE " . setting('db_prefix') . "users
+						
+						SET password = ?
+						
+						WHERE uid = ?
+						
+						LIMIT 1
+						;
+					");
+					
+					$q->execute($data=[
+						User::Password($password),
+						$user->uid
+					]);
+				}
+				
+				if($login){
+					$ret['password']=true;
+					
+					session_destroy();
+					session_start();
+					
+					$_SESSION['uid']=$user->uid;
+					
+					self::UpdateLastActivity();
+				}
 			}
 			
-			if($login){
-				$ret['password']=true;
-				
-				session_destroy();
-				session_start();
-				
-				$_SESSION['uid']=$user->uid;
-				
-				self::UpdateLastActivity();
-			}
+			// Record the login attempt
+			$a=DB()->prepare("
+				INSERT INTO " . setting('db_prefix') . "login_attempts
+				( uid,date,user_agent,ip,success )
+				VALUES
+				( ?, ?, ?, ?, ? )
+				;
+			");
+			
+			$a->execute([
+				empty($user->uid) ? 0 : $user->uid,
+				time(),
+				$_SERVER['HTTP_USER_AGENT'],
+				$_SERVER['REMOTE_ADDR'],
+				$login ? true : false
+			]);
+			// End record the login attempts
 		}
 		
 		return $ret;
