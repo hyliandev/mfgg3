@@ -1,5 +1,9 @@
 <h1><?=$title?></h1>
 
+<a href="<?=url()?>/forums/post/new/<?=$tid?>" class="btn btn-blue">
+	Reply
+</a>
+
 <div class="card"><?php foreach(Posts::Read($data=['tid'=>$tid,'page'=>$page]) as $post): ?>
 	<?=view('forums/post',$post)?>
 <?php endforeach; ?></div>
