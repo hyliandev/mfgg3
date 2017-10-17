@@ -24,7 +24,7 @@
 	</main>
 	
 	<nav>
-		<div class="container">
+		<div class="container nav-container">
 			<div id="show-menu">
 				<div class="show-menu-button">
 					Menu <span class="fa fa-caret-down"></span>

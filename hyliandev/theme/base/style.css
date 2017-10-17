@@ -18,18 +18,18 @@ header main {
 	position:relative;
 }
 
-header nav {
+header .nav-container {
 	background-image:url('redbg.png');
 	font-family:'Super Mario';
 }
 
 header nav::after {
-	background-image:url('headerbg2.png');
+	background-image:url('chevron1encoded.png');
 	content:"";
 	height:36px;
 	left:0;
 	position:absolute;
-	top:-36px;
+	top:-20px;
 	width:100%;
 }
 
