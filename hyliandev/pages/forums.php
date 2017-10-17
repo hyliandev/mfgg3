@@ -34,7 +34,10 @@ switch($params[0]){
 		$view='topic-single';
 		
 		if($params[1] == 'new'){
-			if(empty($vars=Forums::Read(['fid'=>$params[2]]))){
+			if(empty(User::GetUser())){
+				$view='not-logged-in';
+				break;
+			}elseif(empty($vars=Forums::Read(['fid'=>$params[2]]))){
 				$view='badparams';
 				break;
 			}
