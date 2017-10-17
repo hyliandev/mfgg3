@@ -75,6 +75,37 @@ switch($params[0]){
 		}
 	break;
 	
+	case 'post':
+		$view='post-new';
+		
+		if(empty(User::GetUser())){
+			$view='not-logged-in';
+			break;
+		}elseif($params[1] != 'new' || empty($vars=Topics::Read(['tid'=>$params[2]]))){
+			$view='badparams';
+			break;
+		}
+		
+		if(isset($_POST['message'])){
+			$vars->errors=Posts::Create([
+				'message'=>$_POST['message'],
+				'tid'=>$params[2]
+			]);
+			
+			$view='post-new-success';
+			
+			if($vars->errors === true){
+				$view='post-new-success';
+			}else{
+				foreach($vars->errors as $error){
+					if(!empty($error)){
+						$view='post-new';
+					}
+				}
+			}
+		}
+	break;
+	
 	default:
 		$view='badparams';
 	break;
