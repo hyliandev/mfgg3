@@ -1,5 +1,11 @@
-<div class="card-header">
-	Testing
+<div class="card-footer flex-row">
+	<a href="<?=url()?>/forums/topic/<?=$GLOBALS['params'][1]?>/<?=$pid?>" class="flex-column">
+		ID #<?=$pid?>
+	</a>
+	
+	<div class="flex-column">
+		Posted <?=displayDate($date)?>
+	</div>
 </div>
 
 <div class="card-block">
