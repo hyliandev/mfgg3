@@ -5,7 +5,7 @@
 </div>
 
 <div class="user-profile-small-avatar">
-	<img src="<?=url()?>/theme/base/default-avatar.png">
+	<img src="<?=$icon ? $icon : url() . '/theme/base/default-avatar.png'?>">
 </div>
 
 <div class="user-profile-small-info">

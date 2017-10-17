@@ -8,6 +8,7 @@ TCSMS compatibility:
 - Passwords; switch current password system (md5) to a more secure one (crypt?), and make them somewhat backwards-compatible
 - Registering views, downloads for content
 - Logging in works
+- Login attempts: limit? or just do captcha after a few attempts?
 
 Forums:
 - Pulling categories
@@ -34,7 +35,6 @@ Generic:
 == TODO ==
 
 TCSMS compatibility:
-- Login attempts: limit? or just do captcha after a few attempts?
 - Capctha on registration
 - Pulling kinds of content that isn't sprites
 - Searching for content
@@ -65,6 +65,7 @@ Forums:
 - Admins splitting topics
 - Admins merging topics
 - Admins splitting and merging topics
+- User Signatures
 - Good Shit
 - Tusk Bucks
 
