@@ -63,6 +63,10 @@ The `$file` parameter is the path to the view you're trying to include from `./h
 
 The `$vars` parameter is an associative array of variables you want to be local in scope to the view file.
 
+### User
+
+The `user.php` file contains a static class called `User`. You can get the currently logged in user as an object by calling `User::GetCurrentUser()`.
+
 ## Built With
 
 * Raw PHP; no pre-existing framework
