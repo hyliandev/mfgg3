@@ -23,7 +23,7 @@ header .nav-container {
 	font-family:'Super Mario';
 }
 
-header nav::after {
+header nav:not(.stick)::after {
 	background-image:url('chevron1encoded.png');
 	content:"";
 	height:36px;
