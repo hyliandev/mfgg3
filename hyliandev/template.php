@@ -49,6 +49,7 @@
 				<li>
 					<a href="<?=url()?>/content/">
 						Content
+						<span class="fa fa-caret-down"></span>
 					</a>
 					
 					<ul>
@@ -87,6 +88,7 @@
 							
 							<div class="show-when-big">
 								<?=User::GetUser()->username?>
+								<span class="fa fa-caret-down"></span>
 							</div>
 						</a>
 						

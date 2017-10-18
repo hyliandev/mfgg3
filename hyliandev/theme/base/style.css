@@ -96,6 +96,9 @@ header nav ul li a:hover
 @media (max-width:991px){
 	header nav {
 		font-size:1.25em;
+	}
+	
+	header nav #show-menu {
 		padding:0.25em 0;
 	}
 	
