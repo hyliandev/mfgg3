@@ -55,8 +55,8 @@ User::GetUser();
 
 
 // Which file to view
-
-if(empty($uri=$_GET['uri'])) $uri='index';
+$uri=$_GET['uri'];
+if(empty($uri)) $uri='index';
 
 $path=explode('/',$uri);
 $params=false;

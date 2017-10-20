@@ -1,8 +1,10 @@
 <h1><?=lang('sprites-title')?></h1>
 
 <?php
-if(empty($view=$params[0])) $view='archive';
-if(empty($page=$params[1]) || !is_numeric($page) || $page <= 0) $page=1;
+$view=$params[0];
+if(empty($view)) $view='archive';
+$page=$params[1];
+if(empty($page) || !is_numeric($page) || $page <= 0) $page=1;
 
 switch($view){
 	case 'archive':

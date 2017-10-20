@@ -13,7 +13,8 @@ switch($params[0]){
 		
 		$fid=array_shift(explode('-',$params[1]));
 		
-		if(empty($vars=Forums::Read(['fid'=>$fid]))){
+		$vars=Forums::Read(['fid'=>$fid]);
+		if(empty($vars)){
 			$view='badparams';
 			break;
 		}
@@ -24,7 +25,8 @@ switch($params[0]){
 		
 		$fid=array_shift(explode('-',$params[1]));
 		
-		if(empty($vars=Forums::Read(['fid'=>$fid]))){
+		$vars=Forums::Read(['fid'=>$fid]);
+		if(empty($vars)){
 			$view='badparams';
 			break;
 		}
@@ -34,10 +36,12 @@ switch($params[0]){
 		$view='topic-single';
 		
 		if($params[1] == 'new'){
-			if(empty(User::GetUser())){
+			$user = User::GetUser();
+			$vars=Forums::Read(['fid'=>$params[2]]);
+			if(empty($user)){
 				$view='not-logged-in';
 				break;
-			}elseif(empty($vars=Forums::Read(['fid'=>$params[2]]))){
+			}elseif(empty($vars)){
 				$view='badparams';
 				break;
 			}
@@ -69,7 +73,8 @@ switch($params[0]){
 		
 		$tid=array_shift(explode('-',$params[1]));
 		
-		if(empty($vars=Topics::Read(['tid'=>$tid]))){
+		$vars=Topics::Read(['tid'=>$tid]);
+		if(empty($vars)){
 			$view='badparams';
 			break;
 		}
@@ -78,10 +83,12 @@ switch($params[0]){
 	case 'post':
 		$view='post-new';
 		
-		if(empty(User::GetUser())){
+		$user = User::GetUser();
+		$vars=Topics::Read(['tid'=>$params[2]]);
+		if(empty($user)){
 			$view='not-logged-in';
 			break;
-		}elseif($params[1] != 'new' || empty($vars=Topics::Read(['tid'=>$params[2]]))){
+		}elseif($params[1] != 'new' || empty($vars)){
 			$view='badparams';
 			break;
 		}
@@ -111,7 +118,8 @@ switch($params[0]){
 	break;
 }
 
-if(empty($vars->page=$params[2]) || !is_numeric($vars->page) || $vars->page <= 0){
+$vars->page=$params[2];
+if(empty($vars->page) || !is_numeric($vars->page) || $vars->page <= 0){
 	$vars->page=1;
 }
 
