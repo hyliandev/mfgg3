@@ -106,7 +106,9 @@ function lang($key,$lang = 'en'){
 	
 	$ret=$language;
 	
-	if(empty($ret=$ret[$lang]) || empty($ret=$ret[$key])){
+	$ret=$ret[$lang];
+	if (empty($ret)) $ret=$ret[$key];
+	if(empty($ret)){
 		return false;
 	}
 	
