@@ -64,18 +64,30 @@
 								Games
 							</a>
 						</li>
+						
+						<li>
+							<a href="<?=url()?>/how-tos/">
+								How-Tos
+							</a>
+						</li>
+						
+						<li>
+							<a href="<?=url()?>/sounds/">
+								Sounds
+							</a>
+						</li>
+						
+						<li>
+							<a href="<?=url()?>/misc/">
+								Misc
+							</a>
+						</li>
 					</ul>
 				</li>
 				
 				<li>
 					<a href="<?=url()?>/forums/">
 						Forums
-					</a>
-				</li>
-				
-				<li>
-					<a href="<?=url()?>/users/">
-						Users
 					</a>
 				</li>
 				
@@ -93,6 +105,12 @@
 						</a>
 						
 						<ul>
+							<li>
+								<a href="<?=url()?>/users/">
+									Users
+								</a>
+							</li>
+							
 							<li>
 								<a href="<?=url()?>/logout/">
 									<span class="fa fa-sign-out"></span>
@@ -113,6 +131,12 @@
 								<a href="<?=url()?>/register/">
 									<span class="fa fa-user"></span>
 									Register
+								</a>
+							</li>
+							
+							<li>
+								<a href="<?=url()?>/users/">
+									Users
 								</a>
 							</li>
 						</ul>
