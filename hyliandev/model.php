@@ -23,7 +23,8 @@ class Model {
 
 class Updates extends Model {
 	public static function Read($data=[]){
-		if(!empty($nid=$data['nid'])){
+		$nid=$data['nid'];
+		if(!empty($nid)){
 			if(!is_numeric($nid)) return false;
 			
 			if($nid < 0) return false;
@@ -42,10 +43,12 @@ class Updates extends Model {
 			
 			return $q;
 		}
-		
-		if(empty($page=$data['page'])) $page=1;
-		
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+
+		$page=$data['page'];
+		if(empty($page)) $page=1;
+
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -78,7 +81,8 @@ class Updates extends Model {
 	}
 	
 	public static function NumberOfPages($data=[]){
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -227,7 +231,8 @@ class Users extends Model {
 
 class Sprites extends Model {
 	public static function Read($data=[],$qc = false){
-		if(!empty($rid=$data['rid'])){
+		$rid=$data['rid'];
+		if(!empty($rid)){
 			if(!is_numeric($rid)) return false;
 			
 			if($rid < 0) return false;
@@ -246,10 +251,13 @@ class Sprites extends Model {
 			
 			return $q;
 		}
+
+		$page=$data['page'];
+
+		if(empty($page)) $page=1;
 		
-		if(empty($page=$data['page'])) $page=1;
-		
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -293,7 +301,8 @@ class Sprites extends Model {
 	}
 	
 	public static function NumberOfPages($data=[],$qc = false){
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -330,11 +339,15 @@ class Sprites extends Model {
 
 class Comments extends Model {
 	public static function Read($data=[]){
-		if(empty($type=$data['type']) || empty($rid=$data['rid'])) return [];
+		$type=$data['type'];
+		$rid=$data['rid'];
+		if(empty($type) || empty($rid)) return [];
 		
-		if(empty($page=$data['page'])) $page=1;
+		$page=$data['page'];
+		if(empty($page)) $page=1;
 		
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -375,9 +388,12 @@ class Comments extends Model {
 	}
 	
 	public static function NumberOfPages($data=[]){
-		if(empty($type=$data['type']) || empty($rid=$data['rid'])) return [];
+		$type=$data['type'];
+		$rid=$data['rid'];
+		if(empty($type) || empty($rid)) return [];
 		
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -415,7 +431,8 @@ class Comments extends Model {
 
 class Forums extends Model {
 	public static function Read($data=[]){
-		if(!empty($fid=$data['fid'])){
+		$fid=$data['fid'];
+		if(!empty($fid)){
 			if(!is_numeric($fid)) return false;
 			
 			if($fid < 0) return false;
@@ -433,11 +450,14 @@ class Forums extends Model {
 			return $q;
 		}
 		
-		if(empty($page=$data['page'])) $page=1;
+		$page=$data['page'];
+		if(empty($page)) $page=1;
 		
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
-		if(empty($pid=$data['pid'])) $pid=0;
+		$pid=$data['pid'];
+		if(empty($pid)) $pid=0;
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -556,7 +576,8 @@ class Topics extends Model {
 	}
 	
 	public static function Read($data=[]){
-		if(!empty($tid=$data['tid'])){
+		$tid=$data['tid'];
+		if(!empty($tid)){
 			if(!is_numeric($tid)) return false;
 			
 			if($tid < 0) return false;
@@ -574,11 +595,14 @@ class Topics extends Model {
 			return $q;
 		}
 		
-		if(empty($page=$data['page'])) $page=1;
+		$page=$data['page'];
+		if(empty($page)) $page=1;
 		
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
-		if(empty($pid=$data['pid'])) $pid=0;
+		$pid=$data['pid'];
+		if(empty($pid)) $pid=0;
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -616,9 +640,11 @@ class Topics extends Model {
 	}
 	
 	public static function NumberOfPages($data=[]){
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
-		if(empty($pid=$data['pid'])) $pid=0;
+		$pid=$data['pid'];
+		if(empty($pid)) $pid=0;
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -702,11 +728,14 @@ class Posts extends Model {
 	}
 	
 	public static function Read($data=[]){
-		if(empty($page=$data['page'])) $page=1;
+		$page=$data['page'];
+		if(empty($page)) $page=1;
 		
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
-		if(empty($tid=$data['tid'])) $tid=0;
+		$tid=$data['tid'];
+		if(empty($tid)) $tid=0;
 		
 		$q=DB()->prepare(
 			$sql="SELECT
@@ -744,9 +773,11 @@ class Posts extends Model {
 	}
 	
 	public static function NumberOfPages($data=[]){
-		if(empty($limit=$data['limit'])) $limit=setting('limit_per_page');
+		$limit=$data['limit'];
+		if(empty($limit)) $limit=setting('limit_per_page');
 		
-		if(empty($tid=$data['tid'])) $tid=0;
+		$tid=$data['tid'];
+		if(empty($tid)) $tid=0;
 		
 		$q=DB()->prepare(
 			$sql="SELECT
