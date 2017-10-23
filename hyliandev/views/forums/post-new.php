@@ -1,6 +1,6 @@
 <h1>
 	New Topic in
-	<?=$title?>
+	<?=format($title)?>
 </h1>
 
 <form method="post" class="new-stopic-form">

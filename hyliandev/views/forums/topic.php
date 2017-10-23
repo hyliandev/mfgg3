@@ -3,7 +3,7 @@
 		<div class="flex-row">
 			<div class="flex-column flex-column-grow">
 				<a href="<?=url()?>/forums/topic/<?=$tid?>-<?=titleToSlug($title)?>">
-					<?=$title?>
+					<?=format($title)?>
 				</a>
 			</div>
 			

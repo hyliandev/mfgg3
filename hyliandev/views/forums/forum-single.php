@@ -1,4 +1,4 @@
-<h1><?=$title?></h1>
+<h1><?=format($title)?></h1>
 
 <a href="<?=url()?>/forums/topic/new/<?=$fid?>" class="btn btn-primary">
 	New Topic

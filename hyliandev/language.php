@@ -106,11 +106,17 @@ function lang($key,$lang = 'en'){
 	
 	$ret=$language;
 	
-	$ret=$ret[$lang];
-	if (empty($ret)) $ret=$ret[$key];
-	if(empty($ret)){
+	if(empty($ret[$lang])){
 		return false;
 	}
+	
+	$ret=$ret[$lang];
+	
+	if(empty($ret[$key])){
+		return false;
+	}
+	
+	$ret=$ret[$key];
 	
 	return $ret;
 }

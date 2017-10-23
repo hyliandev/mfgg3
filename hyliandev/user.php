@@ -29,6 +29,14 @@ class User {
 		return $user;
 	}
 	
+	public static function GetUserGroup(){
+		if(self::$user){
+			return self::$user->gid;
+		}
+		
+		return 0;
+	}
+	
 	public static function Login($username,$password){
 		$ret=[
 			'attempts'=>false,

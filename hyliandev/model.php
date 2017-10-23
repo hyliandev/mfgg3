@@ -459,6 +459,8 @@ class Forums extends Model {
 		$pid=$data['pid'];
 		if(empty($pid)) $pid=0;
 		
+		$gid=$data['gid'];
+		
 		$q=DB()->prepare(
 			$sql="SELECT
 			f.*
@@ -467,6 +469,7 @@ class Forums extends Model {
 			
 			WHERE
 			pid=?
+			" . (!isset($gid) ? "" : "AND can_see LIKE '%-" . $gid . "-%'") . "
 			
 			ORDER BY order_place ASC
 			

@@ -1,6 +1,6 @@
 <div class="card-footer">
 	<a href="<?=url()?>/forums/forum/<?=$fid?>-<?=titleToSlug($title)?>">
-		<?=$title?>
+		<?=format($title)?>
 	</a>
 </div>
 
