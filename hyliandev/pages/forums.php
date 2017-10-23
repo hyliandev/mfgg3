@@ -13,7 +13,7 @@ switch($params[0]){
 		
 		$fid=array_shift(explode('-',$params[1]));
 		
-		$vars=Forums::Read(['fid'=>$fid]);
+		$vars=Forums::Read(['fid'=>$fid,'gid'=>User::GetUserGroup()]);
 		if(empty($vars)){
 			$view='badparams';
 			break;
@@ -25,7 +25,7 @@ switch($params[0]){
 		
 		$fid=array_shift(explode('-',$params[1]));
 		
-		$vars=Forums::Read(['fid'=>$fid]);
+		$vars=Forums::Read(['fid'=>$fid,'gid'=>User::GetUserGroup()]);
 		if(empty($vars)){
 			$view='badparams';
 			break;
@@ -37,7 +37,7 @@ switch($params[0]){
 		
 		if($params[1] == 'new'){
 			$user = User::GetUser();
-			$vars=Forums::Read(['fid'=>$params[2]]);
+			$vars=Forums::Read(['fid'=>$params[2],'can_post'=>User::GetUserGroup()]);
 			if(empty($user)){
 				$view='not-logged-in';
 				break;
