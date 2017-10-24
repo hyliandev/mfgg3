@@ -11,23 +11,40 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-An Apache server
-PHP 5.4 or higher
-MySQL
+An Apache 2.2 or higher server
+PHP 5.4.16 or higher
+MySQL 5.5 or higher
 ```
 
-To get going quick, just install XAMPP.
+To get going quick on Windows, just install XAMPP.
 
 ### Installing
 
-Download the files into your `/../xampp/htdocs/` directory.
+Copy the files into your web directory. If you're using XAMMP, you can copy the
+files into your `/../xampp/htdocs/` directory.
 
-Then, create a database named `mfgg`. The settings.php file is setup to connect to a db with username `root` and no password.
+#### Using the installer (Recommended)
 
-Now, run all of the SQL files, in this order:
+Once the files are copied over head to `./hyliandev/install/` in your web
+browser. Follow the instructions and you should have a copy of LumaSMS up and
+running in no time!
+
+#### Manual Install
+
+If the installer isn't working for you for whatever reason, follow these
+instructions.
+
+Copy `./hyliandev/install/settings.default.php` to `./hyliandev/settings.php`.
+
+By default, the `settings.php` file runs with a database named `mfgg` and
+connects to a server on `localhost` with the username `root` and no password.
+Copy this setup or modify the settings starting with `db_` in the
+`settings.php` file.
+
+Now, run all of the SQL files in `./hyliandev/install/`, in this order:
 * `mfgg.sql` (this one contains a basic TCSMS database structure)
 * `mfgg_update.sql` (this one updates the TCSMS database tables with some necessary additions)
-* THen everything in the `./hyliandev/sql/` directory (these create tables that are unique to LunaSMS)
+* Then everything in the `./hyliandev/install/sql/` directory (these create tables that are unique to LumaSMS)
 
 Lastly, create a directory named `tcsms` in your parent directory. Inside that, create two directories: `file` and `thumbnail`. Finally, put numbered folders `1` through `6` in each. This folder is where content is being stored, as of right now. This will change.
 
