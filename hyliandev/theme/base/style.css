@@ -297,6 +297,10 @@ textarea {
 	flex-grow:1;
 }
 
+.title-link {
+	display:block;
+}
+
 @media (min-width:768px){
 	.flex-row {
 		display:flex;

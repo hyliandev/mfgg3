@@ -610,8 +610,8 @@ class Topics extends Model {
 		// Title
 		if(empty($data['title'])){
 			$error['title']='Title was empty';
-		}elseif($data['title'] == 'lol'){
-			$error['title']='Title was lol';
+		}elseif(Topics::Exists(['title'=>$data['title']])){
+			$error['title']='A topic with that title exists already';
 		}
 		
 		// Message
@@ -620,6 +620,24 @@ class Topics extends Model {
 		}
 		
 		return $error;
+	}
+	
+	public static function Exists($data){
+		$where=[];
+		foreach($data as $key=>$value){
+			$where[]=$key . " = " . DB()->quote($value);
+		}
+		
+		$q=DB()->query("
+			SELECT COUNT(*) AS count FROM " . setting('db_prefix') . "topics
+			WHERE
+			" . implode(' AND ',$where) . "
+			
+			LIMIT 1
+			;
+		");
+		
+		return $q->fetch(PDO::FETCH_OBJ)->count;
 	}
 	
 	public static function Read($data=[]){
