@@ -142,7 +142,7 @@ class Users extends Model {
 		");
 		
 		$ret=$q->execute([
-			$data['username'],
+			preFormat($data['username']),
 			User::Password($data['password']),
 			$data['email'],
 			$_SERVER['REMOTE_ADDR'],
@@ -510,6 +510,46 @@ class Forums extends Model {
 // Topics
 
 class Topics extends Model {
+	public static function CanDelete($data=[],$topic=null){
+		if(empty($data['tid']) && $topic == null){
+			return false;
+		}
+		
+		if(in_array(User::GetUser()->gid,[
+			1,
+			2,
+			16
+		])){
+			return true;
+		}
+		
+		if($topic == null){
+			$topic=Topics::Read(['tid'=>$data['tid']]);
+		}
+		
+		return $topic->poster_uid == User::GetUser()->uid;
+	}
+	
+	public static function CanEdit($data=[],$topic=null){
+		if(empty($data['tid']) && $topic == null){
+			return false;
+		}
+		
+		if(in_array(User::GetUser()->gid,[
+			1,
+			2,
+			16
+		])){
+			return true;
+		}
+		
+		if($topic == null){
+			$topic=Topics::Read(['tid'=>$data['tid']]);
+		}
+		
+		return $topic->poster_uid == User::GetUser()->uid;
+	}
+	
 	public static function Create($data=[]){
 		if(empty($data['pid'])){
 			return false;
@@ -527,7 +567,9 @@ class Topics extends Model {
 				title,
 				date,
 				poster_uid,
-				last_post_date
+				last_post_date,
+				views,
+				replies
 			)
 			
 			VALUES (
@@ -535,13 +577,15 @@ class Topics extends Model {
 				?,
 				?,
 				?,
-				?
+				?,
+				0,
+				0
 			);
 		");
 		
 		$ret=$q->execute([
 			$data['pid'],
-			$data['title'],
+			preFormat($data['title']),
 			time(),
 			User::GetUser()->uid,
 			time()
@@ -709,7 +753,7 @@ class Posts extends Model {
 		
 		$ret=$q->execute([
 			$data['tid'],
-			$data['message'],
+			preFormat($data['message']),
 			time(),
 			User::GetUser()->uid
 		]);

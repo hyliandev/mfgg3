@@ -217,6 +217,11 @@ textarea {
 
 /* == FORUMS == */
 
+.topic {
+	border-top:1px solid #FFF;
+	border-top-color:rgba(0,0,0,0.25);
+}
+
 .topic .flex-row .flex-column {
 	padding:0 0.5em;
 }
@@ -259,6 +264,15 @@ textarea {
 
 .card-footer {
 	background-color:#1E247E;
+}
+
+.flex-center {
+	align-items:center;
+	display:flex;
+}
+
+.flex-grow {
+	flex-grow:1;
 }
 
 .flex-row {
