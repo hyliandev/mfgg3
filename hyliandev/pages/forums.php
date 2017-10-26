@@ -78,6 +78,15 @@ switch($params[0]){
 			$view='badparams';
 			break;
 		}
+		
+		$q=DB()->prepare("
+			UPDATE " . setting('db_prefix') . "topics
+			SET views = views + 1
+			WHERE
+			tid= ?
+		");
+		
+		$q->execute([$tid]);
 	break;
 	
 	case 'post':
@@ -103,6 +112,15 @@ switch($params[0]){
 			
 			if($vars->errors === true){
 				$view='post-new-success';
+				
+				$q=DB()->prepare("
+					UPDATE " . setting('db_prefix') . "topics
+					SET replies = replies + 1
+					WHERE
+					tid=?
+				");
+				
+				$q->execute([$params[2]]);
 			}else{
 				foreach($vars->errors as $error){
 					if(!empty($error)){

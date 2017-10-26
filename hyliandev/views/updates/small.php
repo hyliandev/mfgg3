@@ -4,7 +4,7 @@ $user=Users::Read(['uid'=>$uid]);
 
 <div class="card">
 	<div class="card-header">
-		<a href="<?=$url = url() . '/updates/' . $nid . '-' . titleToSlug($title) . '/'?>">
+		<a href="<?=$url = url() . '/updates/' . $nid . '-' . titleToSlug($title) . '/'?>" class="title-link">
 			<?=$title?>
 		</a>
 	</div>
