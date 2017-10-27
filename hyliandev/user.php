@@ -149,7 +149,7 @@ class User {
 		}
 		
 		if(!$user){
-			return '???';
+			return 'Guest';
 		}
 		
 		$username=$user->username;
